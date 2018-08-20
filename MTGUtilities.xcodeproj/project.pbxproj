@@ -7,21 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5545D07E212B6BA800B13120 /* PlayerLifeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5545D07D212B6BA800B13120 /* PlayerLifeView.xib */; };
+		5545D080212B6C7C00B13120 /* PlayerLifeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5545D07F212B6C7C00B13120 /* PlayerLifeView.swift */; };
 		55FA451D212B222A0003FB43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA451C212B222A0003FB43 /* AppDelegate.swift */; };
-		55FA451F212B222A0003FB43 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA451E212B222A0003FB43 /* ViewController.swift */; };
 		55FA4522212B222A0003FB43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55FA4520212B222A0003FB43 /* Main.storyboard */; };
 		55FA4524212B222B0003FB43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55FA4523212B222B0003FB43 /* Assets.xcassets */; };
 		55FA4527212B222B0003FB43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55FA4525212B222B0003FB43 /* LaunchScreen.storyboard */; };
+		55FA4532212B23AB0003FB43 /* LifeCounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA4531212B23AB0003FB43 /* LifeCounterViewController.swift */; };
+		55FA4534212B23EF0003FB43 /* LifeTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA4533212B23EF0003FB43 /* LifeTracker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5545D07D212B6BA800B13120 /* PlayerLifeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerLifeView.xib; sourceTree = "<group>"; };
+		5545D07F212B6C7C00B13120 /* PlayerLifeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLifeView.swift; sourceTree = "<group>"; };
 		55FA4519212B222A0003FB43 /* MTGUtilities.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MTGUtilities.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55FA451C212B222A0003FB43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		55FA451E212B222A0003FB43 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		55FA4521212B222A0003FB43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		55FA4523212B222B0003FB43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55FA4526212B222B0003FB43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55FA4528212B222B0003FB43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55FA4531212B23AB0003FB43 /* LifeCounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCounterViewController.swift; sourceTree = "<group>"; };
+		55FA4533212B23EF0003FB43 /* LifeTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeTracker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +60,41 @@
 		55FA451B212B222A0003FB43 /* MTGUtilities */ = {
 			isa = PBXGroup;
 			children = (
+				55FA4530212B238A0003FB43 /* Controller */,
+				55FA452F212B23820003FB43 /* View */,
+				55FA452E212B23720003FB43 /* Model */,
 				55FA451C212B222A0003FB43 /* AppDelegate.swift */,
-				55FA451E212B222A0003FB43 /* ViewController.swift */,
 				55FA4520212B222A0003FB43 /* Main.storyboard */,
 				55FA4523212B222B0003FB43 /* Assets.xcassets */,
 				55FA4525212B222B0003FB43 /* LaunchScreen.storyboard */,
 				55FA4528212B222B0003FB43 /* Info.plist */,
 			);
 			path = MTGUtilities;
+			sourceTree = "<group>";
+		};
+		55FA452E212B23720003FB43 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				55FA4533212B23EF0003FB43 /* LifeTracker.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		55FA452F212B23820003FB43 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5545D07D212B6BA800B13120 /* PlayerLifeView.xib */,
+				5545D07F212B6C7C00B13120 /* PlayerLifeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		55FA4530212B238A0003FB43 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				55FA4531212B23AB0003FB43 /* LifeCounterViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +158,7 @@
 				55FA4527212B222B0003FB43 /* LaunchScreen.storyboard in Resources */,
 				55FA4524212B222B0003FB43 /* Assets.xcassets in Resources */,
 				55FA4522212B222A0003FB43 /* Main.storyboard in Resources */,
+				5545D07E212B6BA800B13120 /* PlayerLifeView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,8 +169,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55FA451F212B222A0003FB43 /* ViewController.swift in Sources */,
 				55FA451D212B222A0003FB43 /* AppDelegate.swift in Sources */,
+				55FA4534212B23EF0003FB43 /* LifeTracker.swift in Sources */,
+				55FA4532212B23AB0003FB43 /* LifeCounterViewController.swift in Sources */,
+				5545D080212B6C7C00B13120 /* PlayerLifeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
