@@ -9,11 +9,19 @@
 import UIKit
 
 class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
+ 
 
     var numberOfPlayers: Int!
     
     var startingLifeTotal = 20
     var lifeViews: [PlayerLifeView] = []
+    var passButton: UIButton = {
+        var button = UIButton()
+        button.setTitle("Pass", for: .normal)
+        button.setTitleColor(UIColor.orange, for: .normal)
+        button.addTarget(self, action: #selector(passButtonPressed), for: UIControlEvents.touchUpInside)
+        return button
+    }()
     var dice: [Die] = []
     
     enum GameState {
@@ -75,18 +83,15 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
     }
     
     func nameSingleTapped(forPlayerLifeView lifeView: PlayerLifeView) {
-        switch gameState{
-        case .choosingTurnOrder:
-            if let player = playerFor(view: lifeView)
-            {
-                addPlayerToTurnOrder(player: player)
-            }
-        case .playing:
-            if playerFor(view: lifeView) == game.activePlayer{
-                game.passTurn()
-                updateUI()
-            }
-        }
+//        switch gameState{
+//        case .choosingTurnOrder:
+//            break
+//        case .playing:
+//            if playerFor(view: lifeView) == game.activePlayer{
+//                game.passTurn()
+//                updateUI()
+//            }
+//        }
         
     }
     
@@ -113,6 +118,14 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
             gameState = .playing
         }
     }
+    
+    @objc func passButtonPressed(){
+        if gameState == .playing{
+            game.passTurn()
+            updateUI()
+        }
+    }
+    
     
     //MARK: Bridging Model and View
     func playerFor(view: PlayerLifeView) -> Player?{
@@ -150,8 +163,10 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
                 view.nameLabel.text = "\(player.name)"
                 if player == game.activePlayer{
                     view.strokeColor = UIColor.orange
+                    //view.passButton.isHidden = false
                 } else{
                     view.strokeColor = nil
+                    //view.passButton.isHidden = true
                 }
             }
         }
@@ -200,15 +215,36 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
             lifeViews[0].frame = CGRect(x: 0, y: contentHeight / 4, width: contentWidth, height: contentHeight / 2)
         }
         else if numberOfPlayers == 2{
-            lifeViews[0].frame = CGRect(x: 0, y: 0, width: contentWidth, height: contentHeight / 2)
+            
+            lifeViews[0].frame = CGRect(x: 0,
+                                        y: 0,
+                                        width: contentWidth,
+                                        height: contentHeight * (0.5 - Consts.HORIZONTAL_GAP_BETWEEN_LIFEVIEWS/2))
             lifeViews[0].transform = CGAffineTransform(rotationAngle: CGFloat.pi)
-            lifeViews[1].frame = CGRect(x: 0, y: contentHeight / 2, width: contentWidth, height: contentHeight / 2)
+            lifeViews[1].frame = CGRect(x: 0,
+                                        y: contentHeight * (0.5 + Consts.HORIZONTAL_GAP_BETWEEN_LIFEVIEWS/2),
+                                        width: contentWidth,
+                                        height: contentHeight * (0.5 - Consts.HORIZONTAL_GAP_BETWEEN_LIFEVIEWS/2))
+            passButton.frame = CGRect(x: 0,
+                                      y: contentHeight * (0.5 - Consts.HORIZONTAL_GAP_BETWEEN_LIFEVIEWS/2),
+                                      width: contentWidth,
+                                      height: contentHeight * Consts.HORIZONTAL_GAP_BETWEEN_LIFEVIEWS)
+            
         }
         else if numberOfPlayers == 3{
-            lifeViews[0].frame = CGRect(x: 0, y: contentHeight * (2/3), width: contentWidth, height: contentHeight / 3)
-            lifeViews[1].frame = CGRect(x: 0, y: 0, width: contentWidth / 2, height: contentHeight * (2/3))
+            lifeViews[0].frame = CGRect(x: 0,
+                                        y: contentHeight * (2/3),
+                                        width: contentWidth,
+                                        height: contentHeight / 3)
+            lifeViews[1].frame = CGRect(x: 0,
+                                        y: 0,
+                                        width: contentWidth / 2,
+                                        height: contentHeight * (2/3))
             lifeViews[1].transform = CGAffineTransform(rotationAngle: CGFloat.pi * (1/2))
-            lifeViews[2].frame = CGRect(x: contentWidth / 2, y: 0, width: contentWidth / 2, height: contentHeight * (2/3))
+            lifeViews[2].frame = CGRect(x: contentWidth / 2,
+                                        y: 0,
+                                        width: contentWidth / 2,
+                                        height: contentHeight * (2/3))
             lifeViews[2].transform = CGAffineTransform(rotationAngle: CGFloat.pi * (3/2))
         }
         else if numberOfPlayers == 4{
@@ -225,7 +261,9 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
 
     
     override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         layoutLifeBoxes()
+        passButton.titleLabel?.font = passButton.titleLabel?.font.withSize(ContentArea.frame.height * Consts.FONT_TO_HEIGHT)
     }
     
     override func viewDidLoad() {
@@ -233,6 +271,7 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
         if numberOfPlayers == nil{
             numberOfPlayers = 2
         }
+        ContentArea.addSubview(passButton)
         createPlayers()
         updateUI()
         
