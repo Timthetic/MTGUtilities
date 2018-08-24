@@ -12,11 +12,22 @@ import UIKit
 class PlayerLifeView: UIView {
     @IBOutlet var containerView: UIView!
     @IBOutlet weak var lifeLabel: UILabel!
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!{
+        didSet{
+            let doubleTap = UITapGestureRecognizer(target: self, action: #selector(editName(_:)))
+            doubleTap.numberOfTapsRequired = 2
+            nameLabel.addGestureRecognizer(doubleTap)
+            
+            let singleTap = UITapGestureRecognizer(target: self, action: #selector(nameSingleTapped(_:)))
+            singleTap.require(toFail: doubleTap)
+            nameLabel.addGestureRecognizer(singleTap)
+            
+        }
+    }
     @IBOutlet weak var minusLabel: UILabel!
     @IBOutlet weak var plusLabel: UILabel!
     
-    var fillColor = UIColor.blue{
+    var fillColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1){
         didSet{
             setNeedsDisplay()
             setNeedsLayout()
@@ -30,6 +41,15 @@ class PlayerLifeView: UIView {
     }
     
     weak var delegate: PlayerLifeViewDelegate?
+    
+    @objc func editName(_ gestureRecognizer: UITapGestureRecognizer){
+        
+        delegate?.nameDoubleTapped(forPlayerLifeView: self)
+        
+    }
+    @objc func nameSingleTapped(_ gestureRecognizer: UITapGestureRecognizer){
+        delegate?.nameSingleTapped(forPlayerLifeView: self)
+    }
     
     @IBAction func minusTapped(_ sender: Any) {
         delegate?.minusTapped(forPlayerLifeView: self)
@@ -97,5 +117,7 @@ extension PlayerLifeView{
 protocol PlayerLifeViewDelegate: class {
     func minusTapped(forPlayerLifeView lifeView: PlayerLifeView)
     func plusTapped(forPlayerLifeView lifeView: PlayerLifeView)
+    func nameSingleTapped(forPlayerLifeView lifeView: PlayerLifeView)
+    func nameDoubleTapped(forPlayerLifeView lifeView: PlayerLifeView)
 }
 

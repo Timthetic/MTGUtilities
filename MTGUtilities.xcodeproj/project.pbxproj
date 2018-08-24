@@ -11,6 +11,7 @@
 		5545D080212B6C7C00B13120 /* PlayerLifeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5545D07F212B6C7C00B13120 /* PlayerLifeView.swift */; };
 		55865E21212C7C840025D771 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55865E20212C7C840025D771 /* Player.swift */; };
 		55865E25212DE7720025D771 /* PlayerNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55865E24212DE7720025D771 /* PlayerNumberViewController.swift */; };
+		55DFC32C212F54BA009EB768 /* Die.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DFC32B212F54BA009EB768 /* Die.swift */; };
 		55FA451D212B222A0003FB43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA451C212B222A0003FB43 /* AppDelegate.swift */; };
 		55FA4522212B222A0003FB43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55FA4520212B222A0003FB43 /* Main.storyboard */; };
 		55FA4524212B222B0003FB43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55FA4523212B222B0003FB43 /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 		5545D07F212B6C7C00B13120 /* PlayerLifeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLifeView.swift; sourceTree = "<group>"; };
 		55865E20212C7C840025D771 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		55865E24212DE7720025D771 /* PlayerNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNumberViewController.swift; sourceTree = "<group>"; };
+		55DFC32B212F54BA009EB768 /* Die.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Die.swift; sourceTree = "<group>"; };
 		55FA4519212B222A0003FB43 /* MTGUtilities.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MTGUtilities.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55FA451C212B222A0003FB43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55FA4521212B222A0003FB43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -53,14 +55,6 @@
 				55FA452E212B23720003FB43 /* Model */,
 			);
 			path = "Life Counter";
-			sourceTree = "<group>";
-		};
-		55865E23212DE7440025D771 /* PlayerNumberPopover */ = {
-			isa = PBXGroup;
-			children = (
-				55865E24212DE7720025D771 /* PlayerNumberViewController.swift */,
-			);
-			path = PlayerNumberPopover;
 			sourceTree = "<group>";
 		};
 		55FA4510212B222A0003FB43 = {
@@ -104,9 +98,9 @@
 		55FA452F212B23820003FB43 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				55865E23212DE7440025D771 /* PlayerNumberPopover */,
 				5545D07D212B6BA800B13120 /* PlayerLifeView.xib */,
 				5545D07F212B6C7C00B13120 /* PlayerLifeView.swift */,
+				55DFC32B212F54BA009EB768 /* Die.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -114,6 +108,7 @@
 		55FA4530212B238A0003FB43 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				55865E24212DE7720025D771 /* PlayerNumberViewController.swift */,
 				55FA4531212B23AB0003FB43 /* LifeCounterViewController.swift */,
 			);
 			path = Controller;
@@ -193,6 +188,7 @@
 			files = (
 				55FA451D212B222A0003FB43 /* AppDelegate.swift in Sources */,
 				55FA4534212B23EF0003FB43 /* GameTracker.swift in Sources */,
+				55DFC32C212F54BA009EB768 /* Die.swift in Sources */,
 				55865E25212DE7720025D771 /* PlayerNumberViewController.swift in Sources */,
 				55FA4532212B23AB0003FB43 /* LifeCounterViewController.swift in Sources */,
 				55865E21212C7C840025D771 /* Player.swift in Sources */,
