@@ -21,6 +21,10 @@ class Die: UIView {
         super.init(frame: frame)
     }
     
+    init(withSideLength side: CGFloat, x: CGFloat, y: CGFloat){
+        super.init(frame: CGRect(x: x, y: y, width: side, height: side))
+    }
+    
     
     
     override func draw(_ rect: CGRect) {

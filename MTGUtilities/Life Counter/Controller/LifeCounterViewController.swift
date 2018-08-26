@@ -195,6 +195,7 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
             lifeView.nameLabel.text = "Player \(i+1)"
             lifeView.lifeLabel.text = "\(startingLifeTotal)"
             lifeView.delegate = self
+            ContentArea.addSubview(lifeView)
             lifeViews.append(lifeView)
             
             //Create new player
@@ -215,46 +216,64 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
             lifeViews[0].frame = CGRect(x: 0, y: contentHeight / 4, width: contentWidth, height: contentHeight / 2)
         }
         else if numberOfPlayers == 2{
-            
+            let buttonPosition = contentHeight * (0.5 - Consts.HORIZONTAL_GAP_BETWEEN_LIFEVIEWS / 2)
+            let buttonHeight = contentHeight * (Consts.HORIZONTAL_GAP_BETWEEN_LIFEVIEWS)
             lifeViews[0].frame = CGRect(x: 0,
                                         y: 0,
                                         width: contentWidth,
-                                        height: contentHeight * (0.5 - Consts.HORIZONTAL_GAP_BETWEEN_LIFEVIEWS/2))
+                                        height: buttonPosition)
             lifeViews[0].transform = CGAffineTransform(rotationAngle: CGFloat.pi)
             lifeViews[1].frame = CGRect(x: 0,
-                                        y: contentHeight * (0.5 + Consts.HORIZONTAL_GAP_BETWEEN_LIFEVIEWS/2),
+                                        y: buttonPosition + buttonHeight,
                                         width: contentWidth,
-                                        height: contentHeight * (0.5 - Consts.HORIZONTAL_GAP_BETWEEN_LIFEVIEWS/2))
+                                        height: ContentArea.frame.height - buttonHeight - buttonPosition)
             passButton.frame = CGRect(x: 0,
-                                      y: contentHeight * (0.5 - Consts.HORIZONTAL_GAP_BETWEEN_LIFEVIEWS/2),
+                                      y: buttonPosition,
                                       width: contentWidth,
-                                      height: contentHeight * Consts.HORIZONTAL_GAP_BETWEEN_LIFEVIEWS)
+                                      height: buttonHeight)
             
         }
         else if numberOfPlayers == 3{
+            let buttonPosition = contentHeight * (0.7 - Consts.HORIZONTAL_GAP_BETWEEN_LIFEVIEWS / 2)
+            let buttonHeight = contentHeight * (Consts.HORIZONTAL_GAP_BETWEEN_LIFEVIEWS)
+            passButton.frame = CGRect(x: 0,
+                                      y: buttonPosition,
+                                      width: contentWidth,
+                                      height: buttonHeight)
             lifeViews[0].frame = CGRect(x: 0,
-                                        y: contentHeight * (2/3),
+                                        y: buttonPosition + buttonHeight,
                                         width: contentWidth,
-                                        height: contentHeight / 3)
+                                        height: contentHeight - buttonPosition - buttonHeight)
+            
             lifeViews[1].frame = CGRect(x: 0,
                                         y: 0,
                                         width: contentWidth / 2,
-                                        height: contentHeight * (2/3))
+                                        height: buttonPosition)
+            
+            
             lifeViews[1].transform = CGAffineTransform(rotationAngle: CGFloat.pi * (1/2))
             lifeViews[2].frame = CGRect(x: contentWidth / 2,
                                         y: 0,
                                         width: contentWidth / 2,
-                                        height: contentHeight * (2/3))
+                                        height: buttonPosition)
+           
             lifeViews[2].transform = CGAffineTransform(rotationAngle: CGFloat.pi * (3/2))
         }
         else if numberOfPlayers == 4{
-            lifeViews[0].frame = CGRect(x: 0, y: 0, width: contentWidth / 2, height: contentHeight * (1/2))
+            let buttonPosition = contentHeight * (0.5 - Consts.HORIZONTAL_GAP_BETWEEN_LIFEVIEWS / 2)
+            let buttonHeight = contentHeight * (Consts.HORIZONTAL_GAP_BETWEEN_LIFEVIEWS)
+            passButton.frame = CGRect(x: 0,
+                                      y: buttonPosition,
+                                      width: contentWidth,
+                                      height: buttonHeight)
+            
+            lifeViews[0].frame = CGRect(x: 0, y: 0, width: contentWidth / 2, height: buttonPosition)
             lifeViews[0].transform = CGAffineTransform(rotationAngle: CGFloat.pi * (1/2))
-            lifeViews[1].frame = CGRect(x: contentWidth / 2, y: 0, width: contentWidth / 2, height: contentHeight * (1/2))
+            lifeViews[1].frame = CGRect(x: contentWidth / 2, y: 0, width: contentWidth / 2, height: buttonPosition)
             lifeViews[1].transform = CGAffineTransform(rotationAngle: CGFloat.pi * (3/2))
-            lifeViews[2].frame = CGRect(x: 0, y: contentHeight / 2, width: contentWidth / 2, height: contentHeight * (1/2))
+            lifeViews[2].frame = CGRect(x: 0, y: buttonPosition + buttonHeight, width: contentWidth / 2, height: contentHeight - buttonHeight - buttonPosition)
             lifeViews[2].transform = CGAffineTransform(rotationAngle: CGFloat.pi * (1/2))
-            lifeViews[3].frame = CGRect(x: contentWidth / 2, y: contentHeight / 2, width: contentWidth / 2, height: contentHeight * (1/2))
+            lifeViews[3].frame = CGRect(x: contentWidth / 2, y: buttonPosition + buttonHeight, width: contentWidth / 2, height: contentHeight - buttonHeight - buttonPosition)
             lifeViews[3].transform = CGAffineTransform(rotationAngle: CGFloat.pi * (3/2))
         }
     }
