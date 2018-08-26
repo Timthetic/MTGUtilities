@@ -38,11 +38,14 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
     
     func rollDice(){
         for lifeView in lifeViews{
-            lifeView.isUserInteractionEnabled = false
-            let newDie = Die(frame: CGRect(x: lifeView.frame.midX, y: lifeView.frame.midY, width: lifeView.frame.width / 8, height: lifeView.frame.height / 8))
+            if gameState == .playing{
+                lifeView.isUserInteractionEnabled = false
+            }
+            let newDie = Die(withSideLength: lifeView.frame.smallestSide / 4, x: lifeView.bounds.origin.x, y: lifeView.bounds.origin.y)
             dice.append(newDie)
             lifeView.addSubview(newDie)
         }
+        passButton.isUserInteractionEnabled = false
     }
     
     //MARK: Model
@@ -116,6 +119,10 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
         if game.players.count == players.count{
             //All Players have been mapped
             gameState = .playing
+            for die in dice{
+                die.removeFromSuperview()
+            }
+            dice = []
         }
     }
     
@@ -124,6 +131,16 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
             game.passTurn()
             updateUI()
         }
+    }
+    @IBAction func ContentAreaTapped(_ sender: UITapGestureRecognizer) {
+        for lifeView in lifeViews{
+            lifeView.isUserInteractionEnabled = true
+        }
+        passButton.isUserInteractionEnabled = true
+        for die in dice{
+            die.removeFromSuperview()
+        }
+        dice = []
     }
     
     
@@ -297,4 +314,10 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
         // Do any additional setup after loading the view.
     }
 
+}
+
+extension CGRect{
+    var smallestSide: CGFloat{
+        return width > height ? height : width
+    }
 }
