@@ -12,8 +12,9 @@ class GameTracker {
     var players: [Player] = [] //Array order determines turn order
     var numberOfTurnsSet = 0
     
-    var interactionsToCommit: [PlayerInteraction] = []
-    var interactions: [PlayerInteraction] = []
+    var turnNumber = 1
+    var eventsToCommit: [GameEvent] = [GameEvent.TurnChange(1)]
+    var events: [GameEvent] = []
     var numberOfPlayers: Int = 1
     
     private var playerTurn = 0
@@ -57,44 +58,56 @@ class GameTracker {
     
     func passTurn(){
         playerTurn += 1
+        turnNumber += 1
+        
         if(playerTurn >= players.count){
             playerTurn = 0
         }
-        
         for player in players{
             
             player.commitInteractions()
         }
         commitInteractions()
         printInteractions()
+        eventsToCommit.append(GameEvent.TurnChange(turnNumber))
     }
     
     func getInteraction(to target: Player, from actor: Player) -> PlayerInteraction
     {
         var addToList = true
         var interaction = PlayerInteraction(lifeChange: 0, to: target, from: actor)
-        for inter in interactionsToCommit{
-            if inter.actor == interaction.actor && inter.target == interaction.target{
-                interaction = inter
-                addToList = false
+        for event in eventsToCommit{
+            switch event{
+            case .PlayerInteraction(let inter):
+                if inter.actor == interaction.actor && inter.target == interaction.target{
+                    interaction = inter
+                    addToList = false
+                }
+            case .TurnChange:
+                break
             }
         }
         if addToList{
-            interactionsToCommit.append(interaction)
+            eventsToCommit.append(GameEvent.PlayerInteraction(interaction))
         }
         return interaction
     }
     
     func commitInteractions(){
-        for interaction in interactionsToCommit{
-            interactions.append(interaction)
+        for interaction in eventsToCommit{
+            events.append(interaction)
         }
-        interactionsToCommit.removeAll()
+        eventsToCommit.removeAll()
     }
     
     func printInteractions(){
-        for interaction in interactions{
-            print("\(interaction.actor!.name) did \(-1*interaction.changeInLife!) damage to \(interaction.target!.name)")
+        for interaction in events{
+            switch interaction{
+            case .PlayerInteraction(let interaction):
+                print("\(interaction.actor!.name) did \(-1*interaction.changeInLife!) damage to \(interaction.target!.name)")
+            case .TurnChange(let turnNumber):
+                print("TURN NUMBER: \(turnNumber)")
+            }
         }
         print("")
     }

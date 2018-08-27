@@ -22,9 +22,11 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
         button.addTarget(self, action: #selector(passButtonPressed), for: UIControlEvents.touchUpInside)
         return button
     }()
-    var dice: [Die] = []
     
     @IBOutlet weak var ContentArea: UIView!
+    
+    //MARK: Dice
+    var dice: [Die] = []
     
     @IBAction func diceButtonTapped(_ sender: Any) {
         rollDice()
@@ -222,6 +224,8 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
             ContentArea.addSubview(lifeView)
             lifeViews.append(lifeView)
             
+
+            
             //Add the combo to the list
             players.append((game.players[i], lifeView)) //We know I is in range because i < numberOfPlayers
         }
@@ -315,6 +319,24 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
         updateUI()
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        UIApplication.shared.isIdleTimerDisabled = true
+    }
+    
+    //MARK: Cleanup
+    override func viewDidDisappear(_ animated: Bool) {
+        UIApplication.shared.isIdleTimerDisabled = false
+    }
+    
+    //MARK: Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Show Stats"{
+            if let LCHVC = segue.destination as? LifeCounterHistoryViewController{
+                LCHVC.game = game
+            }
+        }
     }
 
 }

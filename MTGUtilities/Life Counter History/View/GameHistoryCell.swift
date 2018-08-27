@@ -10,7 +10,7 @@ import UIKit
 
 class GameHistoryCell: UITableViewCell {
 
-    @IBOutlet weak var InfoLabel: UILabel!
+    @IBOutlet weak var infoLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

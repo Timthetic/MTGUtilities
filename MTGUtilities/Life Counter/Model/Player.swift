@@ -81,19 +81,3 @@ class Player: Equatable, Hashable{
     
 }
 
-class PlayerInteraction{
-    
-    weak var actor: Player?
-    weak var target: Player?
-    var changeInLife: Int?
-    var opposite: PlayerInteraction{
-        return PlayerInteraction(lifeChange: changeInLife, to: actor, from: target)
-    }
-    
-    init(lifeChange: Int?, to target: Player?, from actor: Player?){
-        changeInLife = lifeChange
-        self.target = target
-        self.actor = actor
-    }
-    
-}

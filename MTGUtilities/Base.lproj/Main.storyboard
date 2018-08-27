@@ -80,7 +80,7 @@
                             </barButtonItem>
                             <barButtonItem title="Stats" image="icons8-combo-chart-50" id="0xg-yA-pCP">
                                 <connections>
-                                    <segue destination="biP-s2-VF7" kind="show" id="IfL-pk-jkV"/>
+                                    <segue destination="biP-s2-VF7" kind="show" identifier="Show Stats" id="IfL-pk-jkV"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Roll" image="icons8-dice-50" id="VQP-2c-fUl">
@@ -115,16 +115,16 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InteractionCell" id="xu7-nH-42i" customClass="GameHistoryCell" customModule="MTGUtilities" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="GameHistoryCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GameHistoryCell" id="xu7-nH-42i" customClass="GameHistoryCell" customModule="MTGUtilities" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xu7-nH-42i" id="6YF-im-m4T">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdn-6n-DL8">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdn-6n-DL8">
+                                                    <rect key="frame" x="20" y="0.0" width="355" height="44"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -132,13 +132,30 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="fdn-6n-DL8" secondAttribute="trailing" id="ekZ-KA-WcM"/>
                                                 <constraint firstItem="fdn-6n-DL8" firstAttribute="top" secondItem="6YF-im-m4T" secondAttribute="top" id="jh2-5J-rQN"/>
-                                                <constraint firstItem="fdn-6n-DL8" firstAttribute="leading" secondItem="6YF-im-m4T" secondAttribute="leading" id="nKO-k2-ocr"/>
+                                                <constraint firstItem="fdn-6n-DL8" firstAttribute="leading" secondItem="6YF-im-m4T" secondAttribute="leading" constant="20" symbolic="YES" id="nKO-k2-ocr"/>
                                                 <constraint firstAttribute="bottom" secondItem="fdn-6n-DL8" secondAttribute="bottom" id="qu2-BF-WIb"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="InfoLabel" destination="fdn-6n-DL8" id="ph9-qe-IMv"/>
                                         </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TurnCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TurnCell" textLabel="OV1-K7-afp" style="IBUITableViewCellStyleDefault" id="z9l-41-cg2">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z9l-41-cg2" id="tQ6-5M-wzr">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Turn #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OV1-K7-afp">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
