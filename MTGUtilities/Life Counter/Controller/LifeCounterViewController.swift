@@ -24,12 +24,6 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
     }()
     var dice: [Die] = []
     
-    enum GameState {
-        case choosingTurnOrder
-        case playing
-    }
-    var gameState: GameState = .choosingTurnOrder
-    
     @IBOutlet weak var ContentArea: UIView!
     
     @IBAction func diceButtonTapped(_ sender: Any) {
@@ -38,7 +32,7 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
     
     func rollDice(){
         for lifeView in lifeViews{
-            if gameState == .playing{
+            if game.gameState == .playing{
                 lifeView.isUserInteractionEnabled = false
             }
             let newDie = Die(withSideLength: lifeView.frame.smallestSide / 4, x: lifeView.bounds.origin.x, y: lifeView.bounds.origin.y)
@@ -49,12 +43,12 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
     }
     
     //MARK: Model
-    var game = GameTracker()
+    lazy var game = GameTracker(numberOfPlayers: numberOfPlayers, startingLife: startingLifeTotal)
     var players = [(Player,PlayerLifeView)]()
     
     //MARK: PlayerLifeViewDelegate
     func minusTapped(forPlayerLifeView lifeView: PlayerLifeView) {
-        switch gameState{
+        switch game.gameState{
         case .choosingTurnOrder:
             if let player = playerFor(view: lifeView)
             {
@@ -70,7 +64,7 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
     }
     
     func plusTapped(forPlayerLifeView lifeView: PlayerLifeView) {
-        switch gameState {
+        switch game.gameState {
         case .choosingTurnOrder:
             if let player = playerFor(view: lifeView)
             {
@@ -113,12 +107,16 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
     }
     
     func addPlayerToTurnOrder(player: Player){
-        if !game.players.contains(player){
-            game.players.append(player)
+        do{
+            try game.setForNextTurn(player: player)
+        } catch {
+            print("Player Not In Game")
+            assertionFailure()
         }
-        if game.players.count == players.count{
+        
+        if game.numberOfTurnsSet == players.count{
             //All Players have been mapped
-            gameState = .playing
+            game.gameState = .playing
             for die in dice{
                 die.removeFromSuperview()
             }
@@ -127,7 +125,7 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
     }
     
     @objc func passButtonPressed(){
-        if gameState == .playing{
+        if game.gameState == .playing{
             game.passTurn()
             updateUI()
         }
@@ -170,9 +168,17 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
     
     func updateUI(){
         for (player, view) in players{
-            switch gameState{
+            switch game.gameState{
             case .choosingTurnOrder:        //If turns are being set up
-                let turn = game.players.index(of: player)
+                
+                var turn = game.players.index(of: player)
+                
+                //The turn is invalid if it hasn't been set yet
+                if let turnNumber = turn?.magnitude, Int(turnNumber) >= game.numberOfTurnsSet{
+                    turn = nil
+                }
+                    
+                    
                 view.lifeLabel.text = (turn == nil ? "#" : "\((turn!.magnitude + 1))")
                 view.nameLabel.text = "\(player.name)"
             case .playing:                  //If they're playing
@@ -201,8 +207,9 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
             item.removeFromSuperview()
         }
         //Remove old Players
-        game = GameTracker()
+        game = GameTracker(numberOfPlayers: numberOfPlayers, startingLife: startingLifeTotal)
         lifeViews = []
+        players = []
         
         
         for i in 0..<numberOfPlayers{
@@ -215,12 +222,8 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
             ContentArea.addSubview(lifeView)
             lifeViews.append(lifeView)
             
-            //Create new player
-            let newPlayer = Player(name: "Player \(i+1)", life: startingLifeTotal)
-            //game.players.append(newPlayer)
-            
             //Add the combo to the list
-            players.append((newPlayer, lifeView))
+            players.append((game.players[i], lifeView)) //We know I is in range because i < numberOfPlayers
         }
         layoutLifeBoxes()
     }
@@ -251,7 +254,7 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
             
         }
         else if numberOfPlayers == 3{
-            let buttonPosition = contentHeight * (0.7 - Consts.HORIZONTAL_GAP_BETWEEN_LIFEVIEWS / 2)
+            let buttonPosition = contentHeight * (0.65 - Consts.HORIZONTAL_GAP_BETWEEN_LIFEVIEWS / 2)
             let buttonHeight = contentHeight * (Consts.HORIZONTAL_GAP_BETWEEN_LIFEVIEWS)
             passButton.frame = CGRect(x: 0,
                                       y: buttonPosition,

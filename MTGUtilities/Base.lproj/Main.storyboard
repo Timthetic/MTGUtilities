@@ -78,7 +78,11 @@
                                     <action selector="ResetGame:" destination="L1O-Vl-QDC" id="Gmj-Kv-Cep"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Stats" image="icons8-combo-chart-50" id="0xg-yA-pCP"/>
+                            <barButtonItem title="Stats" image="icons8-combo-chart-50" id="0xg-yA-pCP">
+                                <connections>
+                                    <segue destination="biP-s2-VF7" kind="show" id="IfL-pk-jkV"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem title="Roll" image="icons8-dice-50" id="VQP-2c-fUl">
                                 <connections>
                                     <action selector="diceButtonTapped:" destination="L1O-Vl-QDC" id="LfF-Tp-Q0B"/>
@@ -98,6 +102,63 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1506" y="2433"/>
+        </scene>
+        <!--Game History-->
+        <scene sceneID="dJF-z5-jpl">
+            <objects>
+                <viewController title="Game History" id="biP-s2-VF7" customClass="LifeCounterHistoryViewController" customModule="MTGUtilities" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fEt-lc-Rgf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="N6B-pq-XsH">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InteractionCell" id="xu7-nH-42i" customClass="GameHistoryCell" customModule="MTGUtilities" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xu7-nH-42i" id="6YF-im-m4T">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdn-6n-DL8">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="fdn-6n-DL8" secondAttribute="trailing" id="ekZ-KA-WcM"/>
+                                                <constraint firstItem="fdn-6n-DL8" firstAttribute="top" secondItem="6YF-im-m4T" secondAttribute="top" id="jh2-5J-rQN"/>
+                                                <constraint firstItem="fdn-6n-DL8" firstAttribute="leading" secondItem="6YF-im-m4T" secondAttribute="leading" id="nKO-k2-ocr"/>
+                                                <constraint firstAttribute="bottom" secondItem="fdn-6n-DL8" secondAttribute="bottom" id="qu2-BF-WIb"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="InfoLabel" destination="fdn-6n-DL8" id="ph9-qe-IMv"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="N6B-pq-XsH" firstAttribute="top" secondItem="ZMw-3e-qFc" secondAttribute="top" id="9KT-KX-2qk"/>
+                            <constraint firstItem="ZMw-3e-qFc" firstAttribute="bottom" secondItem="N6B-pq-XsH" secondAttribute="bottom" id="RWc-DI-UTm"/>
+                            <constraint firstItem="N6B-pq-XsH" firstAttribute="leading" secondItem="ZMw-3e-qFc" secondAttribute="leading" id="Vc8-2A-Vc0"/>
+                            <constraint firstItem="ZMw-3e-qFc" firstAttribute="trailing" secondItem="N6B-pq-XsH" secondAttribute="trailing" id="d6I-hO-eN0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ZMw-3e-qFc"/>
+                    </view>
+                    <connections>
+                        <outlet property="historyTableView" destination="N6B-pq-XsH" id="qMr-dX-XOD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VUC-xn-SIX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-629.60000000000002" y="2730.5847076461773"/>
         </scene>
         <!--New Game-->
         <scene sceneID="TpT-9f-Ufi">

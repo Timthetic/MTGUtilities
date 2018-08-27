@@ -10,10 +10,40 @@ import Foundation
 
 class GameTracker {
     var players: [Player] = [] //Array order determines turn order
+    var numberOfTurnsSet = 0
+    
     var interactionsToCommit: [PlayerInteraction] = []
     var interactions: [PlayerInteraction] = []
+    var numberOfPlayers: Int = 1
     
     private var playerTurn = 0
+    
+    enum GameState {
+        case choosingTurnOrder
+        case playing
+    }
+    var gameState: GameState = .choosingTurnOrder
+    
+    
+    init(numberOfPlayers: Int, startingLife: Int) {
+        self.numberOfPlayers = numberOfPlayers
+        for i in 0..<numberOfPlayers {
+            players.append(Player(name: "Player \(i+1)", life: startingLife))
+        }
+    }
+    
+    func setForNextTurn(player: Player) throws
+    {
+        let indexOfPlayer = players.index(of: player)
+        if indexOfPlayer != nil{
+            players.swapAt(Int(indexOfPlayer!.magnitude), numberOfTurnsSet)
+            numberOfTurnsSet += 1
+        } else {
+            throw NSError()
+            
+        }
+        
+    }
     
     var activePlayer: Player{
         return players[playerTurn]
@@ -72,5 +102,6 @@ class GameTracker {
     func giveTurnTo(player: Player){
         players.swapAt(playerTurn, players.index(of: player)!)
     }
-    
 }
+
+

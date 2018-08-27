@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5541A92A21337C66000D0BA9 /* LifeCounterHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5541A92921337C66000D0BA9 /* LifeCounterHistoryViewController.swift */; };
+		5541A92C21337D28000D0BA9 /* GameHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5541A92B21337D28000D0BA9 /* GameHistoryCell.swift */; };
 		5545D07E212B6BA800B13120 /* PlayerLifeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5545D07D212B6BA800B13120 /* PlayerLifeView.xib */; };
 		5545D080212B6C7C00B13120 /* PlayerLifeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5545D07F212B6C7C00B13120 /* PlayerLifeView.swift */; };
 		55865E21212C7C840025D771 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55865E20212C7C840025D771 /* Player.swift */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5541A92921337C66000D0BA9 /* LifeCounterHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCounterHistoryViewController.swift; sourceTree = "<group>"; };
+		5541A92B21337D28000D0BA9 /* GameHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHistoryCell.swift; sourceTree = "<group>"; };
 		5545D07D212B6BA800B13120 /* PlayerLifeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerLifeView.xib; sourceTree = "<group>"; };
 		5545D07F212B6C7C00B13120 /* PlayerLifeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLifeView.swift; sourceTree = "<group>"; };
 		55865E20212C7C840025D771 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
@@ -49,6 +53,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5541A92521337C19000D0BA9 /* Life Counter History */ = {
+			isa = PBXGroup;
+			children = (
+				5541A92821337C38000D0BA9 /* Controller */,
+				5541A92721337C33000D0BA9 /* View */,
+				5541A92621337C2B000D0BA9 /* Model */,
+			);
+			path = "Life Counter History";
+			sourceTree = "<group>";
+		};
+		5541A92621337C2B000D0BA9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5541A92721337C33000D0BA9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5541A92B21337D28000D0BA9 /* GameHistoryCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5541A92821337C38000D0BA9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5541A92921337C66000D0BA9 /* LifeCounterHistoryViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		55865E22212DE2D70025D771 /* Life Counter */ = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +116,7 @@
 		55FA451B212B222A0003FB43 /* MTGUtilities */ = {
 			isa = PBXGroup;
 			children = (
+				5541A92521337C19000D0BA9 /* Life Counter History */,
 				55865E22212DE2D70025D771 /* Life Counter */,
 				55FA451C212B222A0003FB43 /* AppDelegate.swift */,
 				55FA4520212B222A0003FB43 /* Main.storyboard */,
@@ -194,7 +232,9 @@
 				55DFC32C212F54BA009EB768 /* Die.swift in Sources */,
 				55865E25212DE7720025D771 /* PlayerNumberViewController.swift in Sources */,
 				55FA4532212B23AB0003FB43 /* LifeCounterViewController.swift in Sources */,
+				5541A92C21337D28000D0BA9 /* GameHistoryCell.swift in Sources */,
 				55865E21212C7C840025D771 /* Player.swift in Sources */,
+				5541A92A21337C66000D0BA9 /* LifeCounterHistoryViewController.swift in Sources */,
 				5545D080212B6C7C00B13120 /* PlayerLifeView.swift in Sources */,
 				55DFC32E21307EAA009EB768 /* Constants.swift in Sources */,
 			);
