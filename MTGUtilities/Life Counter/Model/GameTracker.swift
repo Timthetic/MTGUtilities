@@ -8,24 +8,26 @@
 
 import Foundation
 
+//TODO: Oh right... Nexus of Fate exists
+
 class GameTracker {
     var players: [Player] = [] //Array order determines turn order
     var numberOfTurnsSet = 0
-    
     var turnNumber = 1
     var eventsToCommit: [GameEvent] = [GameEvent.TurnChange(1)]
     var events: [GameEvent] = []
     var numberOfPlayers: Int = 1
-    
     private var playerTurn = 0
+    
+    //MARK: Game State
+    var gameState: GameState = .choosingTurnOrder
     
     enum GameState {
         case choosingTurnOrder
         case playing
     }
-    var gameState: GameState = .choosingTurnOrder
     
-    
+    //MARK: Init
     init(numberOfPlayers: Int, startingLife: Int) {
         self.numberOfPlayers = numberOfPlayers
         for i in 0..<numberOfPlayers {
@@ -33,6 +35,17 @@ class GameTracker {
         }
     }
     
+    //MARK: Life
+    func changeLifeOf(player: Player, by amount: Int){
+        
+        let actingPlayer = explicitActivePlayer ?? activePlayer
+        
+        player.changeLife(by: amount, from: actingPlayer)
+        let interaction = getInteraction(to: player, from: actingPlayer)
+        interaction.changeInLife! += amount
+    }
+    
+    //MARK: Turn/"Priority" Management
     func setForNextTurn(player: Player) throws
     {
         let indexOfPlayer = players.index(of: player)
@@ -49,12 +62,16 @@ class GameTracker {
     var activePlayer: Player{
         return players[playerTurn]
     }
-    
-    func changeLifeOf(player: Player, by amount: Int){
-        player.changeLife(by: amount, from: players[playerTurn])
-        let interaction = getInteraction(to: player, from: players[playerTurn])
-        interaction.changeInLife! += amount
+    //If someone does damage on anothers turn
+    var explicitActivePlayer: Player? = nil{
+        didSet{
+            //we don't need to specify the active player if it's what we expect.
+            if explicitActivePlayer == activePlayer{
+                explicitActivePlayer = nil
+            }
+        }
     }
+
     
     func passTurn(){
         playerTurn += 1
@@ -70,8 +87,11 @@ class GameTracker {
         commitInteractions()
         printInteractions()
         eventsToCommit.append(GameEvent.TurnChange(turnNumber))
+        
+        explicitActivePlayer = nil
     }
     
+    //MARK: Interactions and Events
     func getInteraction(to target: Player, from actor: Player) -> PlayerInteraction
     {
         var addToList = true
@@ -112,9 +132,6 @@ class GameTracker {
         print("")
     }
     
-    func giveTurnTo(player: Player){
-        players.swapAt(playerTurn, players.index(of: player)!)
-    }
 }
 
 

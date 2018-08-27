@@ -44,6 +44,18 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
         passButton.isUserInteractionEnabled = false
     }
     
+    func removeDice() {
+        for die in dice{
+            die.removeFromSuperview()
+        }
+        for lifeView in lifeViews{
+            lifeView.isUserInteractionEnabled = true
+        }
+        passButton.isUserInteractionEnabled = true
+        dice = []
+        
+    }
+    
     //MARK: Model
     lazy var game = GameTracker(numberOfPlayers: numberOfPlayers, startingLife: startingLifeTotal)
     var players = [(Player,PlayerLifeView)]()
@@ -92,6 +104,15 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
 //            }
 //        }
         
+        //FIXME: MAKE THIS MAKE SENCE
+        //Right now, I use a single tap of the players name to say that that player is changing life totals.  This will probably be hard for users to figure out.  I should probably add an icon.
+        if game.gameState == .playing{
+            let playerTapped = playerFor(view: lifeView)
+            //If the "explicitActivePlayer" is tapped again, let's unmake him the active player
+            game.explicitActivePlayer = playerTapped == game.explicitActivePlayer ? nil : playerFor(view: lifeView)
+            updateUI()
+        }
+        
     }
     
     func nameDoubleTapped(forPlayerLifeView lifeView: PlayerLifeView) {
@@ -119,10 +140,7 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
         if game.numberOfTurnsSet == players.count{
             //All Players have been mapped
             game.gameState = .playing
-            for die in dice{
-                die.removeFromSuperview()
-            }
-            dice = []
+            removeDice()
         }
     }
     
@@ -133,14 +151,7 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
         }
     }
     @IBAction func ContentAreaTapped(_ sender: UITapGestureRecognizer) {
-        for lifeView in lifeViews{
-            lifeView.isUserInteractionEnabled = true
-        }
-        passButton.isUserInteractionEnabled = true
-        for die in dice{
-            die.removeFromSuperview()
-        }
-        dice = []
+        removeDice()
     }
     
     
@@ -183,13 +194,18 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
                     
                 view.lifeLabel.text = (turn == nil ? "#" : "\((turn!.magnitude + 1))")
                 view.nameLabel.text = "\(player.name)"
+                view.strokeColor = nil
             case .playing:                  //If they're playing
                 view.lifeLabel.text = "\(player.life)"
                 view.nameLabel.text = "\(player.name)"
                 if player == game.activePlayer{
                     view.strokeColor = UIColor.orange
                     //view.passButton.isHidden = false
-                } else{
+                }
+                else if player == game.explicitActivePlayer{
+                    view.strokeColor = UIColor.yellow
+                }
+                else{
                     view.strokeColor = nil
                     //view.passButton.isHidden = true
                 }
@@ -199,7 +215,26 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
     
     //MARK: Setup
     @IBAction func ResetGame(_ sender: Any) {
-        createPlayers()
+        //createPlayers()
+        //Save Names
+        var playerNames: [String] = []
+        for (player,_) in players{
+            playerNames.append(player.name)
+        }
+        
+        //Wipe bridge
+        players = []
+        
+        //New Game
+        game = GameTracker(numberOfPlayers: numberOfPlayers, startingLife: startingLifeTotal)
+        
+        //Restore Names
+        for playerIndex in game.players.indices{
+            game.players[playerIndex].name = playerNames[playerIndex]
+            players.append((game.players[playerIndex], lifeViews[playerIndex]))
+        }
+        
+        //Update UI
         updateUI()
     }
     
@@ -223,8 +258,6 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
             lifeView.delegate = self
             ContentArea.addSubview(lifeView)
             lifeViews.append(lifeView)
-            
-
             
             //Add the combo to the list
             players.append((game.players[i], lifeView)) //We know I is in range because i < numberOfPlayers
