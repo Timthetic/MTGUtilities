@@ -363,6 +363,7 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
         UIApplication.shared.isIdleTimerDisabled = false
     }
     
+    
     //MARK: Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Show Stats"{
@@ -370,9 +371,16 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
                 LCHVC.game = game
             }
         }
+        else if segue.identifier == "Show Customization"{
+            if let LCCVC = segue.destination as? LifeCounterCustomizationViewController{
+                LCCVC.players = self.players 
+            }
+        }
     }
 
 }
+
+
 
 extension CGRect{
     var smallestSide: CGFloat{

@@ -14,6 +14,9 @@
 		555D35C121346944002F03BF /* GameEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555D35C021346944002F03BF /* GameEvent.swift */; };
 		55865E21212C7C840025D771 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55865E20212C7C840025D771 /* Player.swift */; };
 		55865E25212DE7720025D771 /* PlayerNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55865E24212DE7720025D771 /* PlayerNumberViewController.swift */; };
+		55C305852135C609003B3CE3 /* LifeCounterCustomizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C305842135C609003B3CE3 /* LifeCounterCustomizationViewController.swift */; };
+		55C305872135C671003B3CE3 /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C305862135C671003B3CE3 /* PlayerCell.swift */; };
+		55C3058B2135DEFF003B3CE3 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C3058A2135DEFF003B3CE3 /* ColorCell.swift */; };
 		55DFC32C212F54BA009EB768 /* Die.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DFC32B212F54BA009EB768 /* Die.swift */; };
 		55DFC32E21307EAA009EB768 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DFC32D21307EAA009EB768 /* Constants.swift */; };
 		55FA451D212B222A0003FB43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA451C212B222A0003FB43 /* AppDelegate.swift */; };
@@ -32,6 +35,9 @@
 		555D35C021346944002F03BF /* GameEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEvent.swift; sourceTree = "<group>"; };
 		55865E20212C7C840025D771 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		55865E24212DE7720025D771 /* PlayerNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNumberViewController.swift; sourceTree = "<group>"; };
+		55C305842135C609003B3CE3 /* LifeCounterCustomizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCounterCustomizationViewController.swift; sourceTree = "<group>"; };
+		55C305862135C671003B3CE3 /* PlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
+		55C3058A2135DEFF003B3CE3 /* ColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		55DFC32B212F54BA009EB768 /* Die.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Die.swift; sourceTree = "<group>"; };
 		55DFC32D21307EAA009EB768 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		55FA4519212B222A0003FB43 /* MTGUtilities.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MTGUtilities.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +105,40 @@
 			path = "Life Counter";
 			sourceTree = "<group>";
 		};
+		55C305802135B8D6003B3CE3 /* Life Counter Customization */ = {
+			isa = PBXGroup;
+			children = (
+				55C305832135B8F2003B3CE3 /* Controller */,
+				55C305822135B8EE003B3CE3 /* View */,
+				55C305812135B8E6003B3CE3 /* Model */,
+			);
+			path = "Life Counter Customization";
+			sourceTree = "<group>";
+		};
+		55C305812135B8E6003B3CE3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		55C305822135B8EE003B3CE3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				55C305862135C671003B3CE3 /* PlayerCell.swift */,
+				55C3058A2135DEFF003B3CE3 /* ColorCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		55C305832135B8F2003B3CE3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				55C305842135C609003B3CE3 /* LifeCounterCustomizationViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		55FA4510212B222A0003FB43 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +158,7 @@
 		55FA451B212B222A0003FB43 /* MTGUtilities */ = {
 			isa = PBXGroup;
 			children = (
+				55C305802135B8D6003B3CE3 /* Life Counter Customization */,
 				5541A92521337C19000D0BA9 /* Life Counter History */,
 				55865E22212DE2D70025D771 /* Life Counter */,
 				55FA451C212B222A0003FB43 /* AppDelegate.swift */,
@@ -239,8 +280,11 @@
 				5541A92C21337D28000D0BA9 /* GameHistoryCell.swift in Sources */,
 				55865E21212C7C840025D771 /* Player.swift in Sources */,
 				5541A92A21337C66000D0BA9 /* LifeCounterHistoryViewController.swift in Sources */,
+				55C3058B2135DEFF003B3CE3 /* ColorCell.swift in Sources */,
 				5545D080212B6C7C00B13120 /* PlayerLifeView.swift in Sources */,
 				55DFC32E21307EAA009EB768 /* Constants.swift in Sources */,
+				55C305852135C609003B3CE3 /* LifeCounterCustomizationViewController.swift in Sources */,
+				55C305872135C671003B3CE3 /* PlayerCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

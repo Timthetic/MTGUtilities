@@ -28,6 +28,7 @@ class PlayerNumberViewController: UIViewController {
             if let LifeVC = segue.destination as? LifeCounterViewController{
                 LifeVC.startingLifeTotal = startingLife
                 LifeVC.numberOfPlayers = numberOfPlayers
+                //LifeVC.hidesBottomBarWhenPushed = true
             }
         }
     }
