@@ -27,7 +27,7 @@ class PlayerLifeView: UIView {
     @IBOutlet weak var minusLabel: UILabel!
     @IBOutlet weak var plusLabel: UILabel!
     
-    var fillColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1){
+    var fillColor = UIColor.red.withAlphaComponent(0.5){
         didSet{
             setNeedsDisplay()
             setNeedsLayout()

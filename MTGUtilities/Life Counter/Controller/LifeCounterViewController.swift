@@ -18,7 +18,7 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
     var passButton: UIButton = {
         var button = UIButton()
         button.setTitle("Pass", for: .normal)
-        button.setTitleColor(UIColor.orange, for: .normal)
+        button.setTitleColor(UIColor.black, for: .normal)
         button.addTarget(self, action: #selector(passButtonPressed), for: UIControlEvents.touchUpInside)
         return button
     }()
@@ -199,7 +199,11 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
                 view.lifeLabel.text = "\(player.life)"
                 view.nameLabel.text = "\(player.name)"
                 if player == game.activePlayer{
-                    view.strokeColor = UIColor.orange
+                    //FIXME: Make sure this doesn't cause a memory leak
+                    let alpha = UnsafeMutablePointer<CGFloat>.allocate(capacity: 1)
+                    view.fillColor.getWhite(nil, alpha: alpha)
+                    view.strokeColor = view.fillColor.withAlphaComponent(alpha.pointee <= 0.5 ? alpha.pointee * 2 : 1.0)
+                    alpha.deallocate()
                     //view.passButton.isHidden = false
                 }
                 else if player == game.explicitActivePlayer{
@@ -215,6 +219,15 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
     
     //MARK: Setup
     @IBAction func ResetGame(_ sender: Any) {
+        let newGameAlert = UIAlertController(title: "Start A New Game?", message: nil, preferredStyle: .alert)
+        newGameAlert.addAction(UIAlertAction(title: "New Game", style: .destructive, handler: {[weak self] action in
+            self?.newGame()
+        }))
+        newGameAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(newGameAlert, animated: true, completion: nil)
+    }
+    
+    func newGame(){
         //createPlayers()
         //Save Names
         var playerNames: [String] = []

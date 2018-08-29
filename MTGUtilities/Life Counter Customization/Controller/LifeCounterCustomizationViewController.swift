@@ -10,37 +10,44 @@ import UIKit
 
 class LifeCounterCustomizationViewController: UITableViewController, PlayerCellDelegate {
     
-    
     var players: [(Player, PlayerLifeView)]!
     
-    //MARK: PlayerCellDelegate Meathods
+    //MARK: - PlayerCellDelegate Meathods
     
     func nameDidChange(to name: String, forPlayerCell playerCell: PlayerCell) {
         if let index = tableView.indexPath(for: playerCell){
             players[index.row].0.name = name
         }
     }
+    func colorDidChange(to color: UIColor, forPlayerCell playerCell: PlayerCell) {
+        if let index = tableView.indexPath(for: playerCell){
+            players[index.row].1.fillColor = color
+        }
+    }
+    
+    
 
+    //MARK: - View Lifecycle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.allowsSelection = false
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        for view in tableView.visibleCells{
+            if let cell = view as? PlayerCell{
+                if cell.playerNameField.isFirstResponder{
+                    cell.delegate?.nameDidChange(to: cell.playerNameField.text ?? "", forPlayerCell: cell)
+                }
+            }
+        }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
     // MARK: - Table view data source
 
@@ -61,7 +68,9 @@ class LifeCounterCustomizationViewController: UITableViewController, PlayerCellD
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PlayerCustomCell", for: indexPath) as? PlayerCell{
-            cell.playerNameField.text = players[indexPath.row].0.name
+            let player = players[indexPath.row]
+            cell.playerNameField.text = player.0.name
+            cell.trySelect(color: player.1.fillColor)
             cell.delegate = self
             return cell
         }
