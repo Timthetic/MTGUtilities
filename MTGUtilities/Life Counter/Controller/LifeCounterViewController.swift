@@ -349,12 +349,18 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
         }
         ContentArea.addSubview(passButton)
         createPlayers()
-        updateUI()
+//        updateUI()
         
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateUI()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         UIApplication.shared.isIdleTimerDisabled = true
     }
     

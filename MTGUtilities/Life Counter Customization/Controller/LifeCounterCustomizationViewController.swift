@@ -61,11 +61,9 @@ class LifeCounterCustomizationViewController: UITableViewController, PlayerCellD
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PlayerCustomCell", for: indexPath) as? PlayerCell{
-            if !cell.playerNameField.isFirstResponder{ //Do nothing if they're editing the cell's textfield
-                cell.playerNameField.text = players[indexPath.row].0.name
-                cell.delegate = self
-            }
-            
+            cell.playerNameField.text = players[indexPath.row].0.name
+            cell.delegate = self
+            return cell
         }
 
         // Configure the cell...
