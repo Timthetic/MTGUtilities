@@ -439,21 +439,45 @@
             </objects>
             <point key="canvasLocation" x="-1506" y="1728"/>
         </scene>
-        <!--View Controller-->
+        <!--Search View Controller-->
         <scene sceneID="3Dx-If-A5o">
             <objects>
-                <viewController id="P0d-B9-IvP" sceneMemberID="viewController">
+                <viewController id="P0d-B9-IvP" customClass="SearchViewController" customModule="MTGUtilities" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eGV-6Z-1xg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B9F-Ng-Qzj">
+                                <rect key="frame" x="0.0" y="75" width="375" height="543"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Search" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AvZ-ej-u6R">
+                                <rect key="frame" x="8" y="28" width="359" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="B9F-Ng-Qzj" firstAttribute="leading" secondItem="QmI-sF-8zO" secondAttribute="leading" id="7wX-rb-em9"/>
+                            <constraint firstItem="B9F-Ng-Qzj" firstAttribute="top" secondItem="AvZ-ej-u6R" secondAttribute="bottom" constant="8" id="R4H-jc-c1k"/>
+                            <constraint firstItem="AvZ-ej-u6R" firstAttribute="leading" secondItem="QmI-sF-8zO" secondAttribute="leading" constant="8" id="SgG-9N-sHY"/>
+                            <constraint firstItem="B9F-Ng-Qzj" firstAttribute="trailing" secondItem="QmI-sF-8zO" secondAttribute="trailing" id="Sqz-4M-usp"/>
+                            <constraint firstItem="AvZ-ej-u6R" firstAttribute="top" secondItem="QmI-sF-8zO" secondAttribute="top" constant="8" id="anJ-Mc-lzs"/>
+                            <constraint firstItem="B9F-Ng-Qzj" firstAttribute="bottom" secondItem="QmI-sF-8zO" secondAttribute="bottom" id="gc9-nM-FMc"/>
+                            <constraint firstItem="QmI-sF-8zO" firstAttribute="trailing" secondItem="AvZ-ej-u6R" secondAttribute="trailing" constant="8" id="rpx-P8-9vl"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="QmI-sF-8zO"/>
                     </view>
                     <tabBarItem key="tabBarItem" selectedImage="icons8-search-60" systemItem="search" id="lRx-SU-jZx"/>
+                    <connections>
+                        <outlet property="tableView" destination="B9F-Ng-Qzj" id="rYe-Vu-Tmx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7MV-qG-7CB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3530" y="1024"/>
+            <point key="canvasLocation" x="-3530.4000000000001" y="1023.2383808095952"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ahq-UE-vgP">

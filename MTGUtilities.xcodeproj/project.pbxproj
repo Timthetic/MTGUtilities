@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5504B6CC21387189006E7FAF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5504B6CB21387189006E7FAF /* SearchViewController.swift */; };
 		5541A92A21337C66000D0BA9 /* LifeCounterHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5541A92921337C66000D0BA9 /* LifeCounterHistoryViewController.swift */; };
 		5541A92C21337D28000D0BA9 /* GameHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5541A92B21337D28000D0BA9 /* GameHistoryCell.swift */; };
 		5545D07E212B6BA800B13120 /* PlayerLifeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5545D07D212B6BA800B13120 /* PlayerLifeView.xib */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5504B6CB21387189006E7FAF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		5541A92921337C66000D0BA9 /* LifeCounterHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCounterHistoryViewController.swift; sourceTree = "<group>"; };
 		5541A92B21337D28000D0BA9 /* GameHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHistoryCell.swift; sourceTree = "<group>"; };
 		5545D07D212B6BA800B13120 /* PlayerLifeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerLifeView.xib; sourceTree = "<group>"; };
@@ -61,6 +63,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5504B6C621386F09006E7FAF /* Life Counter */ = {
+			isa = PBXGroup;
+			children = (
+				55C305802135B8D6003B3CE3 /* Life Counter Customization */,
+				5541A92521337C19000D0BA9 /* Life Counter History */,
+				55865E22212DE2D70025D771 /* Life Counter Main */,
+			);
+			path = "Life Counter";
+			sourceTree = "<group>";
+		};
+		5504B6C721386F1C006E7FAF /* Card Search */ = {
+			isa = PBXGroup;
+			children = (
+				5504B6CA2138715A006E7FAF /* Controller */,
+				5504B6C921387157006E7FAF /* Model */,
+				5504B6C82138714A006E7FAF /* View */,
+			);
+			path = "Card Search";
+			sourceTree = "<group>";
+		};
+		5504B6C82138714A006E7FAF /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5504B6C921387157006E7FAF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5504B6CA2138715A006E7FAF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5504B6CB21387189006E7FAF /* SearchViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		5541A92521337C19000D0BA9 /* Life Counter History */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,7 +138,7 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		55865E22212DE2D70025D771 /* Life Counter */ = {
+		55865E22212DE2D70025D771 /* Life Counter Main */ = {
 			isa = PBXGroup;
 			children = (
 				55FA4530212B238A0003FB43 /* Controller */,
@@ -102,7 +146,7 @@
 				55FA452E212B23720003FB43 /* Model */,
 				55DFC32D21307EAA009EB768 /* Constants.swift */,
 			);
-			path = "Life Counter";
+			path = "Life Counter Main";
 			sourceTree = "<group>";
 		};
 		55C305802135B8D6003B3CE3 /* Life Counter Customization */ = {
@@ -158,9 +202,8 @@
 		55FA451B212B222A0003FB43 /* MTGUtilities */ = {
 			isa = PBXGroup;
 			children = (
-				55C305802135B8D6003B3CE3 /* Life Counter Customization */,
-				5541A92521337C19000D0BA9 /* Life Counter History */,
-				55865E22212DE2D70025D771 /* Life Counter */,
+				5504B6C721386F1C006E7FAF /* Card Search */,
+				5504B6C621386F09006E7FAF /* Life Counter */,
 				55FA451C212B222A0003FB43 /* AppDelegate.swift */,
 				55FA4520212B222A0003FB43 /* Main.storyboard */,
 				55FA4523212B222B0003FB43 /* Assets.xcassets */,
@@ -271,6 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5504B6CC21387189006E7FAF /* SearchViewController.swift in Sources */,
 				55FA451D212B222A0003FB43 /* AppDelegate.swift in Sources */,
 				55FA4534212B23EF0003FB43 /* GameTracker.swift in Sources */,
 				555D35C121346944002F03BF /* GameEvent.swift in Sources */,
