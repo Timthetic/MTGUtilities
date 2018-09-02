@@ -33,18 +33,39 @@
         <!--Settings-->
         <scene sceneID="apI-io-o7d">
             <objects>
-                <viewController id="ouj-t2-HSV" sceneMemberID="viewController">
+                <viewController title="Settings" id="ouj-t2-HSV" customClass="SettingsViewController" customModule="MTGUtilities" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mhd-iN-a8b">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57T-Hd-jfQ">
+                                <rect key="frame" x="16" y="72" width="343" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="bbG-e8-rs5"/>
+                                </constraints>
+                                <state key="normal" title="Update Local Card Database"/>
+                                <connections>
+                                    <action selector="updateButtonPressed" destination="ouj-t2-HSV" eventType="touchUpInside" id="ouy-rb-XIy"/>
+                                </connections>
+                            </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WoS-Zl-f3a">
+                                <rect key="frame" x="16" y="129" width="343" height="3"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="HmX-gc-WyU" firstAttribute="trailing" secondItem="57T-Hd-jfQ" secondAttribute="trailing" constant="16" id="4TF-fN-eqN"/>
+                            <constraint firstItem="57T-Hd-jfQ" firstAttribute="leading" secondItem="HmX-gc-WyU" secondAttribute="leading" constant="16" id="5xA-Va-gm0"/>
+                            <constraint firstItem="57T-Hd-jfQ" firstAttribute="top" secondItem="HmX-gc-WyU" secondAttribute="top" constant="8" id="bHY-Dg-niV"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="HmX-gc-WyU"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="icons8-settings-50" landscapeImage="icons8-settings-50" largeContentSizeImage="icons8-settings-50" selectedImage="icons8-settings-50" id="WBn-21-gWY"/>
+                    <navigationItem key="navigationItem" title="Settings" id="0of-KF-kq1"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0D5-Ku-5Os" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-194" y="1065"/>
+            <point key="canvasLocation" x="-194.40000000000001" y="1764.4677661169417"/>
         </scene>
         <!--Life Counter View Controller-->
         <scene sceneID="QH8-5K-c0j">
@@ -493,7 +514,7 @@
                         <segue destination="P0d-B9-IvP" kind="relationship" relationship="viewControllers" id="qRE-gp-vFQ"/>
                         <segue destination="uWa-Wg-hma" kind="relationship" relationship="viewControllers" id="x8H-sP-yiN"/>
                         <segue destination="8Q6-Cy-FBQ" kind="relationship" relationship="viewControllers" id="4k8-ji-Qsb"/>
-                        <segue destination="ouj-t2-HSV" kind="relationship" relationship="viewControllers" id="FKs-hd-QBF"/>
+                        <segue destination="63h-30-gJN" kind="relationship" relationship="viewControllers" id="FKs-hd-QBF"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5l2-CD-NZE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -518,6 +539,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pTX-Wh-yS9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1506.4000000000001" y="1023.2383808095952"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="HPV-AW-h30">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="63h-30-gJN" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="icons8-settings-50" landscapeImage="icons8-settings-50" largeContentSizeImage="icons8-settings-50" selectedImage="icons8-settings-50" id="WBn-21-gWY"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Isg-ms-Fo9">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ouj-t2-HSV" kind="relationship" relationship="rootViewController" id="2wH-Nc-Gya"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fGa-uH-APv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-194.40000000000001" y="1064.6176911544228"/>
         </scene>
     </scenes>
     <resources>

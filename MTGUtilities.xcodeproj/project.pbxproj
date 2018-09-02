@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5504B6CC21387189006E7FAF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5504B6CB21387189006E7FAF /* SearchViewController.swift */; };
+		55118B8A213C5C23003AE235 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55118B89213C5C23003AE235 /* SettingsViewController.swift */; };
+		55118B8D213C5E80003AE235 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 55118B8B213C5E80003AE235 /* Model.xcdatamodeld */; };
 		5541A92A21337C66000D0BA9 /* LifeCounterHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5541A92921337C66000D0BA9 /* LifeCounterHistoryViewController.swift */; };
 		5541A92C21337D28000D0BA9 /* GameHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5541A92B21337D28000D0BA9 /* GameHistoryCell.swift */; };
 		5545D07E212B6BA800B13120 /* PlayerLifeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5545D07D212B6BA800B13120 /* PlayerLifeView.xib */; };
@@ -15,6 +17,9 @@
 		555D35C121346944002F03BF /* GameEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555D35C021346944002F03BF /* GameEvent.swift */; };
 		55865E21212C7C840025D771 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55865E20212C7C840025D771 /* Player.swift */; };
 		55865E25212DE7720025D771 /* PlayerNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55865E24212DE7720025D771 /* PlayerNumberViewController.swift */; };
+		5586E4B1213C6ADC00FAAA0E /* Card+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5586E4AF213C6ADC00FAAA0E /* Card+CoreDataClass.swift */; };
+		5586E4B4213C787E00FAAA0E /* JsonCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5586E4B3213C787E00FAAA0E /* JsonCard.swift */; };
+		5586E4BD213C8C3100FAAA0E /* Card+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5586E4BC213C8C3100FAAA0E /* Card+CoreDataProperties.swift */; };
 		55C305852135C609003B3CE3 /* LifeCounterCustomizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C305842135C609003B3CE3 /* LifeCounterCustomizationViewController.swift */; };
 		55C305872135C671003B3CE3 /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C305862135C671003B3CE3 /* PlayerCell.swift */; };
 		55C3058B2135DEFF003B3CE3 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C3058A2135DEFF003B3CE3 /* ColorCell.swift */; };
@@ -30,6 +35,8 @@
 
 /* Begin PBXFileReference section */
 		5504B6CB21387189006E7FAF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		55118B89213C5C23003AE235 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		55118B8C213C5E80003AE235 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		5541A92921337C66000D0BA9 /* LifeCounterHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCounterHistoryViewController.swift; sourceTree = "<group>"; };
 		5541A92B21337D28000D0BA9 /* GameHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHistoryCell.swift; sourceTree = "<group>"; };
 		5545D07D212B6BA800B13120 /* PlayerLifeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerLifeView.xib; sourceTree = "<group>"; };
@@ -37,6 +44,9 @@
 		555D35C021346944002F03BF /* GameEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEvent.swift; sourceTree = "<group>"; };
 		55865E20212C7C840025D771 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		55865E24212DE7720025D771 /* PlayerNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNumberViewController.swift; sourceTree = "<group>"; };
+		5586E4AF213C6ADC00FAAA0E /* Card+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5586E4B3213C787E00FAAA0E /* JsonCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonCard.swift; sourceTree = "<group>"; };
+		5586E4BC213C8C3100FAAA0E /* Card+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		55C305842135C609003B3CE3 /* LifeCounterCustomizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCounterCustomizationViewController.swift; sourceTree = "<group>"; };
 		55C305862135C671003B3CE3 /* PlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
 		55C3058A2135DEFF003B3CE3 /* ColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
@@ -105,6 +115,48 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		55118B85213C509F003AE235 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				55118B88213C50B4003AE235 /* Controller */,
+				55118B87213C50B1003AE235 /* View */,
+				55118B86213C50AF003AE235 /* Model */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		55118B86213C50AF003AE235 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		55118B87213C50B1003AE235 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		55118B88213C50B4003AE235 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				55118B89213C5C23003AE235 /* SettingsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		55118B92213C6739003AE235 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				5586E4BC213C8C3100FAAA0E /* Card+CoreDataProperties.swift */,
+				55118B8B213C5E80003AE235 /* Model.xcdatamodeld */,
+				5586E4AF213C6ADC00FAAA0E /* Card+CoreDataClass.swift */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
 		5541A92521337C19000D0BA9 /* Life Counter History */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +199,14 @@
 				55DFC32D21307EAA009EB768 /* Constants.swift */,
 			);
 			path = "Life Counter Main";
+			sourceTree = "<group>";
+		};
+		5586E4B5213C788A00FAAA0E /* MtgJson */ = {
+			isa = PBXGroup;
+			children = (
+				5586E4B3213C787E00FAAA0E /* JsonCard.swift */,
+			);
+			path = MtgJson;
 			sourceTree = "<group>";
 		};
 		55C305802135B8D6003B3CE3 /* Life Counter Customization */ = {
@@ -202,6 +262,9 @@
 		55FA451B212B222A0003FB43 /* MTGUtilities */ = {
 			isa = PBXGroup;
 			children = (
+				5586E4B5213C788A00FAAA0E /* MtgJson */,
+				55118B92213C6739003AE235 /* Core Data */,
+				55118B85213C509F003AE235 /* Settings */,
 				5504B6C721386F1C006E7FAF /* Card Search */,
 				5504B6C621386F09006E7FAF /* Life Counter */,
 				55FA451C212B222A0003FB43 /* AppDelegate.swift */,
@@ -315,12 +378,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				5504B6CC21387189006E7FAF /* SearchViewController.swift in Sources */,
+				5586E4BD213C8C3100FAAA0E /* Card+CoreDataProperties.swift in Sources */,
 				55FA451D212B222A0003FB43 /* AppDelegate.swift in Sources */,
 				55FA4534212B23EF0003FB43 /* GameTracker.swift in Sources */,
+				5586E4B4213C787E00FAAA0E /* JsonCard.swift in Sources */,
 				555D35C121346944002F03BF /* GameEvent.swift in Sources */,
 				55DFC32C212F54BA009EB768 /* Die.swift in Sources */,
 				55865E25212DE7720025D771 /* PlayerNumberViewController.swift in Sources */,
 				55FA4532212B23AB0003FB43 /* LifeCounterViewController.swift in Sources */,
+				55118B8A213C5C23003AE235 /* SettingsViewController.swift in Sources */,
+				55118B8D213C5E80003AE235 /* Model.xcdatamodeld in Sources */,
+				5586E4B1213C6ADC00FAAA0E /* Card+CoreDataClass.swift in Sources */,
 				5541A92C21337D28000D0BA9 /* GameHistoryCell.swift in Sources */,
 				55865E21212C7C840025D771 /* Player.swift in Sources */,
 				5541A92A21337C66000D0BA9 /* LifeCounterHistoryViewController.swift in Sources */,
@@ -526,6 +594,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		55118B8B213C5E80003AE235 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				55118B8C213C5E80003AE235 /* Model.xcdatamodel */,
+			);
+			currentVersion = 55118B8C213C5E80003AE235 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 55FA4511212B222A0003FB43 /* Project object */;
 }
