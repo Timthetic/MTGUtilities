@@ -12,6 +12,7 @@ struct JsonCard: Codable{
     var cmc: Int?
     var colorIdentity: [String]?
     var colors: [String]?
+    var flavor: String?
     var loyalty: Int?
     var manaCost: String?
     var multiverseId: Int?
@@ -21,6 +22,8 @@ struct JsonCard: Codable{
     var printings: [String]?
     var rarity: String?
     var rulings: [Ruling]?
+    var setName: String?
+    var setCode: String?
     var subtypes: [String]?
     var text: String?
     var toughness: String?
@@ -31,6 +34,7 @@ struct JsonCard: Codable{
         case cmc = "cmc"
         case colorIdentity = "colorIdentity"
         case colors = "colors"
+        case flavor = "flavor"
         case loyalty = "loyalty"
         case manaCost = "manaCost"
         case multiverseId = "multiverseid" //
@@ -55,9 +59,15 @@ struct JsonCard: Codable{
             return nil
         }
     }
+    
+    init?(json: Data, setCode: String?, setName: String?){
+        self.init(json: json)
+        self.setCode = setCode
+        self.setName = setName
+    }
 }
 
-struct Ruling: Codable{
+public struct Ruling: Codable{
     var date: String
     var text: String
 }
