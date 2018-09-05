@@ -1,5 +1,5 @@
 //
-//  TableViewCell.swift
+//  CardCell.swift
 //  MTGUtilities
 //
 //  Created by Tim Rediehs on 8/26/18.

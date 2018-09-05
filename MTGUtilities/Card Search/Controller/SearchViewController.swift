@@ -38,13 +38,21 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    //MARK: - UITableViewDataSource
+    //MARK: - UITableViewDataSource / UITableViewDelegate
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "Show Card", sender: fetchedCards[indexPath.row])
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "CardCell"){
-            cell.textLabel?.text = fetchedCards[indexPath.row].name
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "CardCell") as? CardCell{
+            cell.configureCell(forCard: fetchedCards[indexPath.row])
             return cell
         }
         return UITableViewCell()
@@ -85,6 +93,16 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
             }
             
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Show Card"{
+            if let CVC = segue.destination as? CardViewController{
+                if let card = sender as? Card{
+                    CVC.card = card
+                }
+            }
         }
     }
     

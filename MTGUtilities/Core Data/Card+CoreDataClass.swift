@@ -14,6 +14,10 @@ import CoreData
 public class Card: NSManagedObject {
     //TODO: Turn json object into Card
     
+    var type: String{
+        return "\(types ?? "") - \(subtypes ?? "")"
+    }
+    
     class func insertCardFrom(jsonCard: JsonCard, inManagedObjectContext context: NSManagedObjectContext){
         if jsonCard.multiverseId == nil{
             //print("Could not insert \(jsonCard.name ?? "nil name"): nil multiverse id")
