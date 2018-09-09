@@ -19,6 +19,8 @@ class PlayerInteraction{
     weak var actor: Player?
     weak var target: Player?
     var changeInLife: Int?
+    
+    ///An equal interaction in the opposite direction.
     var opposite: PlayerInteraction{
         return PlayerInteraction(lifeChange: changeInLife, to: actor, from: target)
     }

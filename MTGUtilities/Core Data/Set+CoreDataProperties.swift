@@ -17,8 +17,13 @@ extension Set {
         return NSFetchRequest<Set>(entityName: "Set")
     }
 
+    ///The set's full name
     @NSManaged public var name: String?
+    
+    ///The set's shortened code (i.e. IXN for Ixalan)
     @NSManaged public var code: String?
+    
+    ///All of the `UniqueCard`s that appear in the set
     @NSManaged public var cards: NSSet?
 
 }

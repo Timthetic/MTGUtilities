@@ -32,6 +32,7 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
         rollDice()
     }
     
+    ///Creates a die roll for eadch lifeView and displayes the dice.  Disables user interaction on lifeViews and passButton.
     func rollDice(){
         for lifeView in lifeViews{
             if game.gameState == .playing{
@@ -44,6 +45,7 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
         passButton.isUserInteractionEnabled = false
     }
     
+    ///Re-enables user interaction on lifeViews and passButton.  Removes dice from UI and array.
     func removeDice() {
         for die in dice{
             die.removeFromSuperview()
@@ -63,12 +65,12 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
     //MARK: PlayerLifeViewDelegate
     func minusTapped(forPlayerLifeView lifeView: PlayerLifeView) {
         switch game.gameState{
-        case .choosingTurnOrder:
+        case .choosingTurnOrder: //Sets player as next for turn or...
             if let player = playerFor(view: lifeView)
             {
                 addPlayerToTurnOrder(player: player)
             }
-        case .playing:
+        case .playing: //Subtracts one from players life
             if let player = playerFor(view: lifeView){
                 game.changeLifeOf(player: player, by: -1)
             }
@@ -79,12 +81,12 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
     
     func plusTapped(forPlayerLifeView lifeView: PlayerLifeView) {
         switch game.gameState {
-        case .choosingTurnOrder:
+        case .choosingTurnOrder: //Sets player as next for turn or...
             if let player = playerFor(view: lifeView)
             {
                 addPlayerToTurnOrder(player: player)
             }
-        case .playing:
+        case .playing:  //Adds one to players life
             if let player = playerFor(view: lifeView){
                 game.changeLifeOf(player: player, by: 1)
             }
@@ -94,16 +96,6 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
     }
     
     func nameSingleTapped(forPlayerLifeView lifeView: PlayerLifeView) {
-//        switch gameState{
-//        case .choosingTurnOrder:
-//            break
-//        case .playing:
-//            if playerFor(view: lifeView) == game.activePlayer{
-//                game.passTurn()
-//                updateUI()
-//            }
-//        }
-        
         //FIXME: MAKE THIS MAKE SENCE
         //Right now, I use a single tap of the players name to say that that player is changing life totals.  This will probably be hard for users to figure out.  I should probably add an icon.
         if game.gameState == .playing{
@@ -116,6 +108,7 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
     }
     
     func nameDoubleTapped(forPlayerLifeView lifeView: PlayerLifeView) {
+        //Shows alert to change name of a player
         let alert = UIAlertController(title: "Enter Name", message: "Enter a name for \(lifeView.nameLabel.text ?? String())", preferredStyle: .alert)
         alert.addTextField(configurationHandler: { textField in
             textField.autocapitalizationType = .words
@@ -137,8 +130,8 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
             assertionFailure()
         }
         
+        //If all players have a turn order, change state to playing.
         if game.numberOfTurnsSet == players.count{
-            //All Players have been mapped
             game.gameState = .playing
             removeDice()
         }

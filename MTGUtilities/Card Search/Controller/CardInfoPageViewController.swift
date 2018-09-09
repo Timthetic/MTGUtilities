@@ -9,10 +9,12 @@
 import UIKit
 
 class CardInfoPageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource, CardDataSource {
+    ///Tells pages which card to display
     func cardToDisplay() -> Card? {
         return card
     }
     
+    ///Tells pages which (unique) card to display
     func uniqueCardToDisplay() -> UniqueCard? {
         return uniqueCard
     }

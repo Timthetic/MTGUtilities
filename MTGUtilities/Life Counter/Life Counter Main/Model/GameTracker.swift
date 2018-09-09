@@ -36,11 +36,18 @@ class GameTracker {
     }
     
     //MARK: Life
+    /**
+     Changes the life of a player and records the change of life for the current turn.
+     - Parameters:
+        - player: The player who's life is to be changes
+        - amount: They ammount of life to add to the player (use negative value for damage)
+     */
     func changeLifeOf(player: Player, by amount: Int){
         
         let actingPlayer = explicitActivePlayer ?? activePlayer
         
         player.changeLife(by: amount, from: actingPlayer)
+        //Records the change in life.  If this is not the first time life has been changed, it just edits the previous interaction.
         let interaction = getInteraction(to: player, from: actingPlayer)
         interaction.changeInLife! += amount
     }
@@ -84,7 +91,7 @@ class GameTracker {
             
             player.commitInteractions()
         }
-        commitInteractions()
+        commitEvents()
         printInteractions()
         eventsToCommit.append(GameEvent.TurnChange(turnNumber))
         
@@ -92,7 +99,15 @@ class GameTracker {
     }
     
     //MARK: Interactions and Events
-    func getInteraction(to target: Player, from actor: Player) -> PlayerInteraction
+    /**
+     Returns an interaction between two players
+     - Parameters:
+        - target: The player affected by the life change
+        - actor: The player responsible for the life change
+     - Returns: The `PlayerInteraction` betweent the two players.  If one doesn't exist, this function creates one.
+     - Note: This function only returns uncommited interactions (interactions for the current turn).
+     */
+    private func getInteraction(to target: Player, from actor: Player) -> PlayerInteraction
     {
         var addToList = true
         var interaction = PlayerInteraction(lifeChange: 0, to: target, from: actor)
@@ -113,9 +128,12 @@ class GameTracker {
         return interaction
     }
     
-    func commitInteractions(){
-        for interaction in eventsToCommit{
-            events.append(interaction)
+    /**
+     Saves all events to the main container.
+     */
+    private func commitEvents(){
+        for event in eventsToCommit{
+            events.append(event)
         }
         eventsToCommit.removeAll()
     }

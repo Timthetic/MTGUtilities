@@ -69,10 +69,12 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //MARK: - UISearchBarDelegate
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        //Dismiss keyboard when the user taps search
         searchBar.resignFirstResponder()
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text == nil || searchBar.text?.count ?? 0 < 3 {
+            //Don't get results if search quary is less than 3 leters
             fetchedCards = []
             previousQuary = ""
             tableView.reloadData()
@@ -83,22 +85,24 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return
         }
         
+        //If we already have results we can use, don't go to the database again, just use those
+        //I.e if they had types 'rip' then now have types 'ripj' just narrow the results for 'rip'
         if previousQuary != "" && text.hasPrefix(previousQuary){
             fetchedCards = fetchedCards.filter({$0.name?.range(of: text, options: .caseInsensitive) != nil})
             previousQuary = text
         }
         else{
+            //Search database for the user's quary
             let request = NSFetchRequest<Card>(entityName: "Card")
             let predicate = NSPredicate(format: "name contains[c] %@", text)
             request.predicate = predicate
             context.perform {
                 if let results = try? self.context.fetch(request){
-//                    DispatchQueue.main.sync {
-                        if text == self.searchBar.text{ //Only update if
-                            self.previousQuary = text
-                            self.fetchedCards = results
-                        }
-//                    }
+                    if text == self.searchBar.text{
+                        //store the results
+                        self.previousQuary = text
+                        self.fetchedCards = results
+                    }
                 }
             }
             

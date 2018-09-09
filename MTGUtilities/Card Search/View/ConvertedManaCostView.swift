@@ -8,6 +8,7 @@
 
 import UIKit
 
+///This entire thing is just a number with an arc around it showing how big it is
 @IBDesignable
 class ConvertedManaCostView: UIView {
 
@@ -75,6 +76,7 @@ class ConvertedManaCostView: UIView {
         cmcLabel.text = "\(value)"
     }
     
+    //Draw an arc that is longer for bigger numbers
     override func draw(_ rect: CGRect) {
         let path = UIBezierPath()
         let cappedValue = min(value, topValue)

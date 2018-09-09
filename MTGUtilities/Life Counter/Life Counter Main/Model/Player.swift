@@ -25,7 +25,14 @@ class Player: Equatable, Hashable{
         let interaction = getInteraction(to: self, from: player)
         interaction.changeInLife! += amount
     }
-    
+    /**
+     Returns an interaction between two players
+     - Parameters:
+     - target: The player affected by the life change
+     - actor: The player responsible for the life change
+     - Returns: The `PlayerInteraction` betweent the two players.  If one doesn't exist, this function creates one.
+     - Note: This function only returns uncommited interactions (interactions for the current turn).
+     */
     func getInteraction(to target: Player, from actor: Player) -> PlayerInteraction
     {
         var addToList = true
@@ -41,7 +48,7 @@ class Player: Equatable, Hashable{
         }
         return interaction
     }
-    
+    ///Saves interactions in main container
     func commitInteractions(){
         for interaction in interactionsToCommit{
             interactionsFromOthers.append(interaction.opposite)

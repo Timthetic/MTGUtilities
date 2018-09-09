@@ -29,6 +29,8 @@ extension Card {
     @NSManaged public var text: String?
     @NSManaged public var toughness: String?
     @NSManaged public var types: String? //
+    
+    ///All the versions of this card
     @NSManaged public var printings: NSSet?
 
 }

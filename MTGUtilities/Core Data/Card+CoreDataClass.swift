@@ -12,12 +12,17 @@ import CoreData
 
 
 public class Card: NSManagedObject {
-    //TODO: Turn json object into Card
-    
+    ///Gives the types and subtypes in the form "type1 type2 - subtype1"
     var type: String{
         return "\(types ?? "")\(subtypes != nil ? " - " : "")\(subtypes ?? "")"
     }
     
+    /**
+     Use this function to add a new card to the database.  Duplicate cards will be ignored. Cards with the same name are grouped together.
+     
+     - Parameter jsonCard: The json representation of the card
+     - Parameter context: The database context
+     */
     class func insertCardFrom(jsonCard: JsonCard, inManagedObjectContext context: NSManagedObjectContext){
         if jsonCard.multiverseId == nil{
             //print("Could not insert \(jsonCard.name ?? "nil name"): nil multiverse id")
@@ -56,6 +61,7 @@ public class Card: NSManagedObject {
                 }
                 else{
                     print("An issue maybe?")
+                    return
                 }
             }
             

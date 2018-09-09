@@ -51,7 +51,12 @@ struct JsonCard: Codable{
         case types = "types"
     }
     
-    init?(json: Data){
+    /**
+     Creates an object for a json representation of a card.  Returns nil if it fails.
+     
+     - Parameter json: The json data.
+     */
+    private init?(json: Data){
         if let newSelf = try? JSONDecoder().decode(JsonCard.self, from: json){
             self = newSelf
         }
@@ -59,7 +64,13 @@ struct JsonCard: Codable{
             return nil
         }
     }
-    
+    /**
+     Creates an object for a json representation of a card.  Returns nil if it fails.
+     
+     - Parameter json: The json data.
+     - Parameter setCode: The set's shortened code.
+     - Parameter setName: The set's full name.
+     */
     init?(json: Data, setCode: String?, setName: String?){
         self.init(json: json)
         self.setCode = setCode

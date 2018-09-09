@@ -30,6 +30,7 @@ class LifeCounterHistoryViewController: UIViewController, UITableViewDelegate, U
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let event = game.events[indexPath.row]
         
+        //Cells display turn changes or interactions (damage usually).  Configure each acordingly.
         switch event{
         case .PlayerInteraction(let interaction):
             if let cell = tableView.dequeueReusableCell(withIdentifier: "GameHistoryCell") as? GameHistoryCell{

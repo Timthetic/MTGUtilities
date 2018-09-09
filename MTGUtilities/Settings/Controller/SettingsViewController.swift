@@ -32,6 +32,7 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    ///Loads of the entire database.  Does not replace existing entries.
     @IBAction func createButtonPressed() {
         let url = URL(string: "https://mtgjson.com/json/SetList.json")!
         let task = URLSession.shared.dataTask(with: url){[weak self] data, responce, error in
@@ -39,9 +40,11 @@ class SettingsViewController: UIViewController {
                 print("\(error)")
             }
             if let data = data{
+                //Parse json
                 if let json = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as! [Any]{
                     self?.progress.total = Float(json.count)
                     
+                    //Fetches cards set by set
                     for setsList in json{
                         if let set = setsList as? [String:String]{
                             print(set["name"] ?? "nopexxx")
@@ -58,6 +61,14 @@ class SettingsViewController: UIViewController {
         task.resume()
     }
     
+    /**
+     Fetches a set by its code into the database context.
+     
+     - Parameters:
+        - name: The set's full name
+        - code: The set's code
+        - context: The database context
+     */
     func fetchSet(name: String?, code: String?, intoContext context: NSManagedObjectContext?) {
         guard let code = code else{
             print("Set has not code!  Must return.")
@@ -77,9 +88,11 @@ class SettingsViewController: UIViewController {
                 return
             }
             if let set = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as! [String:Any]{
+                //Finds the 'cards' section of the json object
                 if let cards = set["cards"] as? [[String: Any]]{
                     for card in cards{
                         do{
+                            //Insert card into database
                             let newCard = try JSONSerialization.data(withJSONObject: card, options: JSONSerialization.WritingOptions.sortedKeys)
                             if let jsonCard = JsonCard(json: newCard, setCode: code, setName: name){
                                 context.perform {
@@ -95,6 +108,7 @@ class SettingsViewController: UIViewController {
                 }
             }
             context.performAndWait {
+                //Save changes
                 if context.hasChanges{
                     do{
                         try context.save()
@@ -106,6 +120,7 @@ class SettingsViewController: UIViewController {
             }
             
             DispatchQueue.main.async {
+                //Marks progress
                 self?.progress.complete += 1
                 self?.progressBar.progress = self?.uiProgress ?? 0.0
             }

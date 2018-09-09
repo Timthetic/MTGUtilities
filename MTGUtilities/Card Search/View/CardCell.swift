@@ -23,6 +23,8 @@ class CardCell: UITableViewCell {
         for image in imageViews{
             image.removeFromSuperview()
         }
+        
+        //Displays mana cost
         for symbol in manaCost{
             let width = min(self.frame.width / 12, manaStack.frame.width / CGFloat(manaCost.count))
             let imageView = UIImageView(image: UIImage(named: "\(symbol).png") ?? #imageLiteral(resourceName: "0"))

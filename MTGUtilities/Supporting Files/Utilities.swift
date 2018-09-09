@@ -9,6 +9,12 @@
 import Foundation
 import UIKit
 
+/**
+ Returns an array of strings each representing on mana symbol
+ - Parameter manaCost: The string you wish to parse
+ - Returns: An array of strings each representing on mana symbol
+ - Example: ['g', 'b'] would be returned for something that costs one green and one blue.
+ */
 func parse(manaCost: String)->[String]{
     var add = ""
     var parsedCost = [String]()
@@ -28,6 +34,11 @@ func parse(manaCost: String)->[String]{
     return parsedCost
 }
 
+/**
+ Returns the `UIColor` for each mana color (green for 'G', blue for 'U'...)
+ - Parameter string: One of the folowing: "W", "U", "G", "R", "B"
+ - Returns: a `UIColor` for either white, blue, green, red, or black
+ */
 func strToColor(_ string: String) -> UIColor?{
     if let index = Consts.colorSymbols.index(of: string), Consts.colors.indices.contains(index){
         return Consts.colors[index]

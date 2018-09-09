@@ -28,18 +28,26 @@ class CardViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        configureDisplay(forCard: card)
+//        textView.text = card.text ?? ""
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    func configureDisplay(forCard card: Card!){
         if card == nil{
             return
         }
-        title = card.name
         
+        title = card.name
         numberView.value = Int(card.cmc)
         numberView.color = strToColor(card.colorIdentity?.first ?? "") ?? UIColor.black
         
-        powerToughnessLabel.isHidden = card.power == nil
-        powerToughnessTitle.isHidden = card.power == nil
         
+        //Checks if card has power, toughness, or loyalty.  Hides those lables if it doesn't.
         if let power = card.power, let toughness = card.toughness{
+            powerToughnessTitle.text = "Power / Toughness"
             powerToughnessLabel.text = "\(power) / \(toughness)"
             powerToughnessTitle.isHidden = false
             powerToughnessLabel.isHidden = false
@@ -55,24 +63,25 @@ class CardViewController: UIViewController{
             powerToughnessTitle.isHidden = true
             powerToughnessLabel.isHidden = true
         }
+        
+        //Fetches the card image
         DispatchQueue.global(qos: .userInitiated).async{[weak self] in
             if let mid = self?.uniqueCard?.multiverseId, let url = URL(string: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=\(mid)&type=card"){
-                    do{
-                        let data = try Data(contentsOf: url)
-                        DispatchQueue.main.async {
-                            self?.imageView.image = UIImage(data: data)
-                        }
-                        
-                    } catch{
-                        DispatchQueue.main.async {
-                            self?.imageView.image = #imageLiteral(resourceName: "back")
-                        }
+                do{
+                    let data = try Data(contentsOf: url)
+                    DispatchQueue.main.async {
+                        self?.imageView.image = UIImage(data: data)
                     }
+                    
+                } catch{
+                    DispatchQueue.main.async {
+                        self?.imageView.image = #imageLiteral(resourceName: "back")
+                    }
+                }
             }
         }
         
-//        nameLabel.text = card.name
-//        typeLabel.text = "Type: \(card.type)"
+        //Displayes the mana cost
         let manaCost = parse(manaCost: card.manaCost ?? "")
         for symbol in manaCost.reversed(){
             let width = min(self.view.frame.width / 12, manaStack.frame.width / CGFloat(manaCost.count))
@@ -81,10 +90,6 @@ class CardViewController: UIViewController{
             imageView.widthAnchor.constraint(equalToConstant: width).isActive = true
             manaStack.insertArrangedSubview(imageView, at: 0)
         }
-        
-//        textView.text = card.text ?? ""
-        
-        // Do any additional setup after loading the view.
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

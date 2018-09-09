@@ -69,7 +69,11 @@ class PlayerNumberViewController: UIViewController {
     }
     
     
-    
+    /**
+     Deselects all buttons in `collection`, then selects `button`
+     - Parameter button: The button you want selected
+     - Parameter collection: The collection you want deselected
+     */
     func selectOnly(button: UIButton, outOf collection: [UIButton]) {
         for btn in collection{
             btn.isSelected = false
