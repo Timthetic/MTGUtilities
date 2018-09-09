@@ -15,7 +15,7 @@ public class Card: NSManagedObject {
     //TODO: Turn json object into Card
     
     var type: String{
-        return "\(types ?? "") - \(subtypes ?? "")"
+        return "\(types ?? "")\(subtypes != nil ? " - " : "")\(subtypes ?? "")"
     }
     
     class func insertCardFrom(jsonCard: JsonCard, inManagedObjectContext context: NSManagedObjectContext){
@@ -46,10 +46,10 @@ public class Card: NSManagedObject {
                     newCard.power = jsonCard.power
 //                    newCard.rarity = jsonCard.rarity
                     newCard.rulings = Dictionary((jsonCard.rulings?.compactMap({ruling in return ruling.date})), (jsonCard.rulings?.compactMap({ruling in return ruling.text}))) //jsonCard.rulings
-                    newCard.subtypes = jsonCard.subtypes?.compactMap({$0}).joined()
+                    newCard.subtypes = jsonCard.subtypes?.compactMap({$0}).joined(separator: " ")
                     newCard.text = jsonCard.text
                     newCard.toughness = jsonCard.toughness
-                    newCard.types = jsonCard.types?.compactMap({$0}).joined()
+                    newCard.types = jsonCard.types?.compactMap({$0}).joined(separator: " ")
                     //print("Inserted: \(newCard.name ?? "nil name")")
                     card = newCard
                     print("Created new card \(card.name ?? "NO NAME")")
@@ -64,16 +64,4 @@ public class Card: NSManagedObject {
         }
     }
     
-}
-
-extension Dictionary{
-    init?(_ a: [Key]?, _ b: [Value]?) {
-        self.init()
-        if let a = a, let b = b{
-            let k = Swift.min(a.count, b.count)
-            for i in 0..<k{
-                self[a[i]] = b[i]
-            }
-        }
-    }
 }

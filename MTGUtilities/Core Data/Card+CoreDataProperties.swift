@@ -21,14 +21,14 @@ extension Card {
     @NSManaged public var colorIdentity: [String]?
     @NSManaged public var colors: [String]?
     @NSManaged public var loyalty: Int64
-    @NSManaged public var manaCost: String?
-    @NSManaged public var name: String?
+    @NSManaged public var manaCost: String? //
+    @NSManaged public var name: String? //
     @NSManaged public var power: String?
     @NSManaged public var rulings: [String:String]?
-    @NSManaged public var subtypes: String?
+    @NSManaged public var subtypes: String? //
     @NSManaged public var text: String?
     @NSManaged public var toughness: String?
-    @NSManaged public var types: String?
+    @NSManaged public var types: String? //
     @NSManaged public var printings: NSSet?
 
 }

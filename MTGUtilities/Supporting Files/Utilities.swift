@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 func parse(manaCost: String)->[String]{
     var add = ""
@@ -26,3 +27,23 @@ func parse(manaCost: String)->[String]{
     }
     return parsedCost
 }
+
+func strToColor(_ string: String) -> UIColor?{
+    if let index = Consts.colorSymbols.index(of: string), Consts.colors.indices.contains(index){
+        return Consts.colors[index]
+    }
+    return nil
+}
+
+extension Dictionary{
+    init?(_ a: [Key]?, _ b: [Value]?) {
+        self.init()
+        if let a = a, let b = b{
+            let k = Swift.min(a.count, b.count)
+            for i in 0..<k{
+                self[a[i]] = b[i]
+            }
+        }
+    }
+}
+

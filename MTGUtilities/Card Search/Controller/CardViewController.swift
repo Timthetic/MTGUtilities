@@ -8,39 +8,71 @@
 
 import UIKit
 
-class CardViewController: UIViewController {
+class CardViewController: UIViewController{
     var uniqueCard: UniqueCard?
     var card: Card!{
         didSet{
             uniqueCard = card.printings?.anyObject() as? UniqueCard
         }
     }
-    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var manaStack: UIStackView!
-    @IBOutlet weak var typeLabel: UILabel!
+//    @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var textView: UITextView!
+//    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var numberView: ConvertedManaCostView!
+    @IBOutlet weak var powerToughnessTitle: UILabel!
+    @IBOutlet weak var powerToughnessLabel: UILabel!
+    
+    let colors: [UIColor] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if card == nil{
             return
         }
+        title = card.name
+        
+        numberView.value = Int(card.cmc)
+        numberView.color = strToColor(card.colorIdentity?.first ?? "") ?? UIColor.black
+        
+        powerToughnessLabel.isHidden = card.power == nil
+        powerToughnessTitle.isHidden = card.power == nil
+        
+        if let power = card.power, let toughness = card.toughness{
+            powerToughnessLabel.text = "\(power) / \(toughness)"
+            powerToughnessTitle.isHidden = false
+            powerToughnessLabel.isHidden = false
+        }
+        else if card.loyalty != -1{
+            let loyalty = card.loyalty
+            powerToughnessTitle.text = "Loyalty"
+            powerToughnessLabel.text = "\(loyalty)"
+            powerToughnessTitle.isHidden = false
+            powerToughnessLabel.isHidden = false
+        }
+        else{
+            powerToughnessTitle.isHidden = true
+            powerToughnessLabel.isHidden = true
+        }
         DispatchQueue.global(qos: .userInitiated).async{[weak self] in
             if let mid = self?.uniqueCard?.multiverseId, let url = URL(string: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=\(mid)&type=card"){
-                DispatchQueue.main.async {
                     do{
                         let data = try Data(contentsOf: url)
-                        self?.imageView.image = UIImage(data: data)
+                        DispatchQueue.main.async {
+                            self?.imageView.image = UIImage(data: data)
+                        }
+                        
                     } catch{
-                        self?.imageView.image = #imageLiteral(resourceName: "back")
+                        DispatchQueue.main.async {
+                            self?.imageView.image = #imageLiteral(resourceName: "back")
+                        }
                     }
-                }
             }
         }
         
-        nameLabel.text = card.name
-        typeLabel.text = "Type: \(card.type)"
+//        nameLabel.text = card.name
+//        typeLabel.text = "Type: \(card.type)"
         let manaCost = parse(manaCost: card.manaCost ?? "")
         for symbol in manaCost.reversed(){
             let width = min(self.view.frame.width / 12, manaStack.frame.width / CGFloat(manaCost.count))
@@ -50,17 +82,20 @@ class CardViewController: UIViewController {
             manaStack.insertArrangedSubview(imageView, at: 0)
         }
         
-        textView.text = card.text ?? ""
+//        textView.text = card.text ?? ""
         
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Embed Card Info"{
+            if let CIPVC = segue.destination as? CardInfoPageViewController{
+                CIPVC.card = card
+                CIPVC.uniqueCard = uniqueCard
+            }
+        }
     }
     
-
     /*
     // MARK: - Navigation
 

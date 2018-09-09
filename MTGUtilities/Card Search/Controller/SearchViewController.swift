@@ -38,12 +38,15 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
+
+    
     //MARK: - UITableViewDataSource / UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        searchBar.resignFirstResponder()
         performSegue(withIdentifier: "Show Card", sender: fetchedCards[indexPath.row])
     }
     
@@ -61,7 +64,13 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return fetchedCards.count
     }
     
+    
+    
     //MARK: - UISearchBarDelegate
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text == nil || searchBar.text?.count ?? 0 < 3 {
             fetchedCards = []
@@ -75,7 +84,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         
         if previousQuary != "" && text.hasPrefix(previousQuary){
-            fetchedCards = fetchedCards.filter({$0.name?.range(of: text) != nil})
+            fetchedCards = fetchedCards.filter({$0.name?.range(of: text, options: .caseInsensitive) != nil})
             previousQuary = text
         }
         else{

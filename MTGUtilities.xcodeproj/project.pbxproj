@@ -20,7 +20,11 @@
 		5541A92C21337D28000D0BA9 /* GameHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5541A92B21337D28000D0BA9 /* GameHistoryCell.swift */; };
 		5545D07E212B6BA800B13120 /* PlayerLifeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5545D07D212B6BA800B13120 /* PlayerLifeView.xib */; };
 		5545D080212B6C7C00B13120 /* PlayerLifeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5545D07F212B6C7C00B13120 /* PlayerLifeView.swift */; };
+		555067DC2141A30900186422 /* CardInfoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555067DB2141A30800186422 /* CardInfoPageViewController.swift */; };
+		555067DE2141AC2100186422 /* TextInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555067DD2141AC2100186422 /* TextInfoViewController.swift */; };
+		555067E02141AC3200186422 /* RulingsInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555067DF2141AC3200186422 /* RulingsInfoViewController.swift */; };
 		555D35C121346944002F03BF /* GameEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555D35C021346944002F03BF /* GameEvent.swift */; };
+		5570B25A2142EF3F0004764B /* ConvertedManaCostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5570B2592142EF3F0004764B /* ConvertedManaCostView.swift */; };
 		55865E21212C7C840025D771 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55865E20212C7C840025D771 /* Player.swift */; };
 		55865E25212DE7720025D771 /* PlayerNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55865E24212DE7720025D771 /* PlayerNumberViewController.swift */; };
 		5586E4B1213C6ADC00FAAA0E /* Card+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5586E4AF213C6ADC00FAAA0E /* Card+CoreDataClass.swift */; };
@@ -28,6 +32,7 @@
 		55C305852135C609003B3CE3 /* LifeCounterCustomizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C305842135C609003B3CE3 /* LifeCounterCustomizationViewController.swift */; };
 		55C305872135C671003B3CE3 /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C305862135C671003B3CE3 /* PlayerCell.swift */; };
 		55C3058B2135DEFF003B3CE3 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C3058A2135DEFF003B3CE3 /* ColorCell.swift */; };
+		55C812182141D8890026A36C /* ConvertedManaCostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55C812172141D8890026A36C /* ConvertedManaCostView.xib */; };
 		55DFC32C212F54BA009EB768 /* Die.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DFC32B212F54BA009EB768 /* Die.swift */; };
 		55DFC32E21307EAA009EB768 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DFC32D21307EAA009EB768 /* Constants.swift */; };
 		55E015A3214080AF00C51613 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E015A2214080AF00C51613 /* CardViewController.swift */; };
@@ -54,7 +59,11 @@
 		5541A92B21337D28000D0BA9 /* GameHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHistoryCell.swift; sourceTree = "<group>"; };
 		5545D07D212B6BA800B13120 /* PlayerLifeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerLifeView.xib; sourceTree = "<group>"; };
 		5545D07F212B6C7C00B13120 /* PlayerLifeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLifeView.swift; sourceTree = "<group>"; };
+		555067DB2141A30800186422 /* CardInfoPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInfoPageViewController.swift; sourceTree = "<group>"; };
+		555067DD2141AC2100186422 /* TextInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInfoViewController.swift; sourceTree = "<group>"; };
+		555067DF2141AC3200186422 /* RulingsInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulingsInfoViewController.swift; sourceTree = "<group>"; };
 		555D35C021346944002F03BF /* GameEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEvent.swift; sourceTree = "<group>"; };
+		5570B2592142EF3F0004764B /* ConvertedManaCostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertedManaCostView.swift; sourceTree = "<group>"; };
 		55865E20212C7C840025D771 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		55865E24212DE7720025D771 /* PlayerNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNumberViewController.swift; sourceTree = "<group>"; };
 		5586E4AF213C6ADC00FAAA0E /* Card+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -62,6 +71,7 @@
 		55C305842135C609003B3CE3 /* LifeCounterCustomizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCounterCustomizationViewController.swift; sourceTree = "<group>"; };
 		55C305862135C671003B3CE3 /* PlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
 		55C3058A2135DEFF003B3CE3 /* ColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
+		55C812172141D8890026A36C /* ConvertedManaCostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConvertedManaCostView.xib; sourceTree = "<group>"; };
 		55DFC32B212F54BA009EB768 /* Die.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Die.swift; sourceTree = "<group>"; };
 		55DFC32D21307EAA009EB768 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		55E015A2214080AF00C51613 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +103,7 @@
 				55FA451C212B222A0003FB43 /* AppDelegate.swift */,
 				55FA4523212B222B0003FB43 /* Assets.xcassets */,
 				55FA4525212B222B0003FB43 /* LaunchScreen.storyboard */,
+				55DFC32D21307EAA009EB768 /* Constants.swift */,
 				55E015A4214084C300C51613 /* Utilities.swift */,
 			);
 			path = "Supporting Files";
@@ -122,6 +133,8 @@
 			isa = PBXGroup;
 			children = (
 				5500706C214043C100CB8032 /* CardCell.swift */,
+				5570B2592142EF3F0004764B /* ConvertedManaCostView.swift */,
+				55C812172141D8890026A36C /* ConvertedManaCostView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -138,6 +151,9 @@
 			children = (
 				5504B6CB21387189006E7FAF /* SearchViewController.swift */,
 				55E015A2214080AF00C51613 /* CardViewController.swift */,
+				555067DB2141A30800186422 /* CardInfoPageViewController.swift */,
+				555067DD2141AC2100186422 /* TextInfoViewController.swift */,
+				555067DF2141AC3200186422 /* RulingsInfoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -227,7 +243,6 @@
 				55FA4530212B238A0003FB43 /* Controller */,
 				55FA452F212B23820003FB43 /* View */,
 				55FA452E212B23720003FB43 /* Model */,
-				55DFC32D21307EAA009EB768 /* Constants.swift */,
 			);
 			path = "Life Counter Main";
 			sourceTree = "<group>";
@@ -392,6 +407,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55C812182141D8890026A36C /* ConvertedManaCostView.xib in Resources */,
 				55FA4527212B222B0003FB43 /* LaunchScreen.storyboard in Resources */,
 				55FA4524212B222B0003FB43 /* Assets.xcassets in Resources */,
 				55FA4522212B222A0003FB43 /* Main.storyboard in Resources */,
@@ -413,6 +429,7 @@
 				5586E4B4213C787E00FAAA0E /* JsonCard.swift in Sources */,
 				55007069213EF57100CB8032 /* UniqueCard+CoreDataClass.swift in Sources */,
 				5500706A213EF57100CB8032 /* UniqueCard+CoreDataProperties.swift in Sources */,
+				555067E02141AC3200186422 /* RulingsInfoViewController.swift in Sources */,
 				555D35C121346944002F03BF /* GameEvent.swift in Sources */,
 				55DFC32C212F54BA009EB768 /* Die.swift in Sources */,
 				55865E25212DE7720025D771 /* PlayerNumberViewController.swift in Sources */,
@@ -421,6 +438,8 @@
 				55118B8A213C5C23003AE235 /* SettingsViewController.swift in Sources */,
 				55118B8D213C5E80003AE235 /* Model.xcdatamodeld in Sources */,
 				55007066213EF57100CB8032 /* Set+CoreDataClass.swift in Sources */,
+				5570B25A2142EF3F0004764B /* ConvertedManaCostView.swift in Sources */,
+				555067DC2141A30900186422 /* CardInfoPageViewController.swift in Sources */,
 				55E015A5214084C300C51613 /* Utilities.swift in Sources */,
 				5586E4B1213C6ADC00FAAA0E /* Card+CoreDataClass.swift in Sources */,
 				5541A92C21337D28000D0BA9 /* GameHistoryCell.swift in Sources */,
@@ -431,6 +450,7 @@
 				5500706D214043C100CB8032 /* CardCell.swift in Sources */,
 				55DFC32E21307EAA009EB768 /* Constants.swift in Sources */,
 				55007068213EF57100CB8032 /* Card+CoreDataProperties.swift in Sources */,
+				555067DE2141AC2100186422 /* TextInfoViewController.swift in Sources */,
 				55C305852135C609003B3CE3 /* LifeCounterCustomizationViewController.swift in Sources */,
 				55C305872135C671003B3CE3 /* PlayerCell.swift in Sources */,
 			);
