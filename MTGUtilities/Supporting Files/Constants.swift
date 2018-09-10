@@ -19,3 +19,7 @@ struct Consts {
     static let colorSymbols = ["R", "G", "U", "B", "W"]
     
 }
+struct MyFont{
+    static let bodyFont = UIFont.preferredFont(forTextStyle: .body)
+    static let italicFont = UIFont.preferredFont(forTextStyle: .body).italic()
+}

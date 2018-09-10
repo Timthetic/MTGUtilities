@@ -10,7 +10,7 @@ import UIKit
 
 class TextInfoViewController: UIViewController {
 
-    @IBOutlet weak var typeLabel: UILabel!
+//    @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var textView: UITextView!
     var cardDataSource: CardDataSource?
     
@@ -20,12 +20,27 @@ class TextInfoViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let card = cardDataSource?.cardToDisplay(){
-            typeLabel.text = "Type: \(card.type)"
-            textView.text = card.text
+        updateUI()
+    }
+    
+    func updateUI(){
+        if let card = cardDataSource?.card{
+            if let uniqueCard = cardDataSource?.uniqueCard{
+                
+                let cardText = "Type: \(card.type)\n\n\(card.text ?? "")\n\n"
+                let attributedText = NSMutableAttributedString(string: cardText, attributes: [.font:MyFont.bodyFont])
+                let flavorAttributedText = NSAttributedString(string: uniqueCard.flavor ?? "", attributes: [.font: MyFont.italicFont])
+                attributedText.append(flavorAttributedText)
+                textView.attributedText = attributedText
+                //textView.setContentOffset(CGPoint.zero, animated: true)
+            }
         }
     }
-
+    
+    override func viewDidLayoutSubviews() {
+        textView.setContentOffset(CGPoint.zero, animated: false)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

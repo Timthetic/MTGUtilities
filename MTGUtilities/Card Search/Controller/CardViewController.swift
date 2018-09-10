@@ -8,11 +8,17 @@
 
 import UIKit
 
-class CardViewController: UIViewController{
-    var uniqueCard: UniqueCard?
-    var card: Card!{
+class CardViewController: UIViewController, CardDataSource{
+    var uniqueCard: UniqueCard?{
         didSet{
-            uniqueCard = card.printings?.anyObject() as? UniqueCard
+            if isViewLoaded{
+                configureDisplay(forCard: card, andUniqueCard: uniqueCard)
+            }
+        }
+    }
+    var card: Card?{
+        didSet{
+            uniqueCard = card?.printings?.anyObject() as? UniqueCard
         }
     }
     @IBOutlet weak var manaStack: UIStackView!
@@ -29,14 +35,14 @@ class CardViewController: UIViewController{
         super.viewDidLoad()
         
         
-        configureDisplay(forCard: card)
+        configureDisplay(forCard: card, andUniqueCard: uniqueCard)
 //        textView.text = card.text ?? ""
         
         // Do any additional setup after loading the view.
     }
     
-    func configureDisplay(forCard card: Card!){
-        if card == nil{
+    func configureDisplay(forCard card: Card?, andUniqueCard uniqueCard: UniqueCard?){
+        guard let card = card, let uniqueCard = uniqueCard else{
             return
         }
         
@@ -46,27 +52,29 @@ class CardViewController: UIViewController{
         
         
         //Checks if card has power, toughness, or loyalty.  Hides those lables if it doesn't.
-        if let power = card.power, let toughness = card.toughness{
-            powerToughnessTitle.text = "Power / Toughness"
-            powerToughnessLabel.text = "\(power) / \(toughness)"
-            powerToughnessTitle.isHidden = false
-            powerToughnessLabel.isHidden = false
-        }
-        else if card.loyalty != -1{
-            let loyalty = card.loyalty
-            powerToughnessTitle.text = "Loyalty"
-            powerToughnessLabel.text = "\(loyalty)"
-            powerToughnessTitle.isHidden = false
-            powerToughnessLabel.isHidden = false
-        }
-        else{
-            powerToughnessTitle.isHidden = true
-            powerToughnessLabel.isHidden = true
-        }
+//        if let power = card.power, let toughness = card.toughness{
+//            powerToughnessTitle.text = "Power / Toughness"
+//            powerToughnessLabel.text = "\(power) / \(toughness)"
+//            powerToughnessTitle.isHidden = false
+//            powerToughnessLabel.isHidden = false
+//        }
+//        else if card.loyalty != -1{
+//            let loyalty = card.loyalty
+//            powerToughnessTitle.text = "Loyalty"
+//            powerToughnessLabel.text = "\(loyalty)"
+//            powerToughnessTitle.isHidden = false
+//            powerToughnessLabel.isHidden = false
+//        }
+//        else{
+//            powerToughnessTitle.isHidden = true
+//            powerToughnessLabel.isHidden = true
+//        }
+    
         
         //Fetches the card image
         DispatchQueue.global(qos: .userInitiated).async{[weak self] in
-            if let mid = self?.uniqueCard?.multiverseId, let url = URL(string: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=\(mid)&type=card"){
+            let mid = uniqueCard.multiverseId
+            if let url = URL(string: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=\(mid)&type=card"){
                 do{
                     let data = try Data(contentsOf: url)
                     DispatchQueue.main.async {
@@ -83,6 +91,7 @@ class CardViewController: UIViewController{
         
         //Displayes the mana cost
         let manaCost = parse(manaCost: card.manaCost ?? "")
+        manaStack.arrangedSubviews.forEach({manaStack.removeArrangedSubview($0)})
         for symbol in manaCost.reversed(){
             let width = min(self.view.frame.width / 12, manaStack.frame.width / CGFloat(manaCost.count))
             let imageView = UIImageView(image: UIImage(named: "\(symbol).png") ?? #imageLiteral(resourceName: "0"))
@@ -95,8 +104,7 @@ class CardViewController: UIViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Embed Card Info"{
             if let CIPVC = segue.destination as? CardInfoPageViewController{
-                CIPVC.card = card
-                CIPVC.uniqueCard = uniqueCard
+                CIPVC.cardDataSource = self
             }
         }
     }

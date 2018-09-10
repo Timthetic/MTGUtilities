@@ -9,29 +9,44 @@
 import UIKit
 
 class CardInfoPageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource, CardDataSource {
-    ///Tells pages which card to display
-    func cardToDisplay() -> Card? {
-        return card
-    }
     
-    ///Tells pages which (unique) card to display
-    func uniqueCardToDisplay() -> UniqueCard? {
-        return uniqueCard
-    }
+    
+//    ///Tells pages which card to display
+//    func cardToDisplay() -> Card? {
+//        return card
+//    }
+//
+//    ///Tells pages which (unique) card to display
+//    func uniqueCardToDisplay() -> UniqueCard? {
+//        return uniqueCard
+//    }
     
     var currentPage: Int = 0
     
-    var card: Card?
-    var uniqueCard: UniqueCard?
+    var cardDataSource: CardDataSource?
+    
+    var card: Card?{
+        return cardDataSource?.card
+    }
+    var uniqueCard: UniqueCard?{
+        get{
+            return cardDataSource?.uniqueCard
+        }
+        set{
+            cardDataSource?.uniqueCard = newValue
+        }
+    }
     
     lazy var orderedViewControllers: [UIViewController] = {
         //FIXME: I really don't like this
         let card = (parent as? CardViewController)?.card
         let textVC = createVC(withSBIdentifier: "TextVC") as! TextInfoViewController
         textVC.cardDataSource = self
+        let printingsVC = createVC(withSBIdentifier: "PrintingsVC") as! PrintingsInfoViewController
+        printingsVC.cardDataSource = self
         let rulingsVC = createVC(withSBIdentifier: "RulingsVC") as! RulingsInfoViewController
         rulingsVC.cardDataSource = self
-        return [textVC, rulingsVC]
+        return [textVC, printingsVC, rulingsVC]
     }()
     
     func createVC(withSBIdentifier identifier: String) -> UIViewController{
@@ -98,6 +113,12 @@ class CardInfoPageViewController: UIPageViewController, UIPageViewControllerDele
 }
 
 protocol CardDataSource {
-    func cardToDisplay() -> Card?
-    func uniqueCardToDisplay() -> UniqueCard?
+//    func cardToDisplay() -> Card?
+//    func uniqueCardToDisplay() -> UniqueCard?
+    var card: Card?{
+        get
+    }
+    var uniqueCard: UniqueCard?{
+        get set
+    }
 }

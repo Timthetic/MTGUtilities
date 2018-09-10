@@ -272,7 +272,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdn-6n-DL8">
-                                                    <rect key="frame" x="20" y="0.0" width="647" height="44"/>
+                                                    <rect key="frame" x="20" y="0.0" width="355" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -491,7 +491,7 @@
                                 <rect key="frame" x="0.0" y="120" width="375" height="498"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CardCell" id="XSX-ud-2TM" customClass="CardCell" customModule="MTGUtilities" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CardCell" id="XSX-ud-2TM" customClass="CardCell" customModule="MTGUtilities" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XSX-ud-2TM" id="qnS-wN-l4y">
@@ -768,65 +768,105 @@
             </objects>
             <point key="canvasLocation" x="-3530.4000000000001" y="1023.2383808095952"/>
         </scene>
-        <!--Text Info View Controller-->
+        <!--Text Info-->
         <scene sceneID="gzJ-8P-3ff">
             <objects>
-                <viewController storyboardIdentifier="TextVC" id="019-2T-9Lg" customClass="TextInfoViewController" customModule="MTGUtilities" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TextVC" title="Text Info" id="019-2T-9Lg" customClass="TextInfoViewController" customModule="MTGUtilities" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RS4-cm-mLr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNJ-Ub-gME">
-                                <rect key="frame" x="8" y="28" width="47.5" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zli-bs-evh">
-                                <rect key="frame" x="8" y="76" width="359" height="583"/>
+                                <rect key="frame" x="8" y="20" width="359" height="639"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="zli-bs-evh" firstAttribute="top" secondItem="TNJ-Ub-gME" secondAttribute="bottom" constant="24" id="F2w-FJ-Qqy"/>
                             <constraint firstItem="KEY-Rn-F7z" firstAttribute="trailing" secondItem="zli-bs-evh" secondAttribute="trailing" constant="8" id="HwH-6I-woC"/>
-                            <constraint firstItem="TNJ-Ub-gME" firstAttribute="leading" secondItem="KEY-Rn-F7z" secondAttribute="leading" constant="8" id="Qmm-6R-lrm"/>
-                            <constraint firstItem="TNJ-Ub-gME" firstAttribute="top" secondItem="KEY-Rn-F7z" secondAttribute="top" constant="8" id="W5R-9l-7fY"/>
                             <constraint firstItem="zli-bs-evh" firstAttribute="leading" secondItem="KEY-Rn-F7z" secondAttribute="leading" constant="8" id="WaM-6w-nTb"/>
                             <constraint firstItem="KEY-Rn-F7z" firstAttribute="bottom" secondItem="zli-bs-evh" secondAttribute="bottom" constant="8" id="dDH-1B-nmu"/>
+                            <constraint firstItem="zli-bs-evh" firstAttribute="top" secondItem="KEY-Rn-F7z" secondAttribute="top" id="oed-iH-Vh4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KEY-Rn-F7z"/>
                     </view>
                     <connections>
                         <outlet property="textView" destination="zli-bs-evh" id="GnI-Ds-cIi"/>
-                        <outlet property="typeLabel" destination="TNJ-Ub-gME" id="Pq7-9I-9At"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cvE-eo-69r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5036" y="3276"/>
+            <point key="canvasLocation" x="-5433" y="3279"/>
         </scene>
-        <!--Rulings Info View Controller-->
+        <!--Printings-->
+        <scene sceneID="5XG-yy-dYG">
+            <objects>
+                <viewController storyboardIdentifier="PrintingsVC" title="Printings" id="Lb0-o4-AeQ" customClass="PrintingsInfoViewController" customModule="MTGUtilities" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="syM-U5-3CP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="a4A-R3-3aS">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Printing Cell" textLabel="7Ro-LU-VK7" style="IBUITableViewCellStyleDefault" id="E00-w7-si9">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="E00-w7-si9" id="jwr-ph-rHv">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7Ro-LU-VK7">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="a4A-R3-3aS" firstAttribute="leading" secondItem="XT0-pl-jgL" secondAttribute="leading" id="3d9-xN-NhL"/>
+                            <constraint firstItem="XT0-pl-jgL" firstAttribute="trailing" secondItem="a4A-R3-3aS" secondAttribute="trailing" id="5NO-bd-S68"/>
+                            <constraint firstItem="XT0-pl-jgL" firstAttribute="bottom" secondItem="a4A-R3-3aS" secondAttribute="bottom" id="H7L-lI-pe7"/>
+                            <constraint firstItem="a4A-R3-3aS" firstAttribute="top" secondItem="XT0-pl-jgL" secondAttribute="top" id="g6n-Pc-paM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="XT0-pl-jgL"/>
+                    </view>
+                    <connections>
+                        <outlet property="printingsTableView" destination="a4A-R3-3aS" id="HWU-yi-qeX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EoL-E7-y9f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4703" y="3279"/>
+        </scene>
+        <!--Rulings-->
         <scene sceneID="LNK-6J-gNN">
             <objects>
-                <viewController storyboardIdentifier="RulingsVC" id="rra-Bt-NVB" customClass="RulingsInfoViewController" customModule="MTGUtilities" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RulingsVC" title="Rulings" id="rra-Bt-NVB" customClass="RulingsInfoViewController" customModule="MTGUtilities" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PCM-RA-TBJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rulings:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJf-iA-IZE">
-                                <rect key="frame" x="8" y="28" width="70" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <rect key="frame" x="8" y="20" width="89.5" height="31.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilh-q8-ufl">
-                                <rect key="frame" x="8" y="76" width="359" height="583"/>
+                                <rect key="frame" x="8" y="59.5" width="359" height="599.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -836,8 +876,8 @@
                             <constraint firstItem="rzq-mU-Pz0" firstAttribute="trailing" secondItem="ilh-q8-ufl" secondAttribute="trailing" constant="8" id="6WZ-gi-pIf"/>
                             <constraint firstItem="ilh-q8-ufl" firstAttribute="leading" secondItem="rzq-mU-Pz0" secondAttribute="leading" constant="8" id="NvB-yP-cy1"/>
                             <constraint firstItem="nJf-iA-IZE" firstAttribute="leading" secondItem="rzq-mU-Pz0" secondAttribute="leading" constant="8" id="hTx-eg-seW"/>
-                            <constraint firstItem="nJf-iA-IZE" firstAttribute="top" secondItem="rzq-mU-Pz0" secondAttribute="top" constant="8" id="iFK-fC-Tq6"/>
-                            <constraint firstItem="ilh-q8-ufl" firstAttribute="top" secondItem="nJf-iA-IZE" secondAttribute="bottom" constant="24" id="oDj-Dk-Xcx"/>
+                            <constraint firstItem="nJf-iA-IZE" firstAttribute="top" secondItem="rzq-mU-Pz0" secondAttribute="top" id="iFK-fC-Tq6"/>
+                            <constraint firstItem="ilh-q8-ufl" firstAttribute="top" secondItem="nJf-iA-IZE" secondAttribute="bottom" constant="8" id="oDj-Dk-Xcx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rzq-mU-Pz0"/>
                     </view>
@@ -847,7 +887,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BOK-dt-Ua6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4256" y="3280"/>
+            <point key="canvasLocation" x="-3986" y="3278"/>
         </scene>
         <!--Card Info Page View Controller-->
         <scene sceneID="JOz-oV-pme">
@@ -855,7 +895,7 @@
                 <viewController id="4MW-el-lbp" customClass="CardInfoPageViewController" customModule="MTGUtilities" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e2z-Ic-wn2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4708" y="2692"/>
+            <point key="canvasLocation" x="-4662" y="2706"/>
         </scene>
     </scenes>
     <resources>

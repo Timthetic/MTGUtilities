@@ -16,6 +16,7 @@
 		5504B6CC21387189006E7FAF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5504B6CB21387189006E7FAF /* SearchViewController.swift */; };
 		55118B8A213C5C23003AE235 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55118B89213C5C23003AE235 /* SettingsViewController.swift */; };
 		55118B8D213C5E80003AE235 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 55118B8B213C5E80003AE235 /* Model.xcdatamodeld */; };
+		551E62AA2146E5B0004E75CD /* PrintingsInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551E62A92146E5B0004E75CD /* PrintingsInfoViewController.swift */; };
 		5541A92A21337C66000D0BA9 /* LifeCounterHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5541A92921337C66000D0BA9 /* LifeCounterHistoryViewController.swift */; };
 		5541A92C21337D28000D0BA9 /* GameHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5541A92B21337D28000D0BA9 /* GameHistoryCell.swift */; };
 		5545D07E212B6BA800B13120 /* PlayerLifeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5545D07D212B6BA800B13120 /* PlayerLifeView.xib */; };
@@ -55,6 +56,7 @@
 		5504B6CB21387189006E7FAF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		55118B89213C5C23003AE235 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		55118B8C213C5E80003AE235 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		551E62A92146E5B0004E75CD /* PrintingsInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintingsInfoViewController.swift; sourceTree = "<group>"; };
 		5541A92921337C66000D0BA9 /* LifeCounterHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCounterHistoryViewController.swift; sourceTree = "<group>"; };
 		5541A92B21337D28000D0BA9 /* GameHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHistoryCell.swift; sourceTree = "<group>"; };
 		5545D07D212B6BA800B13120 /* PlayerLifeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerLifeView.xib; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				55E015A2214080AF00C51613 /* CardViewController.swift */,
 				555067DB2141A30800186422 /* CardInfoPageViewController.swift */,
 				555067DD2141AC2100186422 /* TextInfoViewController.swift */,
+				551E62A92146E5B0004E75CD /* PrintingsInfoViewController.swift */,
 				555067DF2141AC3200186422 /* RulingsInfoViewController.swift */,
 			);
 			path = Controller;
@@ -443,6 +446,7 @@
 				55E015A5214084C300C51613 /* Utilities.swift in Sources */,
 				5586E4B1213C6ADC00FAAA0E /* Card+CoreDataClass.swift in Sources */,
 				5541A92C21337D28000D0BA9 /* GameHistoryCell.swift in Sources */,
+				551E62AA2146E5B0004E75CD /* PrintingsInfoViewController.swift in Sources */,
 				55865E21212C7C840025D771 /* Player.swift in Sources */,
 				5541A92A21337C66000D0BA9 /* LifeCounterHistoryViewController.swift in Sources */,
 				55C3058B2135DEFF003B3CE3 /* ColorCell.swift in Sources */,
