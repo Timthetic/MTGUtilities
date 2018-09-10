@@ -584,28 +584,15 @@
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=compact" hidden="YES"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S3U-VO-jvC">
-                                <rect key="frame" x="172.5" y="155" width="194.5" height="30"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n7b-ba-M7J">
-                                        <rect key="frame" x="0.0" y="0.0" width="194.5" height="30"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="QAF-wp-qac"/>
-                                </constraints>
-                                <variation key="heightClass=compact" hidden="YES"/>
-                            </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QzP-eJ-dVR">
-                                <rect key="frame" x="172.5" y="209" width="0.0" height="0.0"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Power / Toughness" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QzP-eJ-dVR">
+                                <rect key="frame" x="173" y="203" width="164.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=compact" hidden="YES"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYC-Tn-HjO">
-                                <rect key="frame" x="172.5" y="217" width="0.0" height="0.0"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 / 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYC-Tn-HjO">
+                                <rect key="frame" x="173" y="235" width="34.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -633,6 +620,18 @@
                                 </userDefinedRuntimeAttributes>
                                 <variation key="heightClass=compact" hidden="YES"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4LY-Cu-Bha">
+                                <rect key="frame" x="172" y="155" width="195" height="24"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Mana">
+                                        <attributes>
+                                            <font key="NSFont" size="20" name=".SFNSDisplay"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -640,17 +639,15 @@
                             <constraint firstItem="Y0B-dB-rfC" firstAttribute="top" secondItem="Fhb-7V-OKV" secondAttribute="top" id="62a-q8-dbN"/>
                             <constraint firstItem="RuG-sF-j0P" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="uL6-uA-kSL" secondAttribute="trailing" id="9sD-h2-hH6"/>
                             <constraint firstItem="Y0B-dB-rfC" firstAttribute="trailing" secondItem="Fhb-7V-OKV" secondAttribute="trailing" id="EsO-eF-OYc"/>
+                            <constraint firstItem="4LY-Cu-Bha" firstAttribute="top" secondItem="RuG-sF-j0P" secondAttribute="bottom" constant="8" id="HAr-7P-MeU"/>
                             <constraint firstItem="Y0B-dB-rfC" firstAttribute="top" secondItem="bSI-20-cEz" secondAttribute="bottom" constant="16" id="HGn-5Q-wJd"/>
                             <constraint firstItem="Y0B-dB-rfC" firstAttribute="leading" secondItem="Fhb-7V-OKV" secondAttribute="leading" id="JUV-8r-xoq"/>
                             <constraint firstItem="Fhb-7V-OKV" firstAttribute="bottom" secondItem="Y0B-dB-rfC" secondAttribute="bottom" id="KNC-bg-3Fn"/>
                             <constraint firstItem="uL6-uA-kSL" firstAttribute="top" secondItem="Fhb-7V-OKV" secondAttribute="top" constant="16" id="LpC-U4-fEK"/>
                             <constraint firstItem="bSI-20-cEz" firstAttribute="top" secondItem="Fhb-7V-OKV" secondAttribute="top" constant="8" id="NSR-KC-flS"/>
                             <constraint firstItem="RuG-sF-j0P" firstAttribute="top" secondItem="Fhb-7V-OKV" secondAttribute="top" constant="8" id="NkF-Wo-PqY"/>
-                            <constraint firstItem="S3U-VO-jvC" firstAttribute="leading" secondItem="bSI-20-cEz" secondAttribute="trailing" constant="8" id="PJa-XX-7gP"/>
-                            <constraint firstItem="Fhb-7V-OKV" firstAttribute="trailing" secondItem="S3U-VO-jvC" secondAttribute="trailing" constant="8" id="RUn-eP-oN6"/>
-                            <constraint firstItem="QzP-eJ-dVR" firstAttribute="top" secondItem="S3U-VO-jvC" secondAttribute="bottom" constant="24" id="Rdy-LQ-55j"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QzP-eJ-dVR" secondAttribute="trailing" constant="20" symbolic="YES" id="VlY-EM-JJR"/>
-                            <constraint firstItem="S3U-VO-jvC" firstAttribute="top" secondItem="RuG-sF-j0P" secondAttribute="bottom" constant="8" id="eKf-Ig-p23"/>
+                            <constraint firstItem="QzP-eJ-dVR" firstAttribute="top" secondItem="4LY-Cu-Bha" secondAttribute="bottom" constant="24" id="cLe-RU-0mX"/>
                             <constraint firstItem="Fhb-7V-OKV" firstAttribute="trailing" secondItem="RuG-sF-j0P" secondAttribute="trailing" constant="8" id="fJ7-wL-biQ"/>
                             <constraint firstItem="QzP-eJ-dVR" firstAttribute="leading" secondItem="bSI-20-cEz" secondAttribute="trailing" constant="8" id="hWS-2b-LsD"/>
                             <constraint firstItem="bSI-20-cEz" firstAttribute="leading" secondItem="Fhb-7V-OKV" secondAttribute="leading" constant="8" id="ib7-Ke-FkJ"/>
@@ -660,7 +657,9 @@
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uL6-uA-kSL" secondAttribute="trailing" constant="8" id="tuG-h6-l67"/>
                             <constraint firstItem="sYC-Tn-HjO" firstAttribute="top" secondItem="QzP-eJ-dVR" secondAttribute="bottom" constant="8" id="wmX-MN-kbb"/>
                             <constraint firstItem="bSI-20-cEz" firstAttribute="width" secondItem="E3W-OA-h8g" secondAttribute="width" multiplier="5/12" id="yFi-in-jwS"/>
+                            <constraint firstItem="4LY-Cu-Bha" firstAttribute="leading" secondItem="bSI-20-cEz" secondAttribute="trailing" constant="8" id="yjz-Xq-mua"/>
                             <constraint firstItem="sYC-Tn-HjO" firstAttribute="leading" secondItem="bSI-20-cEz" secondAttribute="trailing" constant="8" id="yyX-Cf-EYA"/>
+                            <constraint firstItem="Fhb-7V-OKV" firstAttribute="trailing" secondItem="4LY-Cu-Bha" secondAttribute="trailing" constant="8" id="zrL-ZZ-tbL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fhb-7V-OKV"/>
                         <variation key="default">
@@ -680,7 +679,7 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="bSI-20-cEz" id="LD0-gs-2SY"/>
-                        <outlet property="manaStack" destination="S3U-VO-jvC" id="ILo-rJ-NgQ"/>
+                        <outlet property="manaLabel" destination="4LY-Cu-Bha" id="y0E-aO-xrX"/>
                         <outlet property="numberView" destination="RuG-sF-j0P" id="Tnb-tt-f01"/>
                         <outlet property="powerToughnessLabel" destination="sYC-Tn-HjO" id="JSu-A4-dsH"/>
                         <outlet property="powerToughnessTitle" destination="QzP-eJ-dVR" id="YOK-tF-h43"/>

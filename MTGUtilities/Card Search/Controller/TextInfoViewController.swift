@@ -27,10 +27,13 @@ class TextInfoViewController: UIViewController {
         if let card = cardDataSource?.card{
             if let uniqueCard = cardDataSource?.uniqueCard{
                 
-                let cardText = "Type: \(card.type)\n\n\(card.text ?? "")\n\n"
-                let attributedText = NSMutableAttributedString(string: cardText, attributes: [.font:MyFont.bodyFont])
+                let cardText = stringWithManaSymbols(fromString: "Type: \(card.type)\n\n\(card.text ?? "")\n\n", withFont: MyFont.bodyFont)
+                let attributedText = NSMutableAttributedString(string: "", attributes: [.font:MyFont.bodyFont])
+                attributedText.append(cardText)
+                
                 let flavorAttributedText = NSAttributedString(string: uniqueCard.flavor ?? "", attributes: [.font: MyFont.italicFont])
                 attributedText.append(flavorAttributedText)
+                
                 textView.attributedText = attributedText
                 //textView.setContentOffset(CGPoint.zero, animated: true)
             }

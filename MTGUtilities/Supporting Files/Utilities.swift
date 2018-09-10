@@ -34,6 +34,54 @@ func parse(manaCost: String)->[String]{
     return parsedCost
 }
 
+/*
+ let string = NSMutableAttributedString(string: "St")
+ let image1Attachment = NSTextAttachment()
+ image1Attachment.image = #imageLiteral(resourceName: "R")
+ image1Attachment.bounds = CGRect(x: 0, y: -5, width: 25, height: 25)
+ let image1String = NSAttributedString(attachment: image1Attachment)
+ string.append(image1String)
+ string.append(NSAttributedString(string: "End"))
+ powerToughnessLabel.attributedText = string
+ */
+
+
+func stringWithManaSymbols(fromString string: String, withFont font: UIFont) -> NSMutableAttributedString{
+    //No mana cost symbols have nested {}, so I won't account for them.
+    let attributedString = NSMutableAttributedString(string: "", attributes: [.font : font])
+    var it = string.startIndex
+    var start: String.Index?
+//    var read = string.startIndex
+    while it != string.endIndex
+    {
+        let char = string[it]
+        switch char{
+        case "{":
+            attributedString.append(NSAttributedString(string: String(string[(start ?? string.startIndex)..<it]), attributes: [.font : font]))
+            
+            start = it
+        case "}":
+            if start == nil{break}
+            let parsedCost = parse(manaCost: String(string[start!...it])).compactMap({$0}).joined()
+            let image = UIImage(named: "\(parsedCost).png")
+            let imageAttachment = NSTextAttachment()
+            imageAttachment.image = image
+            imageAttachment.bounds = CGRect(x: 0, y: -5, width: 25, height: 25)
+            let imageString = NSAttributedString(attachment: imageAttachment)
+            attributedString.append(imageString)
+            
+            start = string.index(after: it)
+        default:
+            break
+        }
+        it = string.index(after: it)
+    }
+    attributedString.append(NSAttributedString(string: String(string[((start ?? string.startIndex) ..< string.endIndex)]), attributes: [.font : font]))
+
+    return attributedString
+    
+}
+
 /**
  Returns the `UIColor` for each mana color (green for 'G', blue for 'U'...)
  - Parameter string: One of the folowing: "W", "U", "G", "R", "B"
@@ -73,4 +121,6 @@ extension UIFont {
         return withTraits(traits: .traitItalic)
     }
 }
+
+
 

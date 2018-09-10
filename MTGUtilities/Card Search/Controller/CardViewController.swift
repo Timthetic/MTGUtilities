@@ -21,7 +21,7 @@ class CardViewController: UIViewController, CardDataSource{
             uniqueCard = card?.printings?.anyObject() as? UniqueCard
         }
     }
-    @IBOutlet weak var manaStack: UIStackView!
+    @IBOutlet weak var manaLabel: UILabel!
 //    @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
 //    @IBOutlet weak var textView: UITextView!
@@ -52,24 +52,24 @@ class CardViewController: UIViewController, CardDataSource{
         
         
         //Checks if card has power, toughness, or loyalty.  Hides those lables if it doesn't.
-//        if let power = card.power, let toughness = card.toughness{
-//            powerToughnessTitle.text = "Power / Toughness"
-//            powerToughnessLabel.text = "\(power) / \(toughness)"
-//            powerToughnessTitle.isHidden = false
-//            powerToughnessLabel.isHidden = false
-//        }
-//        else if card.loyalty != -1{
-//            let loyalty = card.loyalty
-//            powerToughnessTitle.text = "Loyalty"
-//            powerToughnessLabel.text = "\(loyalty)"
-//            powerToughnessTitle.isHidden = false
-//            powerToughnessLabel.isHidden = false
-//        }
-//        else{
-//            powerToughnessTitle.isHidden = true
-//            powerToughnessLabel.isHidden = true
-//        }
-    
+        if let power = card.power, let toughness = card.toughness{
+            powerToughnessTitle.text = "Power / Toughness"
+            powerToughnessLabel.text = "\(power) / \(toughness)"
+            powerToughnessTitle.isHidden = false
+            powerToughnessLabel.isHidden = false
+        }
+        else if card.loyalty != -1{
+            let loyalty = card.loyalty
+            powerToughnessTitle.text = "Loyalty"
+            powerToughnessLabel.text = "\(loyalty)"
+            powerToughnessTitle.isHidden = false
+            powerToughnessLabel.isHidden = false
+        }
+        else{
+            powerToughnessTitle.isHidden = true
+            powerToughnessLabel.isHidden = true
+        }
+
         
         //Fetches the card image
         DispatchQueue.global(qos: .userInitiated).async{[weak self] in
@@ -90,15 +90,16 @@ class CardViewController: UIViewController, CardDataSource{
         }
         
         //Displayes the mana cost
-        let manaCost = parse(manaCost: card.manaCost ?? "")
-        manaStack.arrangedSubviews.forEach({manaStack.removeArrangedSubview($0)})
-        for symbol in manaCost.reversed(){
-            let width = min(self.view.frame.width / 12, manaStack.frame.width / CGFloat(manaCost.count))
-            let imageView = UIImageView(image: UIImage(named: "\(symbol).png") ?? #imageLiteral(resourceName: "0"))
-            imageView.contentMode = .scaleAspectFit
-            imageView.widthAnchor.constraint(equalToConstant: width).isActive = true
-            manaStack.insertArrangedSubview(imageView, at: 0)
-        }
+//        let manaCost = parse(manaCost: card.manaCost ?? "")
+//        manaStack.arrangedSubviews.forEach({manaStack.removeArrangedSubview($0)})
+//        for symbol in manaCost.reversed(){
+//            let width = min(self.view.frame.width / 12, manaStack.frame.width / CGFloat(manaCost.count))
+//            let imageView = UIImageView(image: UIImage(named: "\(symbol).png") ?? #imageLiteral(resourceName: "0"))
+//            imageView.contentMode = .scaleAspectFit
+//            imageView.widthAnchor.constraint(equalToConstant: width).isActive = true
+//            manaStack.insertArrangedSubview(imageView, at: 0)
+//        }
+        manaLabel.attributedText = stringWithManaSymbols(fromString: card.manaCost ?? "", withFont: MyFont.bodyFont)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
