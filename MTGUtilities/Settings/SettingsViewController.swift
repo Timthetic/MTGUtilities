@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-
+//FIXME: Not all rulings are loaded
 //FIXME: I'm pretty sure I have some pretty bad memory leakage going on here
 class SettingsViewController: UIViewController {
 
@@ -93,6 +93,8 @@ class SettingsViewController: UIViewController {
                     for card in cards{
                         do{
                             //Insert card into database
+                            //FIXME: Don't cram data into a million different forms
+                            //FIXME: Also I'm pretty sure card, newCard, and jsonCard are all passed by VALUE. RIP memory.
                             let newCard = try JSONSerialization.data(withJSONObject: card, options: JSONSerialization.WritingOptions.sortedKeys)
                             if let jsonCard = JsonCard(json: newCard, setCode: code, setName: name){
                                 context.perform {

@@ -17,6 +17,7 @@
 		55118B8A213C5C23003AE235 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55118B89213C5C23003AE235 /* SettingsViewController.swift */; };
 		55118B8D213C5E80003AE235 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 55118B8B213C5E80003AE235 /* Model.xcdatamodeld */; };
 		551E62AA2146E5B0004E75CD /* PrintingsInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551E62A92146E5B0004E75CD /* PrintingsInfoViewController.swift */; };
+		551FC6652148413E00209A97 /* SwitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551FC6642148413E00209A97 /* SwitchViewController.swift */; };
 		5541A92A21337C66000D0BA9 /* LifeCounterHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5541A92921337C66000D0BA9 /* LifeCounterHistoryViewController.swift */; };
 		5541A92C21337D28000D0BA9 /* GameHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5541A92B21337D28000D0BA9 /* GameHistoryCell.swift */; };
 		5545D07E212B6BA800B13120 /* PlayerLifeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5545D07D212B6BA800B13120 /* PlayerLifeView.xib */; };
@@ -57,6 +58,7 @@
 		55118B89213C5C23003AE235 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		55118B8C213C5E80003AE235 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		551E62A92146E5B0004E75CD /* PrintingsInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintingsInfoViewController.swift; sourceTree = "<group>"; };
+		551FC6642148413E00209A97 /* SwitchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchViewController.swift; sourceTree = "<group>"; };
 		5541A92921337C66000D0BA9 /* LifeCounterHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCounterHistoryViewController.swift; sourceTree = "<group>"; };
 		5541A92B21337D28000D0BA9 /* GameHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHistoryCell.swift; sourceTree = "<group>"; };
 		5545D07D212B6BA800B13120 /* PlayerLifeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerLifeView.xib; sourceTree = "<group>"; };
@@ -124,8 +126,13 @@
 		5504B6C721386F1C006E7FAF /* Card Search */ = {
 			isa = PBXGroup;
 			children = (
-				5504B6CA2138715A006E7FAF /* Controller */,
-				5504B6C921387157006E7FAF /* Model */,
+				5504B6CB21387189006E7FAF /* SearchViewController.swift */,
+				55E015A2214080AF00C51613 /* CardViewController.swift */,
+				555067DB2141A30800186422 /* CardInfoPageViewController.swift */,
+				555067DD2141AC2100186422 /* TextInfoViewController.swift */,
+				551E62A92146E5B0004E75CD /* PrintingsInfoViewController.swift */,
+				555067DF2141AC3200186422 /* RulingsInfoViewController.swift */,
+				551FC6642148413E00209A97 /* SwitchViewController.swift */,
 				5504B6C82138714A006E7FAF /* View */,
 			);
 			path = "Card Search";
@@ -141,56 +148,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		5504B6C921387157006E7FAF /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		5504B6CA2138715A006E7FAF /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				5504B6CB21387189006E7FAF /* SearchViewController.swift */,
-				55E015A2214080AF00C51613 /* CardViewController.swift */,
-				555067DB2141A30800186422 /* CardInfoPageViewController.swift */,
-				555067DD2141AC2100186422 /* TextInfoViewController.swift */,
-				551E62A92146E5B0004E75CD /* PrintingsInfoViewController.swift */,
-				555067DF2141AC3200186422 /* RulingsInfoViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 		55118B85213C509F003AE235 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				55118B88213C50B4003AE235 /* Controller */,
-				55118B87213C50B1003AE235 /* View */,
-				55118B86213C50AF003AE235 /* Model */,
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
-		55118B86213C50AF003AE235 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		55118B87213C50B1003AE235 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		55118B88213C50B4003AE235 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				55118B89213C5C23003AE235 /* SettingsViewController.swift */,
 			);
-			path = Controller;
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		55118B92213C6739003AE235 /* Core Data */ = {
@@ -210,18 +173,10 @@
 		5541A92521337C19000D0BA9 /* Life Counter History */ = {
 			isa = PBXGroup;
 			children = (
-				5541A92821337C38000D0BA9 /* Controller */,
+				5541A92921337C66000D0BA9 /* LifeCounterHistoryViewController.swift */,
 				5541A92721337C33000D0BA9 /* View */,
-				5541A92621337C2B000D0BA9 /* Model */,
 			);
 			path = "Life Counter History";
-			sourceTree = "<group>";
-		};
-		5541A92621337C2B000D0BA9 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		5541A92721337C33000D0BA9 /* View */ = {
@@ -232,18 +187,11 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		5541A92821337C38000D0BA9 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				5541A92921337C66000D0BA9 /* LifeCounterHistoryViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 		55865E22212DE2D70025D771 /* Life Counter Main */ = {
 			isa = PBXGroup;
 			children = (
-				55FA4530212B238A0003FB43 /* Controller */,
+				55865E24212DE7720025D771 /* PlayerNumberViewController.swift */,
+				55FA4531212B23AB0003FB43 /* LifeCounterViewController.swift */,
 				55FA452F212B23820003FB43 /* View */,
 				55FA452E212B23720003FB43 /* Model */,
 			);
@@ -261,18 +209,10 @@
 		55C305802135B8D6003B3CE3 /* Life Counter Customization */ = {
 			isa = PBXGroup;
 			children = (
-				55C305832135B8F2003B3CE3 /* Controller */,
+				55C305842135C609003B3CE3 /* LifeCounterCustomizationViewController.swift */,
 				55C305822135B8EE003B3CE3 /* View */,
-				55C305812135B8E6003B3CE3 /* Model */,
 			);
 			path = "Life Counter Customization";
-			sourceTree = "<group>";
-		};
-		55C305812135B8E6003B3CE3 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		55C305822135B8EE003B3CE3 /* View */ = {
@@ -282,14 +222,6 @@
 				55C3058A2135DEFF003B3CE3 /* ColorCell.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		55C305832135B8F2003B3CE3 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				55C305842135C609003B3CE3 /* LifeCounterCustomizationViewController.swift */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		55FA4510212B222A0003FB43 = {
@@ -341,15 +273,6 @@
 				55DFC32B212F54BA009EB768 /* Die.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		55FA4530212B238A0003FB43 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				55865E24212DE7720025D771 /* PlayerNumberViewController.swift */,
-				55FA4531212B23AB0003FB43 /* LifeCounterViewController.swift */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -431,6 +354,7 @@
 				55007067213EF57100CB8032 /* Set+CoreDataProperties.swift in Sources */,
 				5586E4B4213C787E00FAAA0E /* JsonCard.swift in Sources */,
 				55007069213EF57100CB8032 /* UniqueCard+CoreDataClass.swift in Sources */,
+				551FC6652148413E00209A97 /* SwitchViewController.swift in Sources */,
 				5500706A213EF57100CB8032 /* UniqueCard+CoreDataProperties.swift in Sources */,
 				555067E02141AC3200186422 /* RulingsInfoViewController.swift in Sources */,
 				555D35C121346944002F03BF /* GameEvent.swift in Sources */,

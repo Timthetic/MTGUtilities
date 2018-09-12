@@ -88,8 +88,8 @@ func stringWithManaSymbols(fromString string: String, withFont font: UIFont) -> 
  - Returns: a `UIColor` for either white, blue, green, red, or black
  */
 func strToColor(_ string: String) -> UIColor?{
-    if let index = Consts.colorSymbols.index(of: string), Consts.colors.indices.contains(index){
-        return Consts.colors[index]
+    if let index = CONSTS.colorSymbols.index(of: string), CONSTS.colors.indices.contains(index){
+        return CONSTS.colors[index]
     }
     return nil
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-struct Consts {
+struct CONSTS {
     static let FONT_TO_HEIGHT: CGFloat = 1/12
     static let HORIZONTAL_GAP_BETWEEN_LIFEVIEWS: CGFloat = 0.1
     static let colors: [UIColor] = [UIColor.red.withAlphaComponent(0.5),
@@ -17,9 +17,10 @@ struct Consts {
                                         UIColor.black.withAlphaComponent(0.5),
                                         UIColor.yellow.withAlphaComponent(0.15)]
     static let colorSymbols = ["R", "G", "U", "B", "W"]
-    
+    static let FORCE_TOUCH_THRESHOLD: CGFloat = 5.0
 }
 struct MyFont{
     static let bodyFont = UIFont.preferredFont(forTextStyle: .body)
     static let italicFont = UIFont.preferredFont(forTextStyle: .body).italic()
 }
+

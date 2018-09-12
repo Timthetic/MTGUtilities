@@ -28,6 +28,7 @@ class CardViewController: UIViewController, CardDataSource{
     @IBOutlet weak var numberView: ConvertedManaCostView!
     @IBOutlet weak var powerToughnessTitle: UILabel!
     @IBOutlet weak var powerToughnessLabel: UILabel!
+    @IBOutlet weak var infoView: UIView!
     
     let colors: [UIColor] = []
     
@@ -66,11 +67,13 @@ class CardViewController: UIViewController, CardDataSource{
             powerToughnessLabel.isHidden = false
         }
         else{
+            powerToughnessLabel.text = ""
+            powerToughnessTitle.text = ""
             powerToughnessTitle.isHidden = true
             powerToughnessLabel.isHidden = true
         }
 
-        
+        //TODO: We should cache this image
         //Fetches the card image
         DispatchQueue.global(qos: .userInitiated).async{[weak self] in
             let mid = uniqueCard.multiverseId

@@ -21,7 +21,7 @@ class CardInfoPageViewController: UIPageViewController, UIPageViewControllerDele
 //        return uniqueCard
 //    }
     
-    var currentPage: Int = 0
+    private var currentPage: Int = 0
     
     var cardDataSource: CardDataSource?
     
@@ -37,7 +37,15 @@ class CardInfoPageViewController: UIPageViewController, UIPageViewControllerDele
         }
     }
     
-    lazy var orderedViewControllers: [UIViewController] = {
+    private lazy var switchVC: SwitchViewController = {
+        let vc = createVC(withSBIdentifier: "SwitchVC") as! SwitchViewController
+        if !UIAccessibilityIsReduceTransparencyEnabled(){
+            vc.modalPresentationStyle = .overCurrentContext
+        }
+        return vc
+    }()
+    
+    private lazy var orderedViewControllers: [UIViewController] = {
         //FIXME: I really don't like this
         let card = (parent as? CardViewController)?.card
         let textVC = createVC(withSBIdentifier: "TextVC") as! TextInfoViewController
@@ -91,14 +99,25 @@ class CardInfoPageViewController: UIPageViewController, UIPageViewControllerDele
             setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
         }
         
+        
+        
+        
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+    override func touchesMoved(_ touches: Swift.Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
+        if touches.count > 1{
+            return
+        }
+        if let touch = touches.first{
+            if touch.force > CONSTS.FORCE_TOUCH_THRESHOLD{
+                
+                present(switchVC, animated: true, completion: nil)
+            }
+        }
     }
-    
 
     /*
     // MARK: - Navigation

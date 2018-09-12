@@ -279,8 +279,8 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
             lifeViews[0].frame = CGRect(x: 0, y: contentHeight / 4, width: contentWidth, height: contentHeight / 2)
         }
         else if numberOfPlayers == 2{
-            let buttonPosition = contentHeight * (0.5 - Consts.HORIZONTAL_GAP_BETWEEN_LIFEVIEWS / 2)
-            let buttonHeight = contentHeight * (Consts.HORIZONTAL_GAP_BETWEEN_LIFEVIEWS)
+            let buttonPosition = contentHeight * (0.5 - CONSTS.HORIZONTAL_GAP_BETWEEN_LIFEVIEWS / 2)
+            let buttonHeight = contentHeight * (CONSTS.HORIZONTAL_GAP_BETWEEN_LIFEVIEWS)
             lifeViews[0].frame = CGRect(x: 0,
                                         y: 0,
                                         width: contentWidth,
@@ -297,8 +297,8 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
             
         }
         else if numberOfPlayers == 3{
-            let buttonPosition = contentHeight * (0.65 - Consts.HORIZONTAL_GAP_BETWEEN_LIFEVIEWS / 2)
-            let buttonHeight = contentHeight * (Consts.HORIZONTAL_GAP_BETWEEN_LIFEVIEWS)
+            let buttonPosition = contentHeight * (0.65 - CONSTS.HORIZONTAL_GAP_BETWEEN_LIFEVIEWS / 2)
+            let buttonHeight = contentHeight * (CONSTS.HORIZONTAL_GAP_BETWEEN_LIFEVIEWS)
             passButton.frame = CGRect(x: 0,
                                       y: buttonPosition,
                                       width: contentWidth,
@@ -323,8 +323,8 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
             lifeViews[2].transform = CGAffineTransform(rotationAngle: CGFloat.pi * (3/2))
         }
         else if numberOfPlayers == 4{
-            let buttonPosition = contentHeight * (0.5 - Consts.HORIZONTAL_GAP_BETWEEN_LIFEVIEWS / 2)
-            let buttonHeight = contentHeight * (Consts.HORIZONTAL_GAP_BETWEEN_LIFEVIEWS)
+            let buttonPosition = contentHeight * (0.5 - CONSTS.HORIZONTAL_GAP_BETWEEN_LIFEVIEWS / 2)
+            let buttonHeight = contentHeight * (CONSTS.HORIZONTAL_GAP_BETWEEN_LIFEVIEWS)
             passButton.frame = CGRect(x: 0,
                                       y: buttonPosition,
                                       width: contentWidth,
@@ -345,7 +345,7 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         layoutLifeBoxes()
-        passButton.titleLabel?.font = passButton.titleLabel?.font.withSize(ContentArea.frame.height * Consts.FONT_TO_HEIGHT)
+        passButton.titleLabel?.font = passButton.titleLabel?.font.withSize(ContentArea.frame.height * CONSTS.FONT_TO_HEIGHT)
     }
     
     override func viewDidLoad() {

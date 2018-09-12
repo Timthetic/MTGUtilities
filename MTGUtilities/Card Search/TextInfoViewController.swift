@@ -16,11 +16,16 @@ class TextInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        textView.isExclusiveTouch = false
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateUI()
+    }
+    
+    override func touchesMoved(_ touches: Swift.Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
     }
     
     func updateUI(){
@@ -48,6 +53,7 @@ class TextInfoViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
 
     /*
