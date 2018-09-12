@@ -30,9 +30,9 @@ class RulingsInfoViewController: UIViewController {
     
     func updateUI(){
         if !isSet{
-            if let card = cardDataSource?.card, let rulings = card.rulings{
+            if let card = cardDataSource?.card, let rulings = card.rulings, let rulingDates = card.rulingDates{
                 for index in rulings.indices{
-                    rulingsView.text.append("\(rulings[index].key): \(rulings[index].value)\n")
+                    rulingsView.text.append("\(rulingDates[index]): \(rulings[index])\n")
                 }
                 isSet = true
             }

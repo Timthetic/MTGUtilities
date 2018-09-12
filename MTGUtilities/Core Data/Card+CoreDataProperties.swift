@@ -24,7 +24,8 @@ extension Card {
     @NSManaged public var manaCost: String? //
     @NSManaged public var name: String? //
     @NSManaged public var power: String?
-    @NSManaged public var rulings: [String:String]?
+    @NSManaged public var rulings: [String]?
+    @NSManaged public var rulingDates: [String]?
     @NSManaged public var subtypes: String? //
     @NSManaged public var text: String?
     @NSManaged public var toughness: String?

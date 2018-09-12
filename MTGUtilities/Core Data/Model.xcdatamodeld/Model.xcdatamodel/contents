@@ -8,6 +8,7 @@
         <attribute name="manaCost" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="power" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rulingDates" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="rulings" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="subtypes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
@@ -29,8 +30,8 @@
         <relationship name="set" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Set" inverseName="cards" inverseEntity="Set" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Card" positionX="-7967" positionY="495" width="128" height="238"/>
-        <element name="UniqueCard" positionX="-7751" positionY="767" width="128" height="133"/>
+        <element name="Card" positionX="-7967" positionY="495" width="128" height="255"/>
         <element name="Set" positionX="-8217" positionY="774" width="128" height="88"/>
+        <element name="UniqueCard" positionX="-7751" positionY="767" width="128" height="133"/>
     </elements>
 </model>

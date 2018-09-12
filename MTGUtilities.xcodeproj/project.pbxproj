@@ -126,14 +126,8 @@
 		5504B6C721386F1C006E7FAF /* Card Search */ = {
 			isa = PBXGroup;
 			children = (
-				5504B6CB21387189006E7FAF /* SearchViewController.swift */,
-				55E015A2214080AF00C51613 /* CardViewController.swift */,
-				555067DB2141A30800186422 /* CardInfoPageViewController.swift */,
-				555067DD2141AC2100186422 /* TextInfoViewController.swift */,
-				551E62A92146E5B0004E75CD /* PrintingsInfoViewController.swift */,
-				555067DF2141AC3200186422 /* RulingsInfoViewController.swift */,
-				551FC6642148413E00209A97 /* SwitchViewController.swift */,
-				5504B6C82138714A006E7FAF /* View */,
+				551FC66621497DE200209A97 /* Search */,
+				551FC66721497E0B00209A97 /* Card Display */,
 			);
 			path = "Card Search";
 			sourceTree = "<group>";
@@ -141,7 +135,6 @@
 		5504B6C82138714A006E7FAF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5500706C214043C100CB8032 /* CardCell.swift */,
 				5570B2592142EF3F0004764B /* ConvertedManaCostView.swift */,
 				55C812172141D8890026A36C /* ConvertedManaCostView.xib */,
 			);
@@ -168,6 +161,37 @@
 				55118B8B213C5E80003AE235 /* Model.xcdatamodeld */,
 			);
 			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		551FC66621497DE200209A97 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				5504B6CB21387189006E7FAF /* SearchViewController.swift */,
+				5500706C214043C100CB8032 /* CardCell.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		551FC66721497E0B00209A97 /* Card Display */ = {
+			isa = PBXGroup;
+			children = (
+				55E015A2214080AF00C51613 /* CardViewController.swift */,
+				551FC66821497E2600209A97 /* Pages */,
+			);
+			path = "Card Display";
+			sourceTree = "<group>";
+		};
+		551FC66821497E2600209A97 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				555067DB2141A30800186422 /* CardInfoPageViewController.swift */,
+				555067DD2141AC2100186422 /* TextInfoViewController.swift */,
+				551E62A92146E5B0004E75CD /* PrintingsInfoViewController.swift */,
+				555067DF2141AC3200186422 /* RulingsInfoViewController.swift */,
+				551FC6642148413E00209A97 /* SwitchViewController.swift */,
+				5504B6C82138714A006E7FAF /* View */,
+			);
+			path = Pages;
 			sourceTree = "<group>";
 		};
 		5541A92521337C19000D0BA9 /* Life Counter History */ = {

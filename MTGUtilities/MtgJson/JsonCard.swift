@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct JsonCard: Codable{
+class JsonCard: Codable{
     var cmc: Int?
     var colorIdentity: [String]?
     var colors: [String]?
@@ -49,32 +49,6 @@ struct JsonCard: Codable{
         case toughness = "toughness"
         case type = "type"
         case types = "types"
-    }
-    
-    /**
-     Creates an object for a json representation of a card.  Returns nil if it fails.
-     
-     - Parameter json: The json data.
-     */
-    private init?(json: Data){
-        if let newSelf = try? JSONDecoder().decode(JsonCard.self, from: json){
-            self = newSelf
-        }
-        else{
-            return nil
-        }
-    }
-    /**
-     Creates an object for a json representation of a card.  Returns nil if it fails.
-     
-     - Parameter json: The json data.
-     - Parameter setCode: The set's shortened code.
-     - Parameter setName: The set's full name.
-     */
-    init?(json: Data, setCode: String?, setName: String?){
-        self.init(json: json)
-        self.setCode = setCode
-        self.setName = setName
     }
 }
 

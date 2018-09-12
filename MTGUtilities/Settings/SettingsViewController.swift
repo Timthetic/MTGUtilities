@@ -24,12 +24,12 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var progressBar: UIProgressView!
     
     @IBAction func updateButtonPressed() {
-        let url = URL(string: "https://mtgjson.com/json/AllSets-x.json")!
-        let task = URLSession.shared.dataTask(with: url){data, responce, error in
-            if let error = error{
-                print("\(error)")
-            }
-        }
+//        let url = URL(string: "https://mtgjson.com/json/AllSets-x.json")!
+//        let task = URLSession.shared.dataTask(with: url){data, responce, error in
+//            if let error = error{
+//                print("\(error)")
+//            }
+//        }
     }
     
     ///Loads of the entire database.  Does not replace existing entries.
@@ -94,9 +94,11 @@ class SettingsViewController: UIViewController {
                         do{
                             //Insert card into database
                             //FIXME: Don't cram data into a million different forms
-                            //FIXME: Also I'm pretty sure card, newCard, and jsonCard are all passed by VALUE. RIP memory.
                             let newCard = try JSONSerialization.data(withJSONObject: card, options: JSONSerialization.WritingOptions.sortedKeys)
-                            if let jsonCard = JsonCard(json: newCard, setCode: code, setName: name){
+                            //This is where the card is set
+                            if let jsonCard = try? JSONDecoder().decode(JsonCard.self, from: newCard){
+                                jsonCard.setName = name
+                                jsonCard.setCode = code
                                 context.perform {
                                     Card.insertCardFrom(jsonCard: jsonCard, inManagedObjectContext: context)
                                 }
@@ -125,6 +127,9 @@ class SettingsViewController: UIViewController {
                 //Marks progress
                 self?.progress.complete += 1
                 self?.progressBar.progress = self?.uiProgress ?? 0.0
+                if progress.complete == progress.total{
+                    progressBar.progressTintColor = UIColor.green
+                }
             }
         }
         task.resume()

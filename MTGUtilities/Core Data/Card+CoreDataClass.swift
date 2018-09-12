@@ -50,7 +50,10 @@ public class Card: NSManagedObject {
 //                    newCard.number = jsonCard.number
                     newCard.power = jsonCard.power
 //                    newCard.rarity = jsonCard.rarity
-                    newCard.rulings = Dictionary((jsonCard.rulings?.compactMap({ruling in return ruling.date})), (jsonCard.rulings?.compactMap({ruling in return ruling.text}))) //jsonCard.rulings
+                    newCard.rulingDates = jsonCard.rulings?.compactMap({$0.date})
+                    newCard.rulings = jsonCard.rulings?.compactMap({$0.text})
+//                    print("Json: \(jsonCard.rulings?.count ?? 0)  Data: \(newCard.rulings?.count ?? 0)")
+                    assert(newCard.rulings?.count ?? 0 == jsonCard.rulings?.count ?? 0)
                     newCard.subtypes = jsonCard.subtypes?.compactMap({$0}).joined(separator: " ")
                     newCard.text = jsonCard.text
                     newCard.toughness = jsonCard.toughness
