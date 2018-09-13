@@ -31,6 +31,10 @@
 		55865E25212DE7720025D771 /* PlayerNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55865E24212DE7720025D771 /* PlayerNumberViewController.swift */; };
 		5586E4B1213C6ADC00FAAA0E /* Card+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5586E4AF213C6ADC00FAAA0E /* Card+CoreDataClass.swift */; };
 		5586E4B4213C787E00FAAA0E /* JsonCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5586E4B3213C787E00FAAA0E /* JsonCard.swift */; };
+		55A0A69B214ACE7F0043E2A7 /* DeckListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A0A69A214ACE7F0043E2A7 /* DeckListViewController.swift */; };
+		55A0A69E214AD2DE0043E2A7 /* Deck+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A0A69C214AD2DE0043E2A7 /* Deck+CoreDataClass.swift */; };
+		55A0A69F214AD2DE0043E2A7 /* Deck+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A0A69D214AD2DE0043E2A7 /* Deck+CoreDataProperties.swift */; };
+		55A0A6A2214AE4810043E2A7 /* DeckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A0A6A1214AE4810043E2A7 /* DeckCell.swift */; };
 		55C305852135C609003B3CE3 /* LifeCounterCustomizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C305842135C609003B3CE3 /* LifeCounterCustomizationViewController.swift */; };
 		55C305872135C671003B3CE3 /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C305862135C671003B3CE3 /* PlayerCell.swift */; };
 		55C3058B2135DEFF003B3CE3 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C3058A2135DEFF003B3CE3 /* ColorCell.swift */; };
@@ -72,6 +76,10 @@
 		55865E24212DE7720025D771 /* PlayerNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNumberViewController.swift; sourceTree = "<group>"; };
 		5586E4AF213C6ADC00FAAA0E /* Card+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5586E4B3213C787E00FAAA0E /* JsonCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonCard.swift; sourceTree = "<group>"; };
+		55A0A69A214ACE7F0043E2A7 /* DeckListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckListViewController.swift; sourceTree = "<group>"; };
+		55A0A69C214AD2DE0043E2A7 /* Deck+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Deck+CoreDataClass.swift"; sourceTree = "<group>"; };
+		55A0A69D214AD2DE0043E2A7 /* Deck+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Deck+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		55A0A6A1214AE4810043E2A7 /* DeckCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckCell.swift; sourceTree = "<group>"; };
 		55C305842135C609003B3CE3 /* LifeCounterCustomizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCounterCustomizationViewController.swift; sourceTree = "<group>"; };
 		55C305862135C671003B3CE3 /* PlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
 		55C3058A2135DEFF003B3CE3 /* ColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
@@ -155,9 +163,11 @@
 				55007061213EF57100CB8032 /* Set+CoreDataClass.swift */,
 				55007064213EF57100CB8032 /* UniqueCard+CoreDataClass.swift */,
 				5586E4AF213C6ADC00FAAA0E /* Card+CoreDataClass.swift */,
+				55A0A69C214AD2DE0043E2A7 /* Deck+CoreDataClass.swift */,
 				55007062213EF57100CB8032 /* Set+CoreDataProperties.swift */,
 				55007065213EF57100CB8032 /* UniqueCard+CoreDataProperties.swift */,
 				55007063213EF57100CB8032 /* Card+CoreDataProperties.swift */,
+				55A0A69D214AD2DE0043E2A7 /* Deck+CoreDataProperties.swift */,
 				55118B8B213C5E80003AE235 /* Model.xcdatamodeld */,
 			);
 			path = "Core Data";
@@ -230,6 +240,23 @@
 			path = MtgJson;
 			sourceTree = "<group>";
 		};
+		55A0A694214ABE240043E2A7 /* Deck */ = {
+			isa = PBXGroup;
+			children = (
+				55A0A69A214ACE7F0043E2A7 /* DeckListViewController.swift */,
+				55A0A6A0214AE4700043E2A7 /* View */,
+			);
+			path = Deck;
+			sourceTree = "<group>";
+		};
+		55A0A6A0214AE4700043E2A7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				55A0A6A1214AE4810043E2A7 /* DeckCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		55C305802135B8D6003B3CE3 /* Life Counter Customization */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,9 +296,10 @@
 			children = (
 				5586E4B5213C788A00FAAA0E /* MtgJson */,
 				55118B92213C6739003AE235 /* Core Data */,
-				55118B85213C509F003AE235 /* Settings */,
 				5504B6C721386F1C006E7FAF /* Card Search */,
+				55A0A694214ABE240043E2A7 /* Deck */,
 				5504B6C621386F09006E7FAF /* Life Counter */,
+				55118B85213C509F003AE235 /* Settings */,
 				5500706B214041A400CB8032 /* Supporting Files */,
 				55FA4520212B222A0003FB43 /* Main.storyboard */,
 				55FA4528212B222B0003FB43 /* Info.plist */,
@@ -373,6 +401,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5504B6CC21387189006E7FAF /* SearchViewController.swift in Sources */,
+				55A0A69B214ACE7F0043E2A7 /* DeckListViewController.swift in Sources */,
 				55FA451D212B222A0003FB43 /* AppDelegate.swift in Sources */,
 				55FA4534212B23EF0003FB43 /* GameTracker.swift in Sources */,
 				55007067213EF57100CB8032 /* Set+CoreDataProperties.swift in Sources */,
@@ -402,8 +431,11 @@
 				5500706D214043C100CB8032 /* CardCell.swift in Sources */,
 				55DFC32E21307EAA009EB768 /* Constants.swift in Sources */,
 				55007068213EF57100CB8032 /* Card+CoreDataProperties.swift in Sources */,
+				55A0A69E214AD2DE0043E2A7 /* Deck+CoreDataClass.swift in Sources */,
 				555067DE2141AC2100186422 /* TextInfoViewController.swift in Sources */,
 				55C305852135C609003B3CE3 /* LifeCounterCustomizationViewController.swift in Sources */,
+				55A0A69F214AD2DE0043E2A7 /* Deck+CoreDataProperties.swift in Sources */,
+				55A0A6A2214AE4810043E2A7 /* DeckCell.swift in Sources */,
 				55C305872135C671003B3CE3 /* PlayerCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -127,8 +127,8 @@ class SettingsViewController: UIViewController {
                 //Marks progress
                 self?.progress.complete += 1
                 self?.progressBar.progress = self?.uiProgress ?? 0.0
-                if progress.complete == progress.total{
-                    progressBar.progressTintColor = UIColor.green
+                if self?.progress.complete == self?.progress.total{
+                    self?.progressBar.progressTintColor = UIColor.green
                 }
             }
         }
