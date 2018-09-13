@@ -9,8 +9,21 @@
 import UIKit
 import CoreData
 
-class DeckListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class DeckListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     let context: NSManagedObjectContext = (UIApplication.shared.delegate as? AppDelegate)!.privateContext
+    
+    var CELL_WIDTH: CGFloat = 200
+    
+    @IBAction func pinch(_ sender: UIPinchGestureRecognizer) {
+        CELL_WIDTH *= sender.scale
+        sender.scale = 1.0
+        
+        if CELL_WIDTH > view.frame.width{
+            CELL_WIDTH = view.frame.width
+        }
+        
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
     
     @IBOutlet weak var collectionView: UICollectionView!{
         didSet{
@@ -18,6 +31,7 @@ class DeckListViewController: UIViewController, UICollectionViewDelegate, UIColl
             collectionView.dataSource = self
         }
     }
+
     
     var decks: [Deck] = []{
         didSet{
@@ -26,7 +40,7 @@ class DeckListViewController: UIViewController, UICollectionViewDelegate, UIColl
             }
         }
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 0:
@@ -43,6 +57,11 @@ class DeckListViewController: UIViewController, UICollectionViewDelegate, UIColl
         } else {
             return UICollectionViewCell()
         }
+    }
+    
+    //MARK: - UICollectionViewDelegateFlowLayout
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: CELL_WIDTH, height: CELL_WIDTH * CONSTS.DECKCELL_ASPECT_RATIO)
     }
     
     override func viewDidLoad() {

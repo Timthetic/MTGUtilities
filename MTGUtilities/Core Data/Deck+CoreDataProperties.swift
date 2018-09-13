@@ -18,7 +18,7 @@ extension Deck {
     }
 
     @NSManaged public var name: String?
-    @NSManaged public var colorIdentity: NSObject?
+    @NSManaged public var colorIdentity: [String]?
     @NSManaged public var cards: UniqueCard?
 
 }

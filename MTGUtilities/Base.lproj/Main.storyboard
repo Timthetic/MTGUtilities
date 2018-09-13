@@ -27,32 +27,52 @@
                                 <rect key="frame" x="8" y="72" width="359" height="538"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="w7h-Tr-pvm">
-                                    <size key="itemSize" width="167" height="222"/>
+                                    <size key="itemSize" width="149" height="164"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DeckCell" id="drc-7C-y4r" customClass="DeckCell" customModule="MTGUtilities" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="167" height="222"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="149" height="164"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="167" height="222"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="149" height="164"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deck Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02j-yG-EPw">
-                                                    <rect key="frame" x="33" y="99" width="101" height="24"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uwi-zh-e7N">
+                                                    <rect key="frame" x="0.0" y="0.0" width="149" height="164"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deck Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="02j-yG-EPw">
+                                                    <rect key="frame" x="9.5" y="66" width="130.5" height="32"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9N0-SE-qwY">
+                                                    <rect key="frame" x="43.5" y="113.5" width="62" height="20.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
                                         <constraints>
+                                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="9N0-SE-qwY" secondAttribute="trailing" id="6qC-6Z-p2T"/>
+                                            <constraint firstAttribute="trailing" secondItem="uwi-zh-e7N" secondAttribute="trailing" id="6vS-hk-cWG"/>
+                                            <constraint firstAttribute="bottom" secondItem="uwi-zh-e7N" secondAttribute="bottom" id="83v-Nf-vUy"/>
                                             <constraint firstItem="02j-yG-EPw" firstAttribute="centerX" secondItem="drc-7C-y4r" secondAttribute="centerX" id="Mjm-lv-van"/>
+                                            <constraint firstItem="9N0-SE-qwY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="drc-7C-y4r" secondAttribute="leadingMargin" id="bfe-eF-sQt"/>
+                                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="02j-yG-EPw" secondAttribute="trailing" id="byk-Sd-jYF"/>
+                                            <constraint firstItem="02j-yG-EPw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="drc-7C-y4r" secondAttribute="leadingMargin" id="dv1-UX-onh"/>
                                             <constraint firstItem="02j-yG-EPw" firstAttribute="centerY" secondItem="drc-7C-y4r" secondAttribute="centerY" id="fY0-Ks-xGk"/>
+                                            <constraint firstItem="9N0-SE-qwY" firstAttribute="centerX" secondItem="drc-7C-y4r" secondAttribute="centerX" id="gzr-Nq-3Fl"/>
+                                            <constraint firstItem="uwi-zh-e7N" firstAttribute="top" secondItem="drc-7C-y4r" secondAttribute="top" id="nsl-nB-UV5"/>
+                                            <constraint firstItem="9N0-SE-qwY" firstAttribute="top" secondItem="02j-yG-EPw" secondAttribute="bottom" constant="16" id="pKa-nc-yob"/>
+                                            <constraint firstItem="uwi-zh-e7N" firstAttribute="leading" secondItem="drc-7C-y4r" secondAttribute="leading" id="u34-04-X1i"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="colorIdLabel" destination="9N0-SE-qwY" id="hvZ-Qi-b1k"/>
                                             <outlet property="nameLabel" destination="02j-yG-EPw" id="JVb-m7-J11"/>
                                         </connections>
                                     </collectionViewCell>
@@ -60,6 +80,7 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Ei9-Nm-7qD" firstAttribute="trailing" secondItem="XDO-Jk-iAs" secondAttribute="trailing" constant="8" id="2sz-wa-9t2"/>
                             <constraint firstItem="Ei9-Nm-7qD" firstAttribute="bottom" secondItem="XDO-Jk-iAs" secondAttribute="bottom" constant="8" id="5Fy-Ru-z6W"/>
@@ -73,6 +94,9 @@
                                 <exclude reference="5Fy-Ru-z6W"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="8gD-6G-VBy" appends="YES" id="Enw-C4-Z5K"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Decks" id="eW2-At-8Sd">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="XDu-X8-4SB">
@@ -86,8 +110,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XCT-9D-6Fn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="8gD-6G-VBy">
+                    <connections>
+                        <action selector="pinch:" destination="uWa-Wg-hma" id="w32-ty-vtc"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-2207" y="1871"/>
+            <point key="canvasLocation" x="-2207.1999999999998" y="1870.6146926536733"/>
         </scene>
         <!--Settings-->
         <scene sceneID="apI-io-o7d">
