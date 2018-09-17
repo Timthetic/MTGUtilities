@@ -19,7 +19,7 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
         var button = UIButton()
         button.setTitle("Pass", for: .normal)
         button.setTitleColor(UIColor.black, for: .normal)
-        button.addTarget(self, action: #selector(passButtonPressed), for: UIControlEvents.touchUpInside)
+        button.addTarget(self, action: #selector(passButtonPressed), for: UIControl.Event.touchUpInside)
         return button
     }()
     

@@ -39,7 +39,7 @@ class CardInfoPageViewController: UIPageViewController, UIPageViewControllerDele
     
     private lazy var switchVC: SwitchViewController = {
         let vc = createVC(withSBIdentifier: "SwitchVC") as! SwitchViewController
-        if !UIAccessibilityIsReduceTransparencyEnabled(){
+        if !UIAccessibility.isReduceTransparencyEnabled{
             vc.modalPresentationStyle = .overCurrentContext
         }
         return vc

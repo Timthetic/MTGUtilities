@@ -13,7 +13,7 @@ class SwitchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if !UIAccessibilityIsReduceTransparencyEnabled(){
+        if !UIAccessibility.isReduceTransparencyEnabled{
             let blur = UIBlurEffect(style: .regular)
             let blurView = UIVisualEffectView(effect: blur)
             blurView.frame = self.view.bounds
