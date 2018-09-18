@@ -122,5 +122,14 @@ extension UIFont {
     }
 }
 
+extension NSDate{
+    func isAfter(date: NSDate) -> Bool{
+        return self.timeIntervalSince1970 > date.timeIntervalSince1970
+    }
+    func isBefore(date: NSDate) -> Bool{
+        return self.timeIntervalSince1970 < date.timeIntervalSince1970
+    }
+}
+
 
 

@@ -23,7 +23,7 @@ public class Set: NSManagedObject {
      - parameter code: The code for the set
      - parameter context: The database context
      */
-    class func addSet(name: String, code: String, intoContext context: NSManagedObjectContext){
+    class func addSet(name: String, code: String, date: NSDate, intoContext context: NSManagedObjectContext){
         let request = NSFetchRequest<Set>(entityName: "Set")
         let predicate = NSPredicate(format: "code = %@", code)
         request.predicate = predicate
@@ -35,6 +35,7 @@ public class Set: NSManagedObject {
             if let newSet = NSEntityDescription.insertNewObject(forEntityName: "Set", into: context) as? Set{
                 newSet.name = name
                 newSet.code = code
+                newSet.releaseDate = date
                 print("Created new set \(newSet.name ?? "NO NAME")")
             }
             else{

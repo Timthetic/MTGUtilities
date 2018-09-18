@@ -23,6 +23,21 @@ public class Card: NSManagedObject {
      - Parameter jsonCard: The json representation of the card
      - Parameter context: The database context
      */
+    func mostRecentPrinting() -> UniqueCard?{
+        var mostRecent: UniqueCard?
+        if self.printings == nil{
+            return nil
+        }
+        for card in self.printings!{
+            if let card = card as? UniqueCard{
+                if card.set?.releaseDate?.isAfter(date: mostRecent?.set?.releaseDate ?? NSDate.init(timeIntervalSince1970: 0)) ?? false{
+                    mostRecent = card
+                }
+            }
+        }
+        return mostRecent
+    }
+    
     class func insertCardFrom(jsonCard: JsonCard, inManagedObjectContext context: NSManagedObjectContext){
         if jsonCard.multiverseId == nil{
             //print("Could not insert \(jsonCard.name ?? "nil name"): nil multiverse id")

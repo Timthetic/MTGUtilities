@@ -20,7 +20,9 @@ class PrintingsInfoViewController: UIViewController, UITableViewDelegate, UITabl
     var cardDataSource: CardDataSource?
     lazy var printings: [UniqueCard] = {
         //TODO: Sort by release date (this will require an extra attribute in the db model)
-        if let cards = cardDataSource?.card?.printings?.allObjects as? [UniqueCard]{
+        if let cards = (cardDataSource?.card?.printings?.allObjects as? [UniqueCard])?.sorted(by: {a,b in
+            return a.set?.releaseDate?.isAfter(date: b.set?.releaseDate ?? NSDate()) ?? false
+        }){
             return cards
         }
         return []

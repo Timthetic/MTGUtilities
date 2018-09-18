@@ -48,9 +48,8 @@ class SettingsViewController: UIViewController {
                     for setsList in json{
                         if let set = setsList as? [String:String]{
                             print(set["name"] ?? "nopexxx")
-                            let setName = set["name"]
                             let setCode = set["code"]
-                            self?.fetchSet(name: setName, code: setCode, intoContext: self?.context)
+                            self?.fetchSet(byCode: setCode, intoContext: self?.context)
                             
                         }
                     }
@@ -69,16 +68,19 @@ class SettingsViewController: UIViewController {
         - code: The set's code
         - context: The database context
      */
-    func fetchSet(name: String?, code: String?, intoContext context: NSManagedObjectContext?) {
+    func fetchSet(byCode code: String?, intoContext context: NSManagedObjectContext?) {
+        //check if set is valid
         guard let code = code else{
             print("Set has not code!  Must return.")
             return
         }
+        //Check for context
         guard let context = context else{
             print("I can't insert into a nil context.")
             return
         }
         
+        //Get set from MTGJson
         let url = URL(string: "https://mtgjson.com/json/\(code)-x.json")!
         let task = URLSession.shared.dataTask(with: url){[weak self] data, responce, error in
             if let error = error{
@@ -87,8 +89,20 @@ class SettingsViewController: UIViewController {
             guard let data = data else{
                 return
             }
+            
             if let set = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as! [String:Any]{
                 //Finds the 'cards' section of the json object
+                
+                let name = set["name"] as! String
+                let code = set["code"] as! String
+                let stringDate = set["releaseDate"] as! String
+                
+                
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd"
+                let releaseDate = formatter.date(from: stringDate)! as NSDate
+                Set.addSet(name: name, code: code, date: releaseDate, intoContext: context)
+                
                 if let cards = set["cards"] as? [[String: Any]]{
                     for card in cards{
                         do{
@@ -110,18 +124,19 @@ class SettingsViewController: UIViewController {
                         
                     }
                 }
-            }
-            context.performAndWait {
-                //Save changes
-                if context.hasChanges{
-                    do{
-                        try context.save()
-                        print("Saved \(name ?? "NO NAME")")
-                    }catch(let error){
-                        print(error)
+                context.performAndWait {
+                    //Save changes
+                    if context.hasChanges{
+                        do{
+                            try context.save()
+                            print("Saved \(name)")
+                        }catch(let error){
+                            print(error)
+                        }
                     }
                 }
             }
+
             
             DispatchQueue.main.async {
                 //Marks progress

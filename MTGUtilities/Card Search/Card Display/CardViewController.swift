@@ -18,7 +18,7 @@ class CardViewController: UIViewController, CardDataSource{
     }
     var card: Card?{
         didSet{
-            uniqueCard = card?.printings?.anyObject() as? UniqueCard
+            uniqueCard = card?.mostRecentPrinting()
         }
     }
     @IBOutlet weak var manaLabel: UILabel!

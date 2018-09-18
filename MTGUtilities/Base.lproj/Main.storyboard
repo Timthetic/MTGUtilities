@@ -103,6 +103,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="XDO-Jk-iAs" id="ha8-J4-A8T"/>
+                        <segue destination="cUj-40-9fe" kind="show" identifier="Show Deck" id="WYY-ID-869"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XCT-9D-6Fn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -113,6 +114,21 @@
                 </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-2207.1999999999998" y="1870.6146926536733"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="DJO-GL-Hlt">
+            <objects>
+                <viewController id="cUj-40-9fe" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VPp-Yv-ASt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="gJ2-5s-BrZ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CuI-Ov-80H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2207" y="2664"/>
         </scene>
         <!--Settings-->
         <scene sceneID="apI-io-o7d">

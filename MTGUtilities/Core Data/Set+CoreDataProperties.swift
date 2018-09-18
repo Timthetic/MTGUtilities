@@ -2,7 +2,7 @@
 //  Set+CoreDataProperties.swift
 //  MTGUtilities
 //
-//  Created by Tim Rediehs on 9/4/18.
+//  Created by Tim Rediehs on 9/17/18.
 //  Copyright © 2018 Timothy Rediehs. All rights reserved.
 //
 //
@@ -17,13 +17,9 @@ extension Set {
         return NSFetchRequest<Set>(entityName: "Set")
     }
 
-    ///The set's full name
-    @NSManaged public var name: String?
-    
-    ///The set's shortened code (i.e. IXN for Ixalan)
     @NSManaged public var code: String?
-    
-    ///All of the `UniqueCard`s that appear in the set
+    @NSManaged public var name: String?
+    @NSManaged public var releaseDate: NSDate?
     @NSManaged public var cards: NSSet?
 
 }
