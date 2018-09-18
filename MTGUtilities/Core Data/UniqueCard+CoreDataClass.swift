@@ -56,7 +56,7 @@ public class UniqueCard: NSManagedObject {
      - Parameter context: The database context
      */
     private class func linkToSet(uniqueCard: UniqueCard, jsonCard: JsonCard, withContext context: NSManagedObjectContext){
-        let request = NSFetchRequest<Set>(entityName: "Set")
+        let request = NSFetchRequest<CardSet>(entityName: "CardSet")
         let predicate = NSPredicate(format: "code = %@", jsonCard.setCode!)
         request.predicate = predicate
         
@@ -64,7 +64,7 @@ public class UniqueCard: NSManagedObject {
             fetchSet.addToCards(uniqueCard)
             print("Added \(uniqueCard.baseCard?.name ?? "NO NAME") to \(fetchSet.name ?? "NO NAME")")
         } else {
-            if let newSet = NSEntityDescription.insertNewObject(forEntityName: "Set", into: context) as? Set{
+            if let newSet = NSEntityDescription.insertNewObject(forEntityName: "CardSet", into: context) as? CardSet{
                 newSet.name = jsonCard.setName
                 newSet.code = jsonCard.setCode
                 newSet.addToCards(uniqueCard)

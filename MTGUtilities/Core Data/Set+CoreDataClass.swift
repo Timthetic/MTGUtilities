@@ -1,5 +1,5 @@
 //
-//  Set+CoreDataClass.swift
+//  CardSet+CoreDataClass.swift
 //  MTGUtilities
 //
 //  Created by Tim Rediehs on 9/4/18.
@@ -12,7 +12,7 @@ import CoreData
 
 @objc(Set)
 
-public class Set: NSManagedObject {
+public class CardSet: NSManagedObject {
     
 
     
@@ -24,7 +24,7 @@ public class Set: NSManagedObject {
      - parameter context: The database context
      */
     class func addSet(name: String, code: String, date: NSDate, intoContext context: NSManagedObjectContext){
-        let request = NSFetchRequest<Set>(entityName: "Set")
+        let request = NSFetchRequest<CardSet>(entityName: "CardSet")
         let predicate = NSPredicate(format: "code = %@", code)
         request.predicate = predicate
         
@@ -32,7 +32,7 @@ public class Set: NSManagedObject {
             
         }
         else{
-            if let newSet = NSEntityDescription.insertNewObject(forEntityName: "Set", into: context) as? Set{
+            if let newSet = NSEntityDescription.insertNewObject(forEntityName: "CardSet", into: context) as? CardSet{
                 newSet.name = name
                 newSet.code = code
                 newSet.releaseDate = date

@@ -16,16 +16,20 @@
         <attribute name="types" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="printings" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="UniqueCard" inverseName="baseCard" inverseEntity="UniqueCard" syncable="YES"/>
     </entity>
-    <entity name="Deck" representedClassName="Deck" syncable="YES">
-        <attribute name="colorIdentity" optional="YES" attributeType="Transformable" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="cards" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UniqueCard" inverseName="decks" inverseEntity="UniqueCard" syncable="YES"/>
-    </entity>
-    <entity name="Set" representedClassName="Set" syncable="YES">
+    <entity name="CardSet" representedClassName="CardSet" syncable="YES">
         <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="releaseDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="cards" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UniqueCard" inverseName="set" inverseEntity="UniqueCard" syncable="YES"/>
+    </entity>
+    <entity name="Deck" representedClassName="Deck" syncable="YES">
+        <attribute name="colorIdentity" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="cards" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DeckCard" syncable="YES"/>
+    </entity>
+    <entity name="DeckCard" representedClassName="DeckCard" syncable="YES">
+        <attribute name="quantity" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="cardInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UniqueCard" syncable="YES"/>
     </entity>
     <entity name="UniqueCard" representedClassName="UniqueCard" syncable="YES">
         <attribute name="flavor" optional="YES" attributeType="String" syncable="YES"/>
@@ -33,13 +37,13 @@
         <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rarity" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="baseCard" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Card" inverseName="printings" inverseEntity="Card" syncable="YES"/>
-        <relationship name="decks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Deck" inverseName="cards" inverseEntity="Deck" syncable="YES"/>
-        <relationship name="set" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Set" inverseName="cards" inverseEntity="Set" syncable="YES"/>
+        <relationship name="set" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CardSet" inverseName="cards" inverseEntity="CardSet" syncable="YES"/>
     </entity>
     <elements>
         <element name="Card" positionX="-7974" positionY="558" width="128" height="255"/>
-        <element name="Deck" positionX="-7705.859375" positionY="947.7734375" width="128" height="90"/>
-        <element name="Set" positionX="-8217" positionY="774" width="128" height="105"/>
-        <element name="UniqueCard" positionX="-7722.9296875" positionY="748.66796875" width="128" height="148"/>
+        <element name="Deck" positionX="-7466.06640625" positionY="971.32421875" width="128" height="90"/>
+        <element name="CardSet" positionX="-8217" positionY="774" width="128" height="105"/>
+        <element name="UniqueCard" positionX="-7722.9296875" positionY="748.66796875" width="128" height="135"/>
+        <element name="DeckCard" positionX="-7635.46484375" positionY="972.30859375" width="128" height="75"/>
     </elements>
 </model>

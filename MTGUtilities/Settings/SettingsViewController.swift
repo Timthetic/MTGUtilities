@@ -71,7 +71,7 @@ class SettingsViewController: UIViewController {
     func fetchSet(byCode code: String?, intoContext context: NSManagedObjectContext?) {
         //check if set is valid
         guard let code = code else{
-            print("Set has not code!  Must return.")
+            print("CardSet has not code!  Must return.")
             return
         }
         //Check for context
@@ -101,7 +101,7 @@ class SettingsViewController: UIViewController {
                 let formatter = DateFormatter()
                 formatter.dateFormat = "yyyy-MM-dd"
                 let releaseDate = formatter.date(from: stringDate)! as NSDate
-                Set.addSet(name: name, code: code, date: releaseDate, intoContext: context)
+                CardSet.addSet(name: name, code: code, date: releaseDate, intoContext: context)
                 
                 if let cards = set["cards"] as? [[String: Any]]{
                     for card in cards{

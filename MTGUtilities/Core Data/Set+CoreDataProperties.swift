@@ -1,8 +1,8 @@
 //
-//  Set+CoreDataProperties.swift
+//  CardSet+CoreDataProperties.swift
 //  MTGUtilities
 //
-//  Created by Tim Rediehs on 9/17/18.
+//  Created by Tim Rediehs on 9/18/18.
 //  Copyright © 2018 Timothy Rediehs. All rights reserved.
 //
 //
@@ -11,21 +11,21 @@ import Foundation
 import CoreData
 
 
-extension Set {
+extension CardSet {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Set> {
-        return NSFetchRequest<Set>(entityName: "Set")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<CardSet> {
+        return NSFetchRequest<CardSet>(entityName: "CardSet")
     }
 
     @NSManaged public var code: String?
     @NSManaged public var name: String?
     @NSManaged public var releaseDate: NSDate?
-    @NSManaged public var cards: NSSet?
+    @NSManaged public var cards: Set<UniqueCard>?
 
 }
 
 // MARK: Generated accessors for cards
-extension Set {
+extension CardSet {
 
     @objc(addCardsObject:)
     @NSManaged public func addToCards(_ value: UniqueCard)

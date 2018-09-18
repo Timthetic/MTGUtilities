@@ -18,6 +18,10 @@
 		55118B8D213C5E80003AE235 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 55118B8B213C5E80003AE235 /* Model.xcdatamodeld */; };
 		551E62AA2146E5B0004E75CD /* PrintingsInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551E62A92146E5B0004E75CD /* PrintingsInfoViewController.swift */; };
 		551FC6652148413E00209A97 /* SwitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551FC6642148413E00209A97 /* SwitchViewController.swift */; };
+		5522A6A8215174E00069AEF8 /* DeckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5522A6A7215174E00069AEF8 /* DeckViewController.swift */; };
+		5522A6B2215175950069AEF8 /* DeckCard+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5522A6AC215175950069AEF8 /* DeckCard+CoreDataClass.swift */; };
+		5522A6B3215175950069AEF8 /* DeckCard+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5522A6AD215175950069AEF8 /* DeckCard+CoreDataProperties.swift */; };
+		5522A6B6215178FC0069AEF8 /* DeckCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5522A6B5215178FC0069AEF8 /* DeckCardCell.swift */; };
 		5541A92A21337C66000D0BA9 /* LifeCounterHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5541A92921337C66000D0BA9 /* LifeCounterHistoryViewController.swift */; };
 		5541A92C21337D28000D0BA9 /* GameHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5541A92B21337D28000D0BA9 /* GameHistoryCell.swift */; };
 		5545D07E212B6BA800B13120 /* PlayerLifeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5545D07D212B6BA800B13120 /* PlayerLifeView.xib */; };
@@ -63,6 +67,10 @@
 		55118B8C213C5E80003AE235 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		551E62A92146E5B0004E75CD /* PrintingsInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintingsInfoViewController.swift; sourceTree = "<group>"; };
 		551FC6642148413E00209A97 /* SwitchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchViewController.swift; sourceTree = "<group>"; };
+		5522A6A7215174E00069AEF8 /* DeckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckViewController.swift; sourceTree = "<group>"; };
+		5522A6AC215175950069AEF8 /* DeckCard+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeckCard+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5522A6AD215175950069AEF8 /* DeckCard+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeckCard+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5522A6B5215178FC0069AEF8 /* DeckCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckCardCell.swift; sourceTree = "<group>"; };
 		5541A92921337C66000D0BA9 /* LifeCounterHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCounterHistoryViewController.swift; sourceTree = "<group>"; };
 		5541A92B21337D28000D0BA9 /* GameHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHistoryCell.swift; sourceTree = "<group>"; };
 		5545D07D212B6BA800B13120 /* PlayerLifeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerLifeView.xib; sourceTree = "<group>"; };
@@ -164,10 +172,12 @@
 				55007064213EF57100CB8032 /* UniqueCard+CoreDataClass.swift */,
 				5586E4AF213C6ADC00FAAA0E /* Card+CoreDataClass.swift */,
 				55A0A69C214AD2DE0043E2A7 /* Deck+CoreDataClass.swift */,
+				5522A6AC215175950069AEF8 /* DeckCard+CoreDataClass.swift */,
 				55007062213EF57100CB8032 /* Set+CoreDataProperties.swift */,
 				55007065213EF57100CB8032 /* UniqueCard+CoreDataProperties.swift */,
 				55007063213EF57100CB8032 /* Card+CoreDataProperties.swift */,
 				55A0A69D214AD2DE0043E2A7 /* Deck+CoreDataProperties.swift */,
+				5522A6AD215175950069AEF8 /* DeckCard+CoreDataProperties.swift */,
 				55118B8B213C5E80003AE235 /* Model.xcdatamodeld */,
 			);
 			path = "Core Data";
@@ -244,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				55A0A69A214ACE7F0043E2A7 /* DeckListViewController.swift */,
+				5522A6A7215174E00069AEF8 /* DeckViewController.swift */,
 				55A0A6A0214AE4700043E2A7 /* View */,
 			);
 			path = Deck;
@@ -253,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				55A0A6A1214AE4810043E2A7 /* DeckCell.swift */,
+				5522A6B5215178FC0069AEF8 /* DeckCardCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -401,6 +413,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5522A6B2215175950069AEF8 /* DeckCard+CoreDataClass.swift in Sources */,
+				5522A6B6215178FC0069AEF8 /* DeckCardCell.swift in Sources */,
 				5504B6CC21387189006E7FAF /* SearchViewController.swift in Sources */,
 				55A0A69B214ACE7F0043E2A7 /* DeckListViewController.swift in Sources */,
 				55FA451D212B222A0003FB43 /* AppDelegate.swift in Sources */,
@@ -408,8 +422,10 @@
 				55007067213EF57100CB8032 /* Set+CoreDataProperties.swift in Sources */,
 				5586E4B4213C787E00FAAA0E /* JsonCard.swift in Sources */,
 				55007069213EF57100CB8032 /* UniqueCard+CoreDataClass.swift in Sources */,
+				5522A6B3215175950069AEF8 /* DeckCard+CoreDataProperties.swift in Sources */,
 				551FC6652148413E00209A97 /* SwitchViewController.swift in Sources */,
 				5500706A213EF57100CB8032 /* UniqueCard+CoreDataProperties.swift in Sources */,
+				5522A6A8215174E00069AEF8 /* DeckViewController.swift in Sources */,
 				555067E02141AC3200186422 /* RulingsInfoViewController.swift in Sources */,
 				555D35C121346944002F03BF /* GameEvent.swift in Sources */,
 				55DFC32C212F54BA009EB768 /* Die.swift in Sources */,
