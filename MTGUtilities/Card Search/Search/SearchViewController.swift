@@ -114,6 +114,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             if let CVC = segue.destination as? CardViewController{
                 if let card = sender as? Card{
                     CVC.card = card
+                    print("set card to \(card.name ?? "///")")
                 }
             }
         }

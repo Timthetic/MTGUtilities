@@ -26,6 +26,7 @@ public class Card: NSManagedObject {
     func mostRecentPrinting() -> UniqueCard?{
         var mostRecent: UniqueCard?
         if self.printings == nil{
+            print("This card has no printings!")
             return nil
         }
         for card in self.printings!{

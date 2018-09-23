@@ -10,7 +10,7 @@
 import Foundation
 import CoreData
 
-@objc(Set)
+@objc(CardSet)
 
 public class CardSet: NSManagedObject {
     
@@ -28,21 +28,22 @@ public class CardSet: NSManagedObject {
         let predicate = NSPredicate(format: "code = %@", code)
         request.predicate = predicate
         
-        if let _ = (try? context.fetch(request))?.first{
-            
-        }
-        else{
-            if let newSet = NSEntityDescription.insertNewObject(forEntityName: "CardSet", into: context) as? CardSet{
-                newSet.name = name
-                newSet.code = code
-                newSet.releaseDate = date
-                print("Created new set \(newSet.name ?? "NO NAME")")
+        context.performAndWait {
+            if let _ = (try? context.fetch(request))?.first{
+                
             }
             else{
-                print("Failed to create set")
+                if let newSet = NSEntityDescription.insertNewObject(forEntityName: "CardSet", into: context) as? MTGUtilities.CardSet{
+                    newSet.name = name
+                    newSet.code = code
+                    newSet.releaseDate = date
+                    print("Created new set \(newSet.name ?? "NO NAME")")
+                }
+                else{
+                    print("Failed to create set")
+                }
             }
         }
-        
     }
     
 }

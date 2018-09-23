@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		55007066213EF57100CB8032 /* Set+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55007061213EF57100CB8032 /* Set+CoreDataClass.swift */; };
-		55007067213EF57100CB8032 /* Set+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55007062213EF57100CB8032 /* Set+CoreDataProperties.swift */; };
+		55007066213EF57100CB8032 /* CardSet+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55007061213EF57100CB8032 /* CardSet+CoreDataClass.swift */; };
+		55007067213EF57100CB8032 /* CardSet+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55007062213EF57100CB8032 /* CardSet+CoreDataProperties.swift */; };
 		55007068213EF57100CB8032 /* Card+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55007063213EF57100CB8032 /* Card+CoreDataProperties.swift */; };
 		55007069213EF57100CB8032 /* UniqueCard+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55007064213EF57100CB8032 /* UniqueCard+CoreDataClass.swift */; };
 		5500706A213EF57100CB8032 /* UniqueCard+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55007065213EF57100CB8032 /* UniqueCard+CoreDataProperties.swift */; };
@@ -56,8 +56,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		55007061213EF57100CB8032 /* Set+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+CoreDataClass.swift"; sourceTree = "<group>"; };
-		55007062213EF57100CB8032 /* Set+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		55007061213EF57100CB8032 /* CardSet+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardSet+CoreDataClass.swift"; sourceTree = "<group>"; };
+		55007062213EF57100CB8032 /* CardSet+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardSet+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		55007063213EF57100CB8032 /* Card+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		55007064213EF57100CB8032 /* UniqueCard+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UniqueCard+CoreDataClass.swift"; sourceTree = "<group>"; };
 		55007065213EF57100CB8032 /* UniqueCard+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UniqueCard+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -168,12 +168,12 @@
 		55118B92213C6739003AE235 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				55007061213EF57100CB8032 /* Set+CoreDataClass.swift */,
+				55007061213EF57100CB8032 /* CardSet+CoreDataClass.swift */,
 				55007064213EF57100CB8032 /* UniqueCard+CoreDataClass.swift */,
 				5586E4AF213C6ADC00FAAA0E /* Card+CoreDataClass.swift */,
 				55A0A69C214AD2DE0043E2A7 /* Deck+CoreDataClass.swift */,
 				5522A6AC215175950069AEF8 /* DeckCard+CoreDataClass.swift */,
-				55007062213EF57100CB8032 /* Set+CoreDataProperties.swift */,
+				55007062213EF57100CB8032 /* CardSet+CoreDataProperties.swift */,
 				55007065213EF57100CB8032 /* UniqueCard+CoreDataProperties.swift */,
 				55007063213EF57100CB8032 /* Card+CoreDataProperties.swift */,
 				55A0A69D214AD2DE0043E2A7 /* Deck+CoreDataProperties.swift */,
@@ -419,7 +419,7 @@
 				55A0A69B214ACE7F0043E2A7 /* DeckListViewController.swift in Sources */,
 				55FA451D212B222A0003FB43 /* AppDelegate.swift in Sources */,
 				55FA4534212B23EF0003FB43 /* GameTracker.swift in Sources */,
-				55007067213EF57100CB8032 /* Set+CoreDataProperties.swift in Sources */,
+				55007067213EF57100CB8032 /* CardSet+CoreDataProperties.swift in Sources */,
 				5586E4B4213C787E00FAAA0E /* JsonCard.swift in Sources */,
 				55007069213EF57100CB8032 /* UniqueCard+CoreDataClass.swift in Sources */,
 				5522A6B3215175950069AEF8 /* DeckCard+CoreDataProperties.swift in Sources */,
@@ -434,7 +434,7 @@
 				55FA4532212B23AB0003FB43 /* LifeCounterViewController.swift in Sources */,
 				55118B8A213C5C23003AE235 /* SettingsViewController.swift in Sources */,
 				55118B8D213C5E80003AE235 /* Model.xcdatamodeld in Sources */,
-				55007066213EF57100CB8032 /* Set+CoreDataClass.swift in Sources */,
+				55007066213EF57100CB8032 /* CardSet+CoreDataClass.swift in Sources */,
 				5570B25A2142EF3F0004764B /* ConvertedManaCostView.swift in Sources */,
 				555067DC2141A30900186422 /* CardInfoPageViewController.swift in Sources */,
 				55E015A5214084C300C51613 /* Utilities.swift in Sources */,
