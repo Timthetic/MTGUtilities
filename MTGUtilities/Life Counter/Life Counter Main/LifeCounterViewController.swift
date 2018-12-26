@@ -231,6 +231,9 @@ class LifeCounterViewController: UIViewController, PlayerLifeViewDelegate {
         //Wipe bridge
         players = []
         
+        //Removes Dice
+        removeDice()
+        
         //New Game
         game = GameTracker(numberOfPlayers: numberOfPlayers, startingLife: startingLifeTotal)
         

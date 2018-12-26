@@ -8,6 +8,9 @@
 
 import UIKit
 
+// New Idea: Create n sections and up to m cells in each section
+// n: number of turns, m: number of players choose 2 (p!/(2*(p-2)!) ~ p^2)
+
 class LifeCounterHistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     //MARK: Model
@@ -22,26 +25,35 @@ class LifeCounterHistoryViewController: UIViewController, UITableViewDelegate, U
         }
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return game.turns.count
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        let turnNumber = game.turns[section].number ?? 0
+        let turnPlayer = game.turns[section].owner.name
+        label.text = "Turn \(turnNumber) -- \(turnPlayer)"
+        label.font = label.font.bold()
+        return label
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CONSTS.HEIGHT_OF_TURN_HEADER
+    }
+    
     //MARK: Table View Delegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return game.events.count
+        return game.turns[section].interactions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let event = game.events[indexPath.row]
+        // Get the n-th interaction for the m-th turn
+        // n = row number, m = section number
+        let interaction = game.turns[indexPath.section].interactions[indexPath.row]
         
-        //Cells display turn changes or interactions (damage usually).  Configure each acordingly.
-        switch event{
-        case .PlayerInteraction(let interaction):
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "GameHistoryCell") as? GameHistoryCell{
-                cell.infoLabel.text = "\(interaction.actor!.name) \(interaction.changeInLife! > 0 ? "healed" : "damaged") \(interaction.target!.name) for \(abs(interaction.changeInLife!))"
-                return cell
-            }
-        case .TurnChange(let turnNumber):
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "TurnCell"){
-                cell.textLabel?.text = "Turn \(turnNumber)"
-                return cell
-            }
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "GameHistoryCell") as? GameHistoryCell{
+            cell.infoLabel.text = "\(interaction.actor!.name) \(interaction.changeInLife! > 0 ? "healed" : "damaged") \(interaction.target!.name) for \(abs(interaction.changeInLife!))"
+            return cell
         }
         return UITableViewCell()
     }

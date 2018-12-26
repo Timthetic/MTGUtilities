@@ -14,13 +14,19 @@ class GameTracker {
     var players: [Player] = [] //Array order determines turn order
     var numberOfTurnsSet = 0
     var turnNumber = 1
-    var eventsToCommit: [GameEvent] = [GameEvent.TurnChange(1)]
-    var events: [GameEvent] = []
+    var turns: [Turn] = []
     var numberOfPlayers: Int = 1
     private var playerTurn = 0
     
     //MARK: Game State
-    var gameState: GameState = .choosingTurnOrder
+    var gameState: GameState = .choosingTurnOrder{
+        didSet{
+            // When the game starts (setup is over), set up the first turn.
+            if gameState == .playing{
+                turns.append(Turn(forPlayer: activePlayer, withNumber: 1))
+            }
+        }
+    }
     
     enum GameState {
         case choosingTurnOrder
@@ -78,6 +84,9 @@ class GameTracker {
             }
         }
     }
+    var currentTurn: Turn?{
+        return turns.last
+    }
 
     
     func passTurn(){
@@ -91,16 +100,15 @@ class GameTracker {
             
             player.commitInteractions()
         }
-        commitEvents()
         printInteractions()
-        eventsToCommit.append(GameEvent.TurnChange(turnNumber))
+        turns.append(Turn(forPlayer: activePlayer, withNumber: turnNumber))
         
         explicitActivePlayer = nil
     }
     
     //MARK: Interactions and Events
     /**
-     Returns an interaction between two players
+     Returns an interaction between two players for the current turn.  Creates a new one if it doesn't exist
      - Parameters:
         - target: The player affected by the life change
         - actor: The player responsible for the life change
@@ -109,47 +117,36 @@ class GameTracker {
      */
     private func getInteraction(to target: Player, from actor: Player) -> PlayerInteraction
     {
-        var addToList = true
-        var interaction = PlayerInteraction(lifeChange: 0, to: target, from: actor)
-        for event in eventsToCommit{
-            switch event{
-            case .PlayerInteraction(let inter):
-                if inter.actor == interaction.actor && inter.target == interaction.target{
-                    interaction = inter
-                    addToList = false
-                }
-            case .TurnChange:
-                break
+        for inter in currentTurn?.interactions ?? []{
+            if inter.actor == actor && inter.target == target{
+                return inter
             }
         }
-        if addToList{
-            eventsToCommit.append(GameEvent.PlayerInteraction(interaction))
-        }
+        // If we didn't return above, add a new interaction for the two players to the turn and return that
+        let interaction = PlayerInteraction(lifeChange: 0, to: target, from: actor)
+        currentTurn?.interactions.append(interaction)
         return interaction
     }
     
     /**
      Saves all events to the main container.
      */
-    private func commitEvents(){
-        for event in eventsToCommit{
-            events.append(event)
-        }
-        eventsToCommit.removeAll()
-    }
+//    private func commitEvents(){
+//        for event in eventsToCommit{
+//            events.append(event)
+//        }
+//        eventsToCommit.removeAll()
+//    }
     
     func printInteractions(){
-        for interaction in events{
-            switch interaction{
-            case .PlayerInteraction(let interaction):
-                print("\(interaction.actor!.name) did \(-1*interaction.changeInLife!) damage to \(interaction.target!.name)")
-            case .TurnChange(let turnNumber):
+        for turn in turns{
+            if let turnNumber = turn.number{
                 print("TURN NUMBER: \(turnNumber)")
             }
+            for interaction in turn.interactions{
+                print("\(interaction.actor!.name) did \(-1*interaction.changeInLife!) damage to \(interaction.target!.name)")
+            }
+            print("")
         }
-        print("")
     }
-    
 }
-
-

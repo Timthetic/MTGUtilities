@@ -19,6 +19,7 @@ struct CONSTS {
     static let colorSymbols = ["R", "G", "U", "B", "W"]
     static let FORCE_TOUCH_THRESHOLD: CGFloat = 5.0
     static let DECKCELL_ASPECT_RATIO: CGFloat = 1.4
+    static let HEIGHT_OF_TURN_HEADER: CGFloat = 40.0
 }
 struct MyFont{
     static let bodyFont = UIFont.preferredFont(forTextStyle: .body)
