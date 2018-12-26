@@ -2,7 +2,7 @@
 //  Card+CoreDataProperties.swift
 //  MTGUtilities
 //
-//  Created by Tim Rediehs on 9/18/18.
+//  Created by Tim Rediehs on 9/28/18.
 //  Copyright © 2018 Timothy Rediehs. All rights reserved.
 //
 //
@@ -32,7 +32,8 @@ extension Card {
     @NSManaged public var types: String?
     
     ///All the versions of this card
-    @NSManaged public var printings: NSSet?
+    @NSManaged public var printings: Set<UniqueCard>?
+    @NSManaged public var deckCards: Set<DeckCard>?
 
 }
 

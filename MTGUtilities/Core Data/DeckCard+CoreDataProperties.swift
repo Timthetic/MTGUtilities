@@ -2,7 +2,7 @@
 //  DeckCard+CoreDataProperties.swift
 //  MTGUtilities
 //
-//  Created by Tim Rediehs on 9/18/18.
+//  Created by Tim Rediehs on 9/28/18.
 //  Copyright © 2018 Timothy Rediehs. All rights reserved.
 //
 //
@@ -18,6 +18,12 @@ extension DeckCard {
     }
 
     @NSManaged public var quantity: Int64
-    @NSManaged public var cardInfo: UniqueCard?
+    @NSManaged public var name: String
+    @NSManaged public var setCode: String
+    @NSManaged public var multiverseId: Int64
+    
+    @NSManaged public var uniqueCard: UniqueCard?
+    @NSManaged public var baseCard: Card?
+    @NSManaged public var decks: Set<Deck>?
 
 }

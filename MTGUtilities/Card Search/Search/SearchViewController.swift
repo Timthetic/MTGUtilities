@@ -17,6 +17,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
 //        ctxt.parent = (UIApplication.shared.delegate as? AppDelegate)!.managedObjectContext
 //        return ctxt
 //    }()
+    let delegate: CardSearchDelegate? = nil
     
     var fetchedCards = [Card](){
         didSet{
@@ -114,6 +115,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             if let CVC = segue.destination as? CardViewController{
                 if let card = sender as? Card{
                     CVC.card = card
+                    CVC.delegate = delegate
                     print("set card to \(card.name ?? "///")")
                 }
             }
@@ -125,4 +127,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     }
 
+}
+
+
+protocol CardSearchDelegate {
+    func recieve(uniqueCard: UniqueCard, quantity: Int)
 }

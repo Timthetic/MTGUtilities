@@ -94,6 +94,11 @@ func strToColor(_ string: String) -> UIColor?{
     return nil
 }
 
+
+func createVC(withSBIdentifier identifier: String) -> UIViewController{
+    return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier)
+}
+
 extension Dictionary{
     init?(_ a: [Key]?, _ b: [Value]?) {
         self.init()

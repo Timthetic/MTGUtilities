@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9PJ-aO-AeZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9PJ-aO-AeZ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -103,7 +103,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="XDO-Jk-iAs" id="ha8-J4-A8T"/>
-                        <segue destination="cUj-40-9fe" kind="show" identifier="Show Deck" id="WYY-ID-869"/>
+                        <segue destination="cUj-40-9fe" kind="show" identifier="Show Deck" id="raU-ib-YXd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XCT-9D-6Fn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -115,10 +115,10 @@
             </objects>
             <point key="canvasLocation" x="-2207.1999999999998" y="1870.6146926536733"/>
         </scene>
-        <!--View Controller-->
+        <!--Deck Name-->
         <scene sceneID="DJO-GL-Hlt">
             <objects>
-                <viewController id="cUj-40-9fe" sceneMemberID="viewController">
+                <viewController title="Deck Name" id="cUj-40-9fe" customClass="DeckViewController" customModule="MTGUtilities" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VPp-Yv-ASt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -174,10 +174,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gJ2-5s-BrZ"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Deck Name" id="STJ-hC-jz5">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="FnD-GD-fKP">
+                            <connections>
+                                <action selector="AddButtonTapped:" destination="cUj-40-9fe" id="e81-Rk-b6V"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CuI-Ov-80H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2207.1999999999998" y="2663.1184407796104"/>
+            <point key="canvasLocation" x="-2207" y="2667"/>
         </scene>
         <!--Settings-->
         <scene sceneID="apI-io-o7d">
@@ -246,6 +253,9 @@
                                 <rect key="frame" x="0.0" y="72" width="375" height="595"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="1Ly-bi-g3l" appends="YES" id="8eK-rf-JQQ"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -287,9 +297,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dY0-2j-VCl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="aKL-ss-gBh">
+                <tapGestureRecognizer id="1Ly-bi-g3l">
                     <connections>
-                        <action selector="ContentAreaTapped:" destination="L1O-Vl-QDC" id="kpt-zx-Ddr"/>
+                        <action selector="ContentAreaTapped:" destination="L1O-Vl-QDC" id="CsH-ih-rIY"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -420,39 +430,22 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdn-6n-DL8">
-                                                    <rect key="frame" x="20" y="0.0" width="355" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="fdn-6n-DL8" firstAttribute="leading" secondItem="6YF-im-m4T" secondAttribute="leading" id="07P-dh-h8W"/>
                                                 <constraint firstAttribute="trailing" secondItem="fdn-6n-DL8" secondAttribute="trailing" id="ekZ-KA-WcM"/>
                                                 <constraint firstItem="fdn-6n-DL8" firstAttribute="top" secondItem="6YF-im-m4T" secondAttribute="top" id="jh2-5J-rQN"/>
-                                                <constraint firstItem="fdn-6n-DL8" firstAttribute="leading" secondItem="6YF-im-m4T" secondAttribute="leading" constant="20" symbolic="YES" id="nKO-k2-ocr"/>
                                                 <constraint firstAttribute="bottom" secondItem="fdn-6n-DL8" secondAttribute="bottom" id="qu2-BF-WIb"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="InfoLabel" destination="fdn-6n-DL8" id="ph9-qe-IMv"/>
                                         </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TurnCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TurnCell" textLabel="OV1-K7-afp" style="IBUITableViewCellStyleDefault" id="z9l-41-cg2">
-                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z9l-41-cg2" id="tQ6-5M-wzr">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Turn #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OV1-K7-afp">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -627,10 +620,10 @@
             </objects>
             <point key="canvasLocation" x="-762" y="1845"/>
         </scene>
-        <!--Search View Controller-->
+        <!--Search Cards-->
         <scene sceneID="3Dx-If-A5o">
             <objects>
-                <viewController id="P0d-B9-IvP" customClass="SearchViewController" customModule="MTGUtilities" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchVC" id="P0d-B9-IvP" customClass="SearchViewController" customModule="MTGUtilities" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eGV-6Z-1xg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -700,7 +693,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QmI-sF-8zO"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Era-z4-gkw"/>
+                    <navigationItem key="navigationItem" title="Search Cards" id="Era-z4-gkw"/>
                     <connections>
                         <outlet property="searchBar" destination="Y7i-yN-eTh" id="zdf-zk-wBG"/>
                         <outlet property="tableView" destination="B9F-Ng-Qzj" id="rYe-Vu-Tmx"/>
@@ -1082,12 +1075,12 @@
     </scenes>
     <resources>
         <image name="back" width="280" height="389"/>
-        <image name="icons8-20-50" width="25" height="25"/>
-        <image name="icons8-combo-chart-50" width="25" height="25"/>
-        <image name="icons8-dice-50" width="25" height="25"/>
-        <image name="icons8-red-card-50" width="25" height="25"/>
-        <image name="icons8-reset-filled-50" width="25" height="25"/>
-        <image name="icons8-search-60" width="25" height="25"/>
-        <image name="icons8-settings-50" width="25" height="25"/>
+        <image name="icons8-20-50" width="37.5" height="37.5"/>
+        <image name="icons8-combo-chart-50" width="37.5" height="37.5"/>
+        <image name="icons8-dice-50" width="37.5" height="37.5"/>
+        <image name="icons8-red-card-50" width="37.5" height="37.5"/>
+        <image name="icons8-reset-filled-50" width="37.5" height="37.5"/>
+        <image name="icons8-search-60" width="37.5" height="37.5"/>
+        <image name="icons8-settings-50" width="37.5" height="37.5"/>
     </resources>
 </document>

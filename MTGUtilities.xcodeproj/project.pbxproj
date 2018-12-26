@@ -30,6 +30,7 @@
 		555067DE2141AC2100186422 /* TextInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555067DD2141AC2100186422 /* TextInfoViewController.swift */; };
 		555067E02141AC3200186422 /* RulingsInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555067DF2141AC3200186422 /* RulingsInfoViewController.swift */; };
 		555D35C121346944002F03BF /* GameEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555D35C021346944002F03BF /* GameEvent.swift */; };
+		556FB4A621D40EAB00CBAEC3 /* Turn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FB4A521D40EAB00CBAEC3 /* Turn.swift */; };
 		5570B25A2142EF3F0004764B /* ConvertedManaCostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5570B2592142EF3F0004764B /* ConvertedManaCostView.swift */; };
 		55865E21212C7C840025D771 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55865E20212C7C840025D771 /* Player.swift */; };
 		55865E25212DE7720025D771 /* PlayerNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55865E24212DE7720025D771 /* PlayerNumberViewController.swift */; };
@@ -79,6 +80,7 @@
 		555067DD2141AC2100186422 /* TextInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInfoViewController.swift; sourceTree = "<group>"; };
 		555067DF2141AC3200186422 /* RulingsInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulingsInfoViewController.swift; sourceTree = "<group>"; };
 		555D35C021346944002F03BF /* GameEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEvent.swift; sourceTree = "<group>"; };
+		556FB4A521D40EAB00CBAEC3 /* Turn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Turn.swift; sourceTree = "<group>"; };
 		5570B2592142EF3F0004764B /* ConvertedManaCostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertedManaCostView.swift; sourceTree = "<group>"; };
 		55865E20212C7C840025D771 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		55865E24212DE7720025D771 /* PlayerNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNumberViewController.swift; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 				55FA4533212B23EF0003FB43 /* GameTracker.swift */,
 				55865E20212C7C840025D771 /* Player.swift */,
 				555D35C021346944002F03BF /* GameEvent.swift */,
+				556FB4A521D40EAB00CBAEC3 /* Turn.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				5545D080212B6C7C00B13120 /* PlayerLifeView.swift in Sources */,
 				5500706D214043C100CB8032 /* CardCell.swift in Sources */,
 				55DFC32E21307EAA009EB768 /* Constants.swift in Sources */,
+				556FB4A621D40EAB00CBAEC3 /* Turn.swift in Sources */,
 				55007068213EF57100CB8032 /* Card+CoreDataProperties.swift in Sources */,
 				55A0A69E214AD2DE0043E2A7 /* Deck+CoreDataClass.swift in Sources */,
 				555067DE2141AC2100186422 /* TextInfoViewController.swift in Sources */,

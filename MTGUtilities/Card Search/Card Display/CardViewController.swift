@@ -30,6 +30,8 @@ class CardViewController: UIViewController, CardDataSource{
     @IBOutlet weak var powerToughnessLabel: UILabel!
     @IBOutlet weak var infoView: UIView!
     
+    var delegate: CardSearchDelegate? = nil
+    
     let colors: [UIColor] = []
     
     override func viewDidLoad() {

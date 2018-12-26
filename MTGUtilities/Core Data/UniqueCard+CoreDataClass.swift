@@ -28,8 +28,7 @@ public class UniqueCard: NSManagedObject {
             print("Nil mvId: Could not add unique card")
             return
         }
-        let predicate = NSPredicate(format: "multiverseId = %d", jsonCard.multiverseId!)
-        let duplicateCard = card.printings?.filtered(using: predicate).first
+        let duplicateCard = card.printings?.filter({return Int($0.multiverseId) == jsonCard.multiverseId}).first
         if duplicateCard != nil{
             print("Unique card already added")
             return

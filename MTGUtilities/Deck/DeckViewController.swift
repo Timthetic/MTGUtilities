@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import CoreData
 
-class DeckViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class DeckViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CardSearchDelegate {
 
     var deck: Deck?
+    var context: NSManagedObjectContext!
     
     lazy var cards: [DeckCard]? = {
-        return deck?.cards?.sorted(by: {return $0.cardInfo?.baseCard?.cmc ?? 0 > $1.cardInfo?.baseCard?.cmc ?? 0})
+        return deck?.cards?.sorted(by: {return $0.baseCard?.cmc ?? 0 > $1.baseCard?.cmc ?? 0})
     }()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -22,7 +24,7 @@ class DeckViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "") as? DeckCardCell{
-            cell.nameLabel.text = cards?[indexPath.row].cardInfo?.baseCard?.name
+            cell.nameLabel.text = cards?[indexPath.row].baseCard?.name
             cell.quantityLabel.text = "x\(cards?[indexPath.row].quantity ?? 0)"
             return cell
         }
@@ -31,8 +33,20 @@ class DeckViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = deck?.name
 
         // Do any additional setup after loading the view.
+    }
+    @IBAction func AddButtonTapped(_ sender: Any) {
+        present(createVC(withSBIdentifier: "SearchVC"), animated: true, completion: nil)
+    }
+    
+    func recieve(uniqueCard: UniqueCard, quantity: Int) {
+        guard let deck = deck else{
+            return
+        }
+        DeckCard.set(uniqueCard: uniqueCard, ofQuanity: quantity, forDeck: deck, withContext: context)
+        
     }
 
 }

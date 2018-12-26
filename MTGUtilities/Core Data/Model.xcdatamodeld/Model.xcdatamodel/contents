@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="18A391" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Card" representedClassName=".Card" syncable="YES">
         <attribute name="cmc" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="colorIdentity" optional="YES" attributeType="Transformable" syncable="YES"/>
@@ -14,6 +14,7 @@
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="toughness" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="types" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="deckCards" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DeckCard" inverseName="baseCard" inverseEntity="DeckCard" syncable="YES"/>
         <relationship name="printings" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="UniqueCard" inverseName="baseCard" inverseEntity="UniqueCard" syncable="YES"/>
     </entity>
     <entity name="CardSet" representedClassName="CardSet" syncable="YES">
@@ -25,11 +26,16 @@
     <entity name="Deck" representedClassName="Deck" syncable="YES">
         <attribute name="colorIdentity" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="cards" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DeckCard" syncable="YES"/>
+        <relationship name="cards" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DeckCard" inverseName="decks" inverseEntity="DeckCard" syncable="YES"/>
     </entity>
     <entity name="DeckCard" representedClassName="DeckCard" syncable="YES">
+        <attribute name="multiverseId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="quantity" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="cardInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UniqueCard" syncable="YES"/>
+        <attribute name="setCode" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="baseCard" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Card" inverseName="deckCards" inverseEntity="Card" syncable="YES"/>
+        <relationship name="decks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Deck" inverseName="cards" inverseEntity="Deck" syncable="YES"/>
+        <relationship name="uniqueCard" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UniqueCard" inverseName="decksCards" inverseEntity="UniqueCard" syncable="YES"/>
     </entity>
     <entity name="UniqueCard" representedClassName="UniqueCard" syncable="YES">
         <attribute name="flavor" optional="YES" attributeType="String" syncable="YES"/>
@@ -37,13 +43,14 @@
         <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rarity" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="baseCard" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Card" inverseName="printings" inverseEntity="Card" syncable="YES"/>
+        <relationship name="decksCards" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DeckCard" inverseName="uniqueCard" inverseEntity="DeckCard" syncable="YES"/>
         <relationship name="set" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CardSet" inverseName="cards" inverseEntity="CardSet" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Card" positionX="-7974" positionY="558" width="128" height="255"/>
-        <element name="Deck" positionX="-7466.06640625" positionY="971.32421875" width="128" height="90"/>
-        <element name="CardSet" positionX="-8217" positionY="774" width="128" height="105"/>
-        <element name="UniqueCard" positionX="-7722.9296875" positionY="748.66796875" width="128" height="135"/>
-        <element name="DeckCard" positionX="-7635.46484375" positionY="972.30859375" width="128" height="75"/>
+        <element name="Card" positionX="-22924.015625" positionY="-4000.20703125" width="128" height="268"/>
+        <element name="CardSet" positionX="-23167.015625" positionY="-3784.20703125" width="128" height="105"/>
+        <element name="Deck" positionX="-22416.08203125" positionY="-3586.8828125" width="128" height="88"/>
+        <element name="DeckCard" positionX="-22715.6953125" positionY="-3523.7109375" width="128" height="148"/>
+        <element name="UniqueCard" positionX="-22754.60546875" positionY="-3726.2578125" width="128" height="148"/>
     </elements>
 </model>

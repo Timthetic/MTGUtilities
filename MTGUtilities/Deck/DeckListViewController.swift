@@ -10,8 +10,27 @@ import UIKit
 import CoreData
 
 class DeckListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     let context: NSManagedObjectContext = (UIApplication.shared.delegate as? AppDelegate)!.privateContext
     
+    
+    @IBOutlet weak var collectionView: UICollectionView!{
+        didSet{
+            collectionView.delegate = self
+            collectionView.dataSource = self
+        }
+    }
+    
+    //MARK: - Model
+    var decks: [Deck] = []{
+        didSet{
+            DispatchQueue.main.async { [weak self] in
+                self?.collectionView.reloadData()
+            }
+        }
+    }
+    
+    //MARK: - Cell Configuration
     var CELL_WIDTH: CGFloat = 200
     
     @IBAction func pinch(_ sender: UIPinchGestureRecognizer) {
@@ -23,22 +42,6 @@ class DeckListViewController: UIViewController, UICollectionViewDelegate, UIColl
         }
         
         collectionView.collectionViewLayout.invalidateLayout()
-    }
-    
-    @IBOutlet weak var collectionView: UICollectionView!{
-        didSet{
-            collectionView.delegate = self
-            collectionView.dataSource = self
-        }
-    }
-
-    
-    var decks: [Deck] = []{
-        didSet{
-            DispatchQueue.main.async { [weak self] in
-                self?.collectionView.reloadData()
-            }
-        }
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -57,6 +60,11 @@ class DeckListViewController: UIViewController, UICollectionViewDelegate, UIColl
         } else {
             return UICollectionViewCell()
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let deck = decks[indexPath.item]
+        performSegue(withIdentifier: "Show Deck", sender: deck)
     }
     
     //MARK: - UICollectionViewDelegateFlowLayout
@@ -91,6 +99,17 @@ class DeckListViewController: UIViewController, UICollectionViewDelegate, UIColl
         collectionView.reloadData()
     }
     
+    //MARK: - Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Show Deck"{
+            if let deckVC = segue.destination as? DeckViewController{
+                if let deck = sender as? Deck{
+                    deckVC.deck = deck
+                    deckVC.context = context
+                }
+            }
+        }
+    }
 
     /*
     // MARK: - Navigation

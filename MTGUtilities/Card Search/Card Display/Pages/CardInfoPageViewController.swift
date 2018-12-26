@@ -56,10 +56,7 @@ class CardInfoPageViewController: UIPageViewController, UIPageViewControllerDele
         rulingsVC.cardDataSource = self
         return [textVC, printingsVC, rulingsVC]
     }()
-    
-    func createVC(withSBIdentifier identifier: String) -> UIViewController{
-        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier)
-    }
+
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         if let vcIndex = orderedViewControllers.index(of: viewController){
@@ -94,7 +91,6 @@ class CardInfoPageViewController: UIPageViewController, UIPageViewControllerDele
         super.viewDidLoad()
         self.dataSource = self
         self.delegate = self
-        
         if let firstVC = orderedViewControllers.first{
             setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
         }

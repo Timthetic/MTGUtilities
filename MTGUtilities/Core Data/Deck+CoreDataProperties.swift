@@ -2,7 +2,7 @@
 //  Deck+CoreDataProperties.swift
 //  MTGUtilities
 //
-//  Created by Tim Rediehs on 9/18/18.
+//  Created by Tim Rediehs on 9/28/18.
 //  Copyright © 2018 Timothy Rediehs. All rights reserved.
 //
 //

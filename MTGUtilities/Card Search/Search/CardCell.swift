@@ -13,7 +13,7 @@ class CardCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var manaStack: UIStackView!
     @IBOutlet weak var viewSpecificallyToBeFatAndTakeUpSpace: UIView!
-    
+        
     var imageViews = [UIImageView]()
     
     func configureCell(forCard card: Card) {
