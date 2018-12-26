@@ -18,7 +18,7 @@ class SettingsViewController: UIViewController {
     
     var progress: (complete: Float, total: Float) = (0,1)
     var uiProgress: Float{
-        return progress.complete / progress.total
+        return pow(progress.complete / progress.total, 2)
     }
     
     @IBOutlet weak var progressBar: UIProgressView!
