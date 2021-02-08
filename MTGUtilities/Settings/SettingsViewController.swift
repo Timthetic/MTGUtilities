@@ -45,12 +45,11 @@ class SettingsViewController: UIViewController {
                     self?.progress.total = Float(json.count)
                     
                     //Fetches cards set by set
-                    for setsList in json{
-                        if let set = setsList as? [String:String]{
+                    for setsList in json {
+                        if let set = setsList as? [String:Any]{
                             print(set["name"] ?? "nopexxx")
-                            let setCode = set["code"]
+                            let setCode = set["code"] as? String
                             self?.fetchSet(byCode: setCode, intoContext: self?.context)
-                            
                         }
                     }
                     
@@ -81,7 +80,7 @@ class SettingsViewController: UIViewController {
         }
         
         //Get set from MTGJson
-        let url = URL(string: "https://mtgjson.com/json/\(code)-x.json")!
+        let url = URL(string: "https://mtgjson.com/json/\(code).json")!
         let task = URLSession.shared.dataTask(with: url){[weak self] data, responce, error in
             if let error = error{
                 print("\(error)")
@@ -112,6 +111,7 @@ class SettingsViewController: UIViewController {
                             //This is where the card is set
                             if let jsonCard = try? JSONDecoder().decode(JsonCard.self, from: newCard){
                                 jsonCard.setName = name
+                                print("Inserting \(jsonCard.name ?? "UNKNOWN")")
                                 jsonCard.setCode = code
                                 context.perform {
                                     Card.insertCardFrom(jsonCard: jsonCard, inManagedObjectContext: context)
@@ -135,6 +135,9 @@ class SettingsViewController: UIViewController {
                         }
                     }
                 }
+            }
+            else{
+                print(String(data: data, encoding: .utf8) ?? "[Unreadable Data]")
             }
 
             

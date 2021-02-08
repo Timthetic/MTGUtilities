@@ -14,7 +14,7 @@ struct CONSTS {
     static let colors: [UIColor] = [UIColor.red.withAlphaComponent(0.5),
                                         #colorLiteral(red: 0, green: 0.6274509804, blue: 0, alpha: 1).withAlphaComponent(0.5),
                                         #colorLiteral(red: 0, green: 0.1960784314, blue: 1, alpha: 1).withAlphaComponent(0.5),
-                                        UIColor.black.withAlphaComponent(0.5),
+                                        UIColor.gray.withAlphaComponent(0.5),
                                         UIColor.yellow.withAlphaComponent(0.15)]
     static let colorSymbols = ["R", "G", "U", "B", "W"]
     static let FORCE_TOUCH_THRESHOLD: CGFloat = 5.0

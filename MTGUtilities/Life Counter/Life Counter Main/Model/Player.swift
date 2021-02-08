@@ -84,7 +84,8 @@ class Player: Equatable, Hashable{
         return id
     }
     
-    
-    
+    func hash(into hasher: inout Hasher){
+        hasher.combine(id);
+    }
 }
 

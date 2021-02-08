@@ -15,7 +15,7 @@ class ConvertedManaCostView: UIView {
     @IBOutlet var view: UIView!
     @IBOutlet weak var cmcLabel: UILabel!{
         didSet{
-            cmcLabel.text = "fsajld"
+            cmcLabel.text = "1"
         }
     }
     

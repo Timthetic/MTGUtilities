@@ -32,11 +32,24 @@ class TextInfoViewController: UIViewController {
         if let card = cardDataSource?.card{
             if let uniqueCard = cardDataSource?.uniqueCard{
                 
-                let cardText = stringWithManaSymbols(fromString: "Type: \(card.type)\n\n\(card.text ?? "")\n\n", withFont: MyFont.bodyFont)
-                let attributedText = NSMutableAttributedString(string: "", attributes: [.font:MyFont.bodyFont])
+                var italicAtr: [NSAttributedString.Key: AnyObject] = [.font: MyFont.italicFont]
+                var standardAtr: [NSAttributedString.Key: AnyObject] = [.font: MyFont.bodyFont]
+                
+                if #available(iOS 13.0, *) {
+                    standardAtr[.foregroundColor] = UIColor.white
+                    italicAtr[.foregroundColor] = UIColor.white
+                } else {
+                    // Fallback on earlier versions
+                    // Nothing
+                }
+                
+                let cardText = stringWithManaSymbols(fromString: "Type: \(card.type)\n\n\(card.text ?? "")\n\n", withAttributes: standardAtr)
+                let attributedText = NSMutableAttributedString(string: "", attributes: standardAtr)
                 attributedText.append(cardText)
                 
-                let flavorAttributedText = NSAttributedString(string: uniqueCard.flavor ?? "", attributes: [.font: MyFont.italicFont])
+                let flavorAttributedText = NSAttributedString(string: uniqueCard.flavor ?? "", attributes: italicAtr)
+                
+
                 attributedText.append(flavorAttributedText)
                 
                 textView.attributedText = attributedText

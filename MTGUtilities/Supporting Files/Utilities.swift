@@ -46,9 +46,9 @@ func parse(manaCost: String)->[String]{
  */
 
 
-func stringWithManaSymbols(fromString string: String, withFont font: UIFont) -> NSMutableAttributedString{
+func stringWithManaSymbols(fromString string: String, withAttributes atributes: [NSAttributedString.Key: AnyObject]) -> NSMutableAttributedString{
     //No mana cost symbols have nested {}, so I won't account for them.
-    let attributedString = NSMutableAttributedString(string: "", attributes: [.font : font])
+    let attributedString = NSMutableAttributedString(string: "", attributes: atributes)
     var it = string.startIndex
     var start: String.Index?
 //    var read = string.startIndex
@@ -57,7 +57,7 @@ func stringWithManaSymbols(fromString string: String, withFont font: UIFont) -> 
         let char = string[it]
         switch char{
         case "{":
-            attributedString.append(NSAttributedString(string: String(string[(start ?? string.startIndex)..<it]), attributes: [.font : font]))
+            attributedString.append(NSAttributedString(string: String(string[(start ?? string.startIndex)..<it]), attributes: atributes))
             
             start = it
         case "}":
@@ -76,10 +76,14 @@ func stringWithManaSymbols(fromString string: String, withFont font: UIFont) -> 
         }
         it = string.index(after: it)
     }
-    attributedString.append(NSAttributedString(string: String(string[((start ?? string.startIndex) ..< string.endIndex)]), attributes: [.font : font]))
+    attributedString.append(NSAttributedString(string: String(string[((start ?? string.startIndex) ..< string.endIndex)]), attributes: atributes))
 
     return attributedString
     
+}
+
+func stringWithManaSymbols(fromString string: String, withFont font: UIFont) -> NSMutableAttributedString{
+    return stringWithManaSymbols(fromString: string, withAttributes: [.font: font])
 }
 
 /**

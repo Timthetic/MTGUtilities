@@ -14,7 +14,7 @@ import CoreData
 public class Card: NSManagedObject {
     ///Gives the types and subtypes in the form "type1 type2 - subtype1"
     var type: String{
-        return "\(types ?? "")\(subtypes != nil ? " - " : "")\(subtypes ?? "")"
+        return "\(types ?? "")\(subtypes != "" && subtypes != nil ? " - " : "")\(subtypes ?? "")"
     }
     
     /**
@@ -30,11 +30,11 @@ public class Card: NSManagedObject {
             return nil
         }
         for card in self.printings!{
-            if let card = card as? UniqueCard{
-                if card.set?.releaseDate?.isAfter(date: mostRecent?.set?.releaseDate ?? NSDate.init(timeIntervalSince1970: 0)) ?? false{
-                    mostRecent = card
-                }
+//            if let card = card as? UniqueCard{
+            if card.set?.releaseDate?.isAfter(date: mostRecent?.set?.releaseDate ?? NSDate.init(timeIntervalSince1970: 0)) ?? false{
+                mostRecent = card
             }
+//            }
         }
         return mostRecent
     }

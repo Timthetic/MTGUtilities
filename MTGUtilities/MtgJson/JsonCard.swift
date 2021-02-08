@@ -31,13 +31,13 @@ class JsonCard: Codable{
     var types: [String]?
     
     enum CodingKeys: String, CodingKey {
-        case cmc = "cmc"
+        case cmc = "convertedManaCost"
         case colorIdentity = "colorIdentity"
         case colors = "colors"
         case flavor = "flavor"
         case loyalty = "loyalty"
         case manaCost = "manaCost"
-        case multiverseId = "multiverseid" //
+        case multiverseId = "multiverseId" //
         case name = "name"
         case number = "number"
         case power = "power"

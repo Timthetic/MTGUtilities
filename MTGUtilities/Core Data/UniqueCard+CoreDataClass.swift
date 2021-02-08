@@ -25,7 +25,7 @@ public class UniqueCard: NSManagedObject {
     class func createUniqueCard(jsonCard: JsonCard, forCard card: Card, inContext context: NSManagedObjectContext){
         //Try to find duplicate
         if jsonCard.multiverseId == nil{
-            print("Nil mvId: Could not add unique card")
+            print("ERROR: Nil mvId: Could not add unique card")
             return
         }
         let duplicateCard = card.printings?.filter({return Int($0.multiverseId) == jsonCard.multiverseId}).first
@@ -44,6 +44,9 @@ public class UniqueCard: NSManagedObject {
             newUniqueCard.baseCard = card
             print("Added Unique MID \(newUniqueCard.multiverseId) to card \(card.name ?? "NO NAME")")
             linkToSet(uniqueCard: newUniqueCard, jsonCard: jsonCard, withContext: context)
+        }
+        else{
+            print("I FUCKED UP INSERTING THE UNIQUE CARD!")
         }
     }
     
