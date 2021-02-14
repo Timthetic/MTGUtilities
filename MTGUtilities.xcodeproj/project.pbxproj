@@ -22,13 +22,6 @@
 		5522A6B2215175950069AEF8 /* DeckCard+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5522A6AC215175950069AEF8 /* DeckCard+CoreDataClass.swift */; };
 		5522A6B3215175950069AEF8 /* DeckCard+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5522A6AD215175950069AEF8 /* DeckCard+CoreDataProperties.swift */; };
 		5522A6B6215178FC0069AEF8 /* DeckCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5522A6B5215178FC0069AEF8 /* DeckCardCell.swift */; };
-		55352BA825D9DBCC00A600F3 /* TimR.png in Resources */ = {isa = PBXBuildFile; fileRef = 55352BA725D9DBCC00A600F3 /* TimR.png */; };
-		55352BB025D9DE9700A600F3 /* Search.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 55352BAA25D9DE9600A600F3 /* Search.PNG */; };
-		55352BB125D9DE9700A600F3 /* StartGameView.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 55352BAB25D9DE9700A600F3 /* StartGameView.PNG */; };
-		55352BB225D9DE9700A600F3 /* CounterView.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 55352BAC25D9DE9700A600F3 /* CounterView.PNG */; };
-		55352BB325D9DE9700A600F3 /* DataView.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 55352BAD25D9DE9700A600F3 /* DataView.PNG */; };
-		55352BB425D9DE9700A600F3 /* CardSetsView.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 55352BAE25D9DE9700A600F3 /* CardSetsView.PNG */; };
-		55352BB525D9DE9700A600F3 /* CardView.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 55352BAF25D9DE9700A600F3 /* CardView.PNG */; };
 		5541A92A21337C66000D0BA9 /* LifeCounterHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5541A92921337C66000D0BA9 /* LifeCounterHistoryViewController.swift */; };
 		5541A92C21337D28000D0BA9 /* GameHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5541A92B21337D28000D0BA9 /* GameHistoryCell.swift */; };
 		5545D07E212B6BA800B13120 /* PlayerLifeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5545D07D212B6BA800B13120 /* PlayerLifeView.xib */; };
@@ -79,14 +72,6 @@
 		5522A6AC215175950069AEF8 /* DeckCard+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeckCard+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5522A6AD215175950069AEF8 /* DeckCard+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeckCard+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5522A6B5215178FC0069AEF8 /* DeckCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckCardCell.swift; sourceTree = "<group>"; };
-		55352BA525D9DAD500A600F3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		55352BA725D9DBCC00A600F3 /* TimR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TimR.png; sourceTree = "<group>"; };
-		55352BAA25D9DE9600A600F3 /* Search.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Search.PNG; sourceTree = "<group>"; };
-		55352BAB25D9DE9700A600F3 /* StartGameView.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StartGameView.PNG; sourceTree = "<group>"; };
-		55352BAC25D9DE9700A600F3 /* CounterView.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CounterView.PNG; sourceTree = "<group>"; };
-		55352BAD25D9DE9700A600F3 /* DataView.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DataView.PNG; sourceTree = "<group>"; };
-		55352BAE25D9DE9700A600F3 /* CardSetsView.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CardSetsView.PNG; sourceTree = "<group>"; };
-		55352BAF25D9DE9700A600F3 /* CardView.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CardView.PNG; sourceTree = "<group>"; };
 		5541A92921337C66000D0BA9 /* LifeCounterHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCounterHistoryViewController.swift; sourceTree = "<group>"; };
 		5541A92B21337D28000D0BA9 /* GameHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHistoryCell.swift; sourceTree = "<group>"; };
 		5545D07D212B6BA800B13120 /* PlayerLifeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerLifeView.xib; sourceTree = "<group>"; };
@@ -231,20 +216,6 @@
 			path = Pages;
 			sourceTree = "<group>";
 		};
-		55352BA625D9DB2D00A600F3 /* README Assets */ = {
-			isa = PBXGroup;
-			children = (
-				55352BAA25D9DE9600A600F3 /* Search.PNG */,
-				55352BAF25D9DE9700A600F3 /* CardView.PNG */,
-				55352BAE25D9DE9700A600F3 /* CardSetsView.PNG */,
-				55352BAB25D9DE9700A600F3 /* StartGameView.PNG */,
-				55352BAC25D9DE9700A600F3 /* CounterView.PNG */,
-				55352BAD25D9DE9700A600F3 /* DataView.PNG */,
-				55352BA725D9DBCC00A600F3 /* TimR.png */,
-			);
-			path = "README Assets";
-			sourceTree = "<group>";
-		};
 		5541A92521337C19000D0BA9 /* Life Counter History */ = {
 			isa = PBXGroup;
 			children = (
@@ -337,7 +308,6 @@
 		55FA451B212B222A0003FB43 /* MTGUtilities */ = {
 			isa = PBXGroup;
 			children = (
-				55352BA625D9DB2D00A600F3 /* README Assets */,
 				5586E4B5213C788A00FAAA0E /* MtgJson */,
 				55118B92213C6739003AE235 /* Core Data */,
 				5504B6C721386F1C006E7FAF /* Card Search */,
@@ -347,7 +317,6 @@
 				5500706B214041A400CB8032 /* Supporting Files */,
 				55FA4520212B222A0003FB43 /* Main.storyboard */,
 				55FA4528212B222B0003FB43 /* Info.plist */,
-				55352BA525D9DAD500A600F3 /* README.md */,
 			);
 			path = MTGUtilities;
 			sourceTree = "<group>";
@@ -433,15 +402,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				55C812182141D8890026A36C /* ConvertedManaCostView.xib in Resources */,
-				55352BB425D9DE9700A600F3 /* CardSetsView.PNG in Resources */,
 				55FA4527212B222B0003FB43 /* LaunchScreen.storyboard in Resources */,
 				55FA4524212B222B0003FB43 /* Assets.xcassets in Resources */,
-				55352BB225D9DE9700A600F3 /* CounterView.PNG in Resources */,
-				55352BB025D9DE9700A600F3 /* Search.PNG in Resources */,
-				55352BB525D9DE9700A600F3 /* CardView.PNG in Resources */,
-				55352BB125D9DE9700A600F3 /* StartGameView.PNG in Resources */,
-				55352BA825D9DBCC00A600F3 /* TimR.png in Resources */,
-				55352BB325D9DE9700A600F3 /* DataView.PNG in Resources */,
 				55FA4522212B222A0003FB43 /* Main.storyboard in Resources */,
 				5545D07E212B6BA800B13120 /* PlayerLifeView.xib in Resources */,
 			);
