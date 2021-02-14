@@ -36,8 +36,8 @@ class TextInfoViewController: UIViewController {
                 var standardAtr: [NSAttributedString.Key: AnyObject] = [.font: MyFont.bodyFont]
                 
                 if #available(iOS 13.0, *) {
-                    standardAtr[.foregroundColor] = UIColor.white
-                    italicAtr[.foregroundColor] = UIColor.white
+                    standardAtr[.foregroundColor] = UIColor.label
+                    italicAtr[.foregroundColor] = UIColor.label
                 } else {
                     // Fallback on earlier versions
                     // Nothing

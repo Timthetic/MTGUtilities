@@ -24,11 +24,11 @@ public class UniqueCard: NSManagedObject {
      */
     class func createUniqueCard(jsonCard: JsonCard, forCard card: Card, inContext context: NSManagedObjectContext){
         //Try to find duplicate
-        if jsonCard.multiverseId == nil{
+        if jsonCard.identifiers.multiverseId == nil{
             print("ERROR: Nil mvId: Could not add unique card")
             return
         }
-        let duplicateCard = card.printings?.filter({return Int($0.multiverseId) == jsonCard.multiverseId}).first
+        let duplicateCard = card.printings?.filter({return $0.multiverseId == jsonCard.identifiers.multiverseId}).first
         if duplicateCard != nil{
             print("Unique card already added")
             return
@@ -37,7 +37,7 @@ public class UniqueCard: NSManagedObject {
         //Add unique card
         if let newUniqueCard = NSEntityDescription.insertNewObject(forEntityName: "UniqueCard", into: context) as? UniqueCard{
             newUniqueCard.flavor = jsonCard.flavor
-            newUniqueCard.multiverseId = Int64(jsonCard.multiverseId!)
+            newUniqueCard.multiverseId = jsonCard.identifiers.multiverseId
             newUniqueCard.number = jsonCard.number
             newUniqueCard.rarity = jsonCard.rarity
             
@@ -46,7 +46,7 @@ public class UniqueCard: NSManagedObject {
             linkToSet(uniqueCard: newUniqueCard, jsonCard: jsonCard, withContext: context)
         }
         else{
-            print("I FUCKED UP INSERTING THE UNIQUE CARD!")
+            print("Failed to insert unique card")
         }
     }
     

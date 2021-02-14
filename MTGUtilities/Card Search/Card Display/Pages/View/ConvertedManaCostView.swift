@@ -46,7 +46,7 @@ class ConvertedManaCostView: UIView {
         }
     }
     
-    @IBInspectable var color: UIColor = UIColor.black
+    @IBInspectable var color: UIColor = UIColor.clear
     
     func xibSetup() {
         view = loadViewFromNib()

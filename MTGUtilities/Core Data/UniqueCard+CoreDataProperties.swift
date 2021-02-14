@@ -18,7 +18,7 @@ extension UniqueCard {
     }
 
     @NSManaged public var flavor: String?
-    @NSManaged public var multiverseId: Int64
+    @NSManaged public var multiverseId: String
     
     ///The cards number in its set
     @NSManaged public var number: String?

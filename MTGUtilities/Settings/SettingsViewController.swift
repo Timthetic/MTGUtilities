@@ -13,6 +13,7 @@ import CoreData
 //FIXME: I'm pretty sure I have some pretty bad memory leakage going on here
 class SettingsViewController: UIViewController {
 
+    let baseURL = "https://mtgjson.com/api/v5"
     let appDelegate = UIApplication.shared.delegate as? AppDelegate
     let context = (UIApplication.shared.delegate as? AppDelegate)!.privateContext
     
@@ -34,18 +35,18 @@ class SettingsViewController: UIViewController {
     
     ///Loads of the entire database.  Does not replace existing entries.
     @IBAction func createButtonPressed() {
-        let url = URL(string: "https://mtgjson.com/json/SetList.json")!
+        let url = URL(string: "\(baseURL)/SetList.json")!
         let task = URLSession.shared.dataTask(with: url){[weak self] data, responce, error in
             if let error = error{
                 print("\(error)")
             }
             if let data = data{
                 //Parse json
-                if let json = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as! [Any]{
+                if let json = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as! [String:Any]{
                     self?.progress.total = Float(json.count)
                     
                     //Fetches cards set by set
-                    for setsList in json {
+                    for setsList in json["data"] as! [Any] {
                         if let set = setsList as? [String:Any]{
                             print(set["name"] ?? "nopexxx")
                             let setCode = set["code"] as? String
@@ -80,7 +81,7 @@ class SettingsViewController: UIViewController {
         }
         
         //Get set from MTGJson
-        let url = URL(string: "https://mtgjson.com/json/\(code).json")!
+        let url = URL(string: "\(baseURL)/\(code).json")!
         let task = URLSession.shared.dataTask(with: url){[weak self] data, responce, error in
             if let error = error{
                 print("\(error)")
@@ -89,8 +90,13 @@ class SettingsViewController: UIViewController {
                 return
             }
             
-            if let set = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as! [String:Any]{
+            if let setObj = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as! [String:Any]{
                 //Finds the 'cards' section of the json object
+                
+                guard let set = setObj["data"] as? [String:Any] else {
+                    print("Couldn't parse set")
+                    return
+                }
                 
                 let name = set["name"] as! String
                 let code = set["code"] as! String

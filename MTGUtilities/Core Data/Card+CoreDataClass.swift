@@ -40,7 +40,7 @@ public class Card: NSManagedObject {
     }
     
     class func insertCardFrom(jsonCard: JsonCard, inManagedObjectContext context: NSManagedObjectContext){
-        if jsonCard.multiverseId == nil{
+        if jsonCard.identifiers.multiverseId == nil{
             //print("Could not insert \(jsonCard.name ?? "nil name"): nil multiverse id")
             return
         }
@@ -61,7 +61,6 @@ public class Card: NSManagedObject {
                     newCard.colors = jsonCard.colors
                     newCard.loyalty = Int64(jsonCard.loyalty ?? -1)
                     newCard.manaCost = jsonCard.manaCost
-//                    newCard.multiverseId = Int64(jsonCard.multiverseId ?? -1)
                     newCard.name = jsonCard.name
 //                    newCard.number = jsonCard.number
                     newCard.power = jsonCard.power

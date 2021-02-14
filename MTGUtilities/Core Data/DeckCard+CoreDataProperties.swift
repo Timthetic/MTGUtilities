@@ -20,7 +20,7 @@ extension DeckCard {
     @NSManaged public var quantity: Int64
     @NSManaged public var name: String
     @NSManaged public var setCode: String
-    @NSManaged public var multiverseId: Int64
+    @NSManaged public var multiverseId: String
     
     @NSManaged public var uniqueCard: UniqueCard?
     @NSManaged public var baseCard: Card?

@@ -15,7 +15,7 @@ class JsonCard: Codable{
     var flavor: String?
     var loyalty: Int?
     var manaCost: String?
-    var multiverseId: Int?
+    var identifiers: Identifiers
     var name: String?
     var number: String?
     var power: String?
@@ -37,7 +37,7 @@ class JsonCard: Codable{
         case flavor = "flavor"
         case loyalty = "loyalty"
         case manaCost = "manaCost"
-        case multiverseId = "multiverseId" //
+        case identifiers = "identifiers" //
         case name = "name"
         case number = "number"
         case power = "power"
@@ -55,6 +55,10 @@ class JsonCard: Codable{
 public struct Ruling: Codable{
     var date: String
     var text: String
+}
+
+public struct Identifiers: Codable{
+    var multiverseId: String
 }
 
 /*

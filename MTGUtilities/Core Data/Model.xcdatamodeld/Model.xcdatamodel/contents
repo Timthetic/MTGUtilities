@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15508" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Card" representedClassName=".Card" syncable="YES">
         <attribute name="cmc" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="colorIdentity" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData"/>
@@ -29,7 +29,7 @@
         <relationship name="cards" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DeckCard" inverseName="decks" inverseEntity="DeckCard"/>
     </entity>
     <entity name="DeckCard" representedClassName="DeckCard" syncable="YES">
-        <attribute name="multiverseId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="multiverseId" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="quantity" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="setCode" optional="YES" attributeType="String"/>
@@ -39,7 +39,7 @@
     </entity>
     <entity name="UniqueCard" representedClassName="UniqueCard" syncable="YES">
         <attribute name="flavor" optional="YES" attributeType="String"/>
-        <attribute name="multiverseId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="multiverseId" optional="YES" attributeType="String"/>
         <attribute name="number" optional="YES" attributeType="String"/>
         <attribute name="rarity" optional="YES" attributeType="String"/>
         <relationship name="baseCard" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Card" inverseName="printings" inverseEntity="Card"/>
