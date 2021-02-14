@@ -4,7 +4,7 @@ This is one of my (Tim Rediehs) first indpendent projects. I love Magic: The Gat
 
 ## Team
 ### Timothy Rediehs (only developer)
-<img width=500 src="./README Assets/TimR.png">
+<img width=250 src="./README Assets/TimR.png">
 
 I'm a student at UCLA who's primary interests are actually web technologies (particularly backend, APIs, and tools). I've been involved with a group on campus who's goal is to teach practical programming skills to other undergraduates as that goal closly aligns with my own. 
 ## Features
